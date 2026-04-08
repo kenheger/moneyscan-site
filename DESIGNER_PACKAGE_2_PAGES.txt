@@ -1,0 +1,674 @@
+================================================================================
+MONEYSCAN WEBSITE - PACKAGE 2: MAIN PAGE COMPONENTS
+Copy this entire file and send to your designer
+================================================================================
+
+FILE 1: src/app/components/Header.tsx
+--------------------------------------------------------------------------------
+import { useState } from 'react';
+import { Menu, X } from 'lucide-react';
+import logoImage from '../../imports/Moneyscan_Logo_Final.jpg';
+
+interface HeaderProps {
+  onNavigate: (page: string) => void;
+  currentPage?: string;
+}
+
+export default function Header({ onNavigate, currentPage }: HeaderProps) {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const handleNavigate = (page: string) => {
+    onNavigate(page);
+    setMobileMenuOpen(false);
+  };
+
+  return (
+    <header className="bg-white border-b border-slate-200 sticky top-0 z-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-20">
+          {/* Logo */}
+          <button
+            onClick={() => handleNavigate('home')}
+            className="flex items-center"
+          >
+            <img
+              src={logoImage}
+              alt="MONEYSCAN"
+              className="h-12 w-auto"
+            />
+          </button>
+
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex items-center space-x-1">
+            <button
+              onClick={() => handleNavigate('home')}
+              className={`px-4 py-2 rounded-lg transition-colors ${
+                currentPage === 'home'
+                  ? 'text-emerald-600 bg-emerald-50'
+                  : 'text-slate-700 hover:text-emerald-600 hover:bg-emerald-50'
+              }`}
+            >
+              Home
+            </button>
+            <button
+              onClick={() => handleNavigate('wealth-engine')}
+              className={`px-4 py-2 rounded-lg transition-colors ${
+                currentPage === 'wealth-engine'
+                  ? 'text-emerald-600 bg-emerald-50'
+                  : 'text-slate-700 hover:text-emerald-600 hover:bg-emerald-50'
+              }`}
+            >
+              Wealth Engine
+            </button>
+            <button
+              onClick={() => handleNavigate('cash-flow-mastery')}
+              className={`px-4 py-2 rounded-lg transition-colors ${
+                currentPage === 'cash-flow-mastery'
+                  ? 'text-emerald-600 bg-emerald-50'
+                  : 'text-slate-700 hover:text-emerald-600 hover:bg-emerald-50'
+              }`}
+            >
+              Cash Flow Mastery
+            </button>
+            <button
+              onClick={() => handleNavigate('debt-elimination')}
+              className={`px-4 py-2 rounded-lg transition-colors ${
+                currentPage === 'debt-elimination'
+                  ? 'text-emerald-600 bg-emerald-50'
+                  : 'text-slate-700 hover:text-emerald-600 hover:bg-emerald-50'
+              }`}
+            >
+              Debt Elimination
+            </button>
+            <button
+              onClick={() => handleNavigate('ai-era-careers')}
+              className={`px-4 py-2 rounded-lg transition-colors ${
+                currentPage === 'ai-era-careers'
+                  ? 'text-emerald-600 bg-emerald-50'
+                  : 'text-slate-700 hover:text-emerald-600 hover:bg-emerald-50'
+              }`}
+            >
+              AI Era Careers
+            </button>
+            <button
+              onClick={() => handleNavigate('tools-hub')}
+              className={`px-4 py-2 rounded-lg transition-colors ${
+                currentPage === 'tools-hub'
+                  ? 'text-emerald-600 bg-emerald-50'
+                  : 'text-slate-700 hover:text-emerald-600 hover:bg-emerald-50'
+              }`}
+            >
+              Tools
+            </button>
+          </nav>
+
+          {/* Mobile menu button */}
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="md:hidden p-2 text-slate-700 hover:text-emerald-600"
+          >
+            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
+        </div>
+
+        {/* Mobile Navigation */}
+        {mobileMenuOpen && (
+          <nav className="md:hidden py-4 border-t border-slate-200">
+            <button
+              onClick={() => handleNavigate('home')}
+              className="block w-full text-left px-4 py-2 text-slate-700 hover:bg-slate-50"
+            >
+              Home
+            </button>
+            <button
+              onClick={() => handleNavigate('wealth-engine')}
+              className="block w-full text-left px-4 py-2 text-slate-700 hover:bg-slate-50"
+            >
+              Wealth Engine
+            </button>
+            <button
+              onClick={() => handleNavigate('cash-flow-mastery')}
+              className="block w-full text-left px-4 py-2 text-slate-700 hover:bg-slate-50"
+            >
+              Cash Flow Mastery
+            </button>
+            <button
+              onClick={() => handleNavigate('debt-elimination')}
+              className="block w-full text-left px-4 py-2 text-slate-700 hover:bg-slate-50"
+            >
+              Debt Elimination
+            </button>
+            <button
+              onClick={() => handleNavigate('ai-era-careers')}
+              className="block w-full text-left px-4 py-2 text-slate-700 hover:bg-slate-50"
+            >
+              AI Era Careers
+            </button>
+            <button
+              onClick={() => handleNavigate('tools-hub')}
+              className="block w-full text-left px-4 py-2 text-slate-700 hover:bg-slate-50"
+            >
+              Tools
+            </button>
+          </nav>
+        )}
+      </div>
+    </header>
+  );
+}
+
+
+FILE 2: src/app/components/Home.tsx
+--------------------------------------------------------------------------------
+import { ArrowRight, TrendingUp, DollarSign, CreditCard, Briefcase, Calculator } from 'lucide-react';
+
+interface HomeProps {
+  onNavigate: (page: string) => void;
+}
+
+export default function Home({ onNavigate }: HomeProps) {
+  return (
+    <div className="w-full">
+      {/* Hero Section */}
+      <section className="bg-gradient-to-br from-emerald-50 via-blue-50 to-white py-20">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <p className="text-xl md:text-2xl text-slate-600 mb-6">
+            First Principles. Lasting Wealth.
+          </p>
+
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6 leading-tight">
+            Build Lasting Wealth – A First Principles Blueprint
+          </h1>
+
+          <p className="text-2xl md:text-3xl text-slate-700 mb-6 max-w-3xl mx-auto">
+            Understand the math. Choose your path. Build wealth that lasts.
+          </p>
+
+          <p className="text-lg md:text-xl italic text-slate-600 mb-12">
+            Directional & Actionable in the AI Era
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <button
+              onClick={() => onNavigate('wealth-engine')}
+              className="bg-gradient-to-r from-emerald-500 to-blue-600 hover:from-emerald-600 hover:to-blue-700 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-200 shadow-xl hover:shadow-2xl transform hover:-translate-y-1 inline-flex items-center justify-center gap-2"
+            >
+              <span>Explore the Wealth Engine</span>
+              <ArrowRight className="w-5 h-5" />
+            </button>
+            <button
+              onClick={() => onNavigate('moneyscan')}
+              className="bg-white border-2 border-emerald-500 text-emerald-600 hover:bg-emerald-50 px-8 py-4 rounded-xl font-bold text-lg transition-all duration-200 shadow-lg hover:shadow-xl inline-flex items-center justify-center gap-2"
+            >
+              <span>Get the $49 Blueprint</span>
+              <ArrowRight className="w-5 h-5" />
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* Why First Principles Section */}
+      <section className="py-16 bg-white">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6 text-center">
+            Why First Principles Matter
+          </h2>
+          <p className="text-lg md:text-xl text-slate-700 leading-relaxed max-w-4xl mx-auto text-center mb-8">
+            Most financial advice changes with trends and market noise. First principles never do.
+          </p>
+
+          <h3 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4 text-center">
+            One Simple Truth That Changes Everything
+          </h3>
+          <p className="text-lg md:text-xl text-slate-700 leading-relaxed max-w-4xl mx-auto text-center mb-4">
+            Even pro athletes with massive contracts are often stunned when they first see a basic compound interest table. Once you understand how consistently investing a portion of your money grows over time — after taxes, spending, and fees — everything clicks. That single benchmark becomes your clearest overlay for every investing decision.
+          </p>
+          <p className="text-lg md:text-xl text-slate-700 leading-relaxed max-w-4xl mx-auto text-center">
+            This is where we start: with the math that actually builds lasting wealth.
+          </p>
+        </div>
+      </section>
+
+      {/* Core Modules Section */}
+      <section className="py-16 bg-slate-50">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-12 text-center">
+            Your Blueprint for Building Wealth
+          </h2>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* Wealth Engine */}
+            <button
+              onClick={() => onNavigate('wealth-engine')}
+              className="bg-white p-8 rounded-xl shadow-md border border-slate-200 hover:shadow-xl transition-all text-left group"
+            >
+              <div className="w-12 h-12 bg-gradient-to-br from-emerald-500 to-blue-600 rounded-lg flex items-center justify-center mb-4">
+                <TrendingUp className="w-6 h-6 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-emerald-600 transition-colors">
+                Wealth Engine
+              </h3>
+              <p className="text-slate-700">
+                Master the core math of compounding and steady investing
+              </p>
+            </button>
+
+            {/* Cash Flow Mastery */}
+            <button
+              onClick={() => onNavigate('cash-flow-mastery')}
+              className="bg-white p-8 rounded-xl shadow-md border border-slate-200 hover:shadow-xl transition-all text-left group"
+            >
+              <div className="w-12 h-12 bg-gradient-to-br from-emerald-500 to-blue-600 rounded-lg flex items-center justify-center mb-4">
+                <DollarSign className="w-6 h-6 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-emerald-600 transition-colors">
+                Cash Flow Mastery
+              </h3>
+              <p className="text-slate-700">
+                Create consistent surplus you can actually invest
+              </p>
+            </button>
+
+            {/* Debt Elimination */}
+            <button
+              onClick={() => onNavigate('debt-elimination')}
+              className="bg-white p-8 rounded-xl shadow-md border border-slate-200 hover:shadow-xl transition-all text-left group"
+            >
+              <div className="w-12 h-12 bg-gradient-to-br from-red-500 to-orange-600 rounded-lg flex items-center justify-center mb-4">
+                <CreditCard className="w-6 h-6 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-emerald-600 transition-colors">
+                Debt Elimination
+              </h3>
+              <p className="text-slate-700">
+                Stop reverse compounding and free up your money
+              </p>
+            </button>
+
+            {/* AI Era Careers */}
+            <button
+              onClick={() => onNavigate('ai-era-careers')}
+              className="bg-white p-8 rounded-xl shadow-md border border-slate-200 hover:shadow-xl transition-all text-left group"
+            >
+              <div className="w-12 h-12 bg-gradient-to-br from-emerald-500 to-blue-600 rounded-lg flex items-center justify-center mb-4">
+                <Briefcase className="w-6 h-6 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-emerald-600 transition-colors">
+                AI Era Careers
+              </h3>
+              <p className="text-slate-700">
+                High-growth, AI-resistant paths including skilled trades
+              </p>
+            </button>
+
+            {/* Tools */}
+            <button
+              onClick={() => onNavigate('tools-hub')}
+              className="bg-white p-8 rounded-xl shadow-md border border-slate-200 hover:shadow-xl transition-all text-left group"
+            >
+              <div className="w-12 h-12 bg-gradient-to-br from-emerald-500 to-blue-600 rounded-lg flex items-center justify-center mb-4">
+                <Calculator className="w-6 h-6 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-emerald-600 transition-colors">
+                Tools
+              </h3>
+              <p className="text-slate-700">
+                Practical calculators, assessments, and worksheets
+              </p>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* AI Era Insight Section */}
+      <section className="py-16 bg-white">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6 text-center">
+            Built for the AI Era
+          </h2>
+          <p className="text-lg md:text-xl text-slate-700 leading-relaxed max-w-4xl mx-auto text-center">
+            AI is reshaping jobs and opportunities. This site helps you navigate both white-collar hybrid roles and high-demand skilled trades so you can build surplus faster and protect your wealth long-term.
+          </p>
+        </div>
+      </section>
+
+      {/* Final CTA Section */}
+      <section className="py-20 bg-gradient-to-br from-emerald-500 to-blue-600">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-8">
+            Ready to Build Lasting Wealth?
+          </h2>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <button
+              onClick={() => onNavigate('moneyscan')}
+              className="bg-white text-emerald-600 hover:bg-emerald-50 px-8 py-4 rounded-xl font-bold text-lg transition-all duration-200 shadow-xl hover:shadow-2xl transform hover:-translate-y-1 inline-flex items-center justify-center gap-2"
+            >
+              <span>Get the $49 Blueprint</span>
+              <ArrowRight className="w-5 h-5" />
+            </button>
+            <button
+              onClick={() => onNavigate('tools-hub')}
+              className="bg-white/10 backdrop-blur border-2 border-white text-white hover:bg-white/20 px-8 py-4 rounded-xl font-bold text-lg transition-all duration-200 inline-flex items-center justify-center gap-2"
+            >
+              <span>Browse Free Tools</span>
+              <ArrowRight className="w-5 h-5" />
+            </button>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}
+
+
+FILE 3: src/app/components/Moneyscan.tsx
+--------------------------------------------------------------------------------
+import { ArrowRight } from 'lucide-react';
+import logoImage from '../../imports/Moneyscan_Logo_Final.jpg';
+
+interface MoneyscanProps {
+  onNavigate: (page: string) => void;
+}
+
+export default function Moneyscan({ onNavigate }: MoneyscanProps) {
+  return (
+    <div className="w-full min-h-screen bg-gradient-to-br from-emerald-50 via-blue-50 to-white">
+      {/* Minimal Header - Moneyscan Landing Page Only */}
+      <header className="bg-white/80 backdrop-blur border-b border-slate-200 sticky top-0 z-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-16">
+            <button
+              onClick={() => onNavigate('home')}
+              className="flex items-center"
+            >
+              <img
+                src={logoImage}
+                alt="MONEYSCAN"
+                className="h-10 w-auto"
+              />
+            </button>
+            <button
+              onClick={() => onNavigate('home')}
+              className="text-sm text-slate-600 hover:text-emerald-600 transition-colors"
+            >
+              Back to Site
+            </button>
+          </div>
+        </div>
+      </header>
+
+      {/* Hero Section - Centered with Generous Spacing */}
+      <section className="pt-8 pb-32">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            {/* MONEYSCAN Logo */}
+            <div className="flex justify-center" style={{ paddingTop: '40px', marginBottom: '70px' }}>
+              <img
+                src={logoImage}
+                alt="MONEYSCAN"
+                className="w-full max-w-[450px] h-auto"
+                style={{ maxWidth: '450px' }}
+              />
+            </div>
+
+            {/* Stacked Hero Headline */}
+            <div className="max-w-4xl mx-auto" style={{ marginBottom: '45px' }}>
+              <h2 className="text-4xl md:text-5xl font-bold font-sans text-slate-900 leading-tight">
+                Building Lasting Wealth
+              </h2>
+              <p className="text-3xl md:text-4xl font-bold font-sans text-slate-900 mt-2">
+                A First Principles Blueprint
+              </p>
+            </div>
+
+            {/* Tag Line - 24-28px on desktop */}
+            <p className="text-2xl md:text-[28px] text-slate-700 max-w-3xl mx-auto" style={{ marginBottom: '45px' }}>
+              Understand the math. Choose your path. Build wealth that lasts.
+            </p>
+
+            {/* Sub Tag - 18-22px italicized */}
+            <p className="text-lg md:text-xl italic text-slate-600 max-w-xl mx-auto" style={{ marginBottom: '55px' }}>
+              Directional & Actionable in the AI Era
+            </p>
+
+            {/* What You Get - Stacked Text with Title and Infinity Symbols */}
+            <div className="max-w-2xl mx-auto px-12" style={{ marginBottom: '55px' }}>
+              <h3 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6">What You Get:</h3>
+              <div className="space-y-3 text-left">
+                <p className="text-base md:text-lg text-slate-700 leading-snug">
+                  <span className="text-xl mr-2">♾️</span>
+                  <strong>First Principles Framework</strong> — Timeless math-based guidance on investing, cash flow, debt elimination, and wealth building.
+                </p>
+                <p className="text-base md:text-lg text-slate-700 leading-snug">
+                  <span className="text-xl mr-2">♾️</span>
+                  <strong>Practical Tools Included</strong> — Compound interest calculator, debt payoff projector, AI literacy assessment, and skills mapping worksheet.
+                </p>
+                <p className="text-base md:text-lg text-slate-700 leading-snug">
+                  <span className="text-xl mr-2">♾️</span>
+                  <strong>Lifetime Access</strong> — One-time $49 fee. No subscription. Includes future updates as AI and markets evolve.
+                </p>
+              </div>
+            </div>
+
+            {/* Pricing - 36-42px */}
+            <div style={{ marginBottom: '55px' }}>
+              <p className="text-[40px] font-bold text-emerald-600">
+                One-Time Fee: $49
+              </p>
+            </div>
+
+            {/* CTA Button - Large and Prominent */}
+            <div style={{ marginBottom: '35px' }}>
+              {/* Legal Agreement Text */}
+              <p className="text-sm md:text-base text-slate-600 mb-4">
+                By purchasing, you agree to our{' '}
+                <button
+                  onClick={() => {
+                    onNavigate('legal-privacy');
+                    setTimeout(() => {
+                      document.getElementById('disclaimers')?.scrollIntoView({ behavior: 'smooth' });
+                    }, 100);
+                  }}
+                  className="text-emerald-600 hover:text-emerald-700 underline"
+                >
+                  Disclaimers
+                </button>
+                {' '}and{' '}
+                <button
+                  onClick={() => {
+                    onNavigate('legal-privacy');
+                    setTimeout(() => {
+                      document.getElementById('privacy-policy')?.scrollIntoView({ behavior: 'smooth' });
+                    }, 100);
+                  }}
+                  className="text-emerald-600 hover:text-emerald-700 underline"
+                >
+                  Privacy Policy
+                </button>
+                .
+              </p>
+
+              <button className="bg-gradient-to-r from-emerald-500 to-blue-600 hover:from-emerald-600 hover:to-blue-700 text-white px-12 py-5 md:px-16 md:py-6 rounded-xl font-bold text-xl md:text-2xl transition-all duration-200 shadow-2xl hover:shadow-3xl transform hover:-translate-y-1 inline-flex items-center justify-center gap-3 group min-w-[360px] md:min-w-[440px]">
+                <span>Get Instant Access — $49</span>
+                <ArrowRight className="w-7 h-7 group-hover:translate-x-2 transition-transform" />
+              </button>
+            </div>
+
+            {/* Trust Line */}
+            <div className="mb-20">
+              <p className="text-lg md:text-xl text-slate-600">
+                Instant access. No subscription. Lifetime updates.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}
+
+
+FILE 4: src/app/components/LegalPrivacy.tsx
+--------------------------------------------------------------------------------
+import { useEffect } from 'react';
+
+interface LegalPrivacyProps {
+  onNavigate: (page: string) => void;
+}
+
+export default function LegalPrivacy({ onNavigate }: LegalPrivacyProps) {
+  useEffect(() => {
+    // Handle anchor navigation after component mounts
+    const hash = window.location.hash;
+    if (hash) {
+      setTimeout(() => {
+        const element = document.querySelector(hash);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    }
+  }, []);
+
+  return (
+    <div className="w-full min-h-screen bg-white">
+      {/* Main Content */}
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        {/* Page Header */}
+        <div className="mb-12">
+          <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
+            Legal & Privacy
+          </h1>
+          <p className="text-lg text-slate-600 mb-6">
+            Last updated: April 2026
+          </p>
+          <p className="text-lg text-slate-700 leading-relaxed mb-6">
+            Please read the following sections carefully. They govern your use of this website and any purchase you make.
+          </p>
+
+          {/* Jump Links */}
+          <div className="flex flex-wrap gap-4 text-lg">
+            <a
+              href="#disclaimers"
+              className="text-emerald-600 hover:text-emerald-700 font-semibold underline"
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById('disclaimers')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+            >
+              Disclaimers
+            </a>
+            <span className="text-slate-400">|</span>
+            <a
+              href="#privacy-policy"
+              className="text-emerald-600 hover:text-emerald-700 font-semibold underline"
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById('privacy-policy')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+            >
+              Privacy Policy
+            </a>
+          </div>
+        </div>
+
+        {/* Disclaimers Section */}
+        <section id="disclaimers" className="mb-16 scroll-mt-20">
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
+            Disclaimers
+          </h2>
+          <div className="space-y-4 text-lg text-slate-700 leading-relaxed">
+            <p>
+              This website and all its content, including the Moneyscan Blueprint, tools, worksheets, and guidance, are provided for general educational and informational purposes only.
+            </p>
+            <p>
+              Nothing on this site constitutes personalized financial, investment, tax, legal, or professional advice. The information presented — including compound interest illustrations, career guidance, trade data, and calculators — is not tailored to any individual's specific financial situation, risk tolerance, or goals.
+            </p>
+            <p>
+              Past performance is not indicative of future results. Actual investment returns, career outcomes, and earnings will vary significantly based on your personal circumstances, market conditions, location, experience, and effort.
+            </p>
+            <p>
+              You should consult with a qualified financial advisor, tax professional, attorney, or other licensed expert before making any financial, investment, or career decisions.
+            </p>
+            <p>
+              We make no representations or warranties regarding the accuracy, completeness, or suitability of the information provided. Your use of this site and any materials purchased is entirely at your own risk.
+            </p>
+            <p>
+              By accessing or purchasing from this site, you agree that MoneyScan (and its owners/operators) shall not be liable for any losses, damages, or claims arising from your use of the content or tools.
+            </p>
+          </div>
+        </section>
+
+        {/* Privacy Policy Section */}
+        <section id="privacy-policy" className="mb-16 scroll-mt-20">
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
+            Privacy Policy
+          </h2>
+          <p className="text-lg text-slate-600 mb-6">
+            Last updated: April 2026
+          </p>
+          <div className="space-y-6 text-lg text-slate-700 leading-relaxed">
+            <p>
+              We respect your privacy. This Privacy Policy explains how we collect, use, and protect your information when you visit MoneyScan or purchase the Blueprint.
+            </p>
+
+            <div>
+              <h3 className="text-2xl font-bold text-slate-900 mb-3">
+                Information We Collect
+              </h3>
+              <ul className="list-disc list-inside space-y-2 ml-4">
+                <li>
+                  <strong>When you purchase the Blueprint:</strong> name, email address, and payment information (processed securely by our payment provider).
+                </li>
+                <li>
+                  <strong>Usage data</strong> (pages visited, tools interacted with) to improve the site and user experience.
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="text-2xl font-bold text-slate-900 mb-3">
+                How We Use Your Information
+              </h3>
+              <ul className="list-disc list-inside space-y-2 ml-4">
+                <li>To deliver your purchase and provide lifetime updates.</li>
+                <li>To send occasional important updates or announcements (you can unsubscribe at any time).</li>
+                <li>To analyze site usage and improve our content and tools.</li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="text-2xl font-bold text-slate-900 mb-3">
+                We Do Not
+              </h3>
+              <ul className="list-disc list-inside space-y-2 ml-4">
+                <li>Sell your personal data to third parties.</li>
+                <li>Share your information except as necessary to process payments (e.g., with Stripe) or host the website.</li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="text-2xl font-bold text-slate-900 mb-3">
+                Your Rights
+              </h3>
+              <p>
+                You may request access to, correction of, or deletion of your personal data by contacting us. We will respond promptly.
+              </p>
+              <p className="mt-3">
+                We may update this Privacy Policy from time to time. Continued use of the site after changes constitutes acceptance of the updated policy.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Footer Note */}
+        <div className="mt-12 pt-8 border-t border-slate-200">
+          <p className="text-lg text-slate-600">
+            If you have any questions about these Disclaimers or Privacy Policy, please contact us.
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}

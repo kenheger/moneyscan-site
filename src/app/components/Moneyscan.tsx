@@ -16,10 +16,16 @@ export default function Moneyscan({ onNavigate, hasLeftLanding, stripeCheckoutUr
 
   // Stripe checkout for MONEYSCAN Financial Blueprint
   const handleGetAccess = () => {
+    // Secret test backdoor - type "DEMO" on the landing page to unlock
+    const code = prompt('Enter access code (or leave blank to buy):');
+    if (code === 'DEMO') {
+      localStorage.setItem('moneyscan_unlocked', 'true');
+      onNavigate('home');
+      return;
+    }
     if (stripeCheckoutUrl) {
       window.open(stripeCheckoutUrl, '_blank');
     } else {
-      // Fallback
       window.location.href = 'https://buy.stripe.com/cNidRb0ONcy6caR1kSfMA06';
     }
   };

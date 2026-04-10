@@ -150,10 +150,7 @@ export default function Moneyscan({ onNavigate, hasLeftLanding, stripeCheckoutUr
                 <ArrowRight className="w-7 h-7 group-hover:translate-x-2 transition-transform" />
               </button>
               <div className="mt-4">
-                <p className="text-sm text-slate-500">After paying, click:</p>
-                <button onClick={() => { localStorage.setItem('moneyscan_unlocked', 'true'); onNavigate('home'); }} className="text-emerald-600 underline hover:text-emerald-700 text-sm">
-                  Access Now →
-                </button>
+                
               </div>
             </div>
 

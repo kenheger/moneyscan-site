@@ -92,7 +92,7 @@ export default function Moneyscan({ onNavigate, hasLeftLanding, stripeCheckoutUr
                 </p>
                 <p className="text-base md:text-lg text-slate-700 leading-snug">
                   <span className="text-xl mr-2">♾️</span>
-                  <strong>Practical Tools Included</strong> — Compound interest calculator, debt payoff projector, AI literacy assessment, and skills mapping worksheet.
+                  <strong>Practical Tools Included</strong> — Compound interest, debt payoff, AI literacy assessment, skills mapping and US trades salaries database.
                 </p>
                 <p className="text-base md:text-lg text-slate-700 leading-snug">
                   <span className="text-xl mr-2">♾️</span>

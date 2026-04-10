@@ -99,8 +99,8 @@ export default function App() {
         {currentPage === 'ai-skills-worksheet' && <AISkillsMapWorksheet onNavigate={navigateTo} />}
         {currentPage === 'tools-hub' && <ToolsHub onNavigate={navigateTo} />}
         {currentPage === 'moneyscan' && <Moneyscan onNavigate={navigateTo} hasLeftLanding={hasLeftLanding} />}
-        {currentPage === 'skilled-trades' && <SkilledTrades onNavigate={navigateTo} stripeCheckoutUrl="https://buy.stripe.com/test_14AaEY4k83xK3ek91OeZ200" />}
-        {currentPage === 'trade-opportunity-finder' && <TradeOpportunityFinder onNavigate={navigateTo} stripeCheckoutUrl="https://buy.stripe.com/test_14AaEY4k83xK3ek91OeZ200" />}
+        {currentPage === 'skilled-trades' && <SkilledTrades onNavigate={navigateTo} stripeCheckoutUrl="https://buy.stripe.com/9B6fZj9lj55EcaRd3AfMA05" />}
+        {currentPage === 'trade-opportunity-finder' && <TradeOpportunityFinder onNavigate={navigateTo} stripeCheckoutUrl="https://buy.stripe.com/9B6fZj9lj55EcaRd3AfMA05" />}
         {currentPage === 'legal-privacy' && <LegalPrivacy onNavigate={navigateTo} />}
       </main>
 

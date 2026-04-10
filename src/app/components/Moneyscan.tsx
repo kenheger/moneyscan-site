@@ -4,9 +4,10 @@ import logoImage from '../../imports/Moneyscan_Logo_Final.jpg';
 interface MoneyscanProps {
   onNavigate: (page: string) => void;
   hasLeftLanding?: boolean;
+  stripeCheckoutUrl?: string;
 }
 
-export default function Moneyscan({ onNavigate, hasLeftLanding }: MoneyscanProps) {
+export default function Moneyscan({ onNavigate, hasLeftLanding, stripeCheckoutUrl }: MoneyscanProps) {
   // Check if user already paid
   const hasAccess = () => {
     if (typeof window === 'undefined') return false;
@@ -15,7 +16,12 @@ export default function Moneyscan({ onNavigate, hasLeftLanding }: MoneyscanProps
 
   // Stripe checkout for MONEYSCAN Financial Blueprint
   const handleGetAccess = () => {
-    window.location.href = 'https://buy.stripe.com/test_fZu14ocQE2tG3ekce0eZ201';
+    if (stripeCheckoutUrl) {
+      window.open(stripeCheckoutUrl, '_blank');
+    } else {
+      // Fallback
+      window.location.href = 'https://buy.stripe.com/cNidRb0ONcy6caR1kSfMA06';
+    }
   };
 
   // After Back from Stripe, check if just returned - unlock if coming back from checkout

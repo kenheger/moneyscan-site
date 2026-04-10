@@ -98,7 +98,7 @@ export default function App() {
         {currentPage === 'ai-career-tools' && <AICareerTools onNavigate={navigateTo} />}
         {currentPage === 'ai-skills-worksheet' && <AISkillsMapWorksheet onNavigate={navigateTo} />}
         {currentPage === 'tools-hub' && <ToolsHub onNavigate={navigateTo} />}
-        {currentPage === 'moneyscan' && <Moneyscan onNavigate={navigateTo} hasLeftLanding={hasLeftLanding} />}
+        {currentPage === 'moneyscan' && <Moneyscan onNavigate={navigateTo} hasLeftLanding={hasLeftLanding} stripeCheckoutUrl="https://buy.stripe.com/cNidRb0ONcy6caR1kSfMA06" />}
         {currentPage === 'skilled-trades' && <SkilledTrades onNavigate={navigateTo} stripeCheckoutUrl="https://buy.stripe.com/9B6fZj9lj55EcaRd3AfMA05" />}
         {currentPage === 'trade-opportunity-finder' && <TradeOpportunityFinder onNavigate={navigateTo} stripeCheckoutUrl="https://buy.stripe.com/9B6fZj9lj55EcaRd3AfMA05" />}
         {currentPage === 'legal-privacy' && <LegalPrivacy onNavigate={navigateTo} />}

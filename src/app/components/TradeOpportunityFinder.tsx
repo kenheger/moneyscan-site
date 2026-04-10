@@ -395,11 +395,11 @@ export default function TradeOpportunityFinder({ onNavigate, stripeCheckoutUrl }
                 {/* Free Tool Info */}
                 <div className="bg-gradient-to-br from-emerald-50 to-blue-50 p-8 rounded-xl border-2 border-emerald-200 md:col-span-2">
                   <TrendingUp className="w-10 h-10 text-emerald-600 mb-4" />
-                  <h3 className="text-xl font-bold text-slate-900 mb-3">All Trades Data — Free</h3>
+                  <h3 className="text-xl font-bold text-slate-900 mb-3">Free Trade Lookup</h3>
                   <p className="text-slate-700 mb-4">
-                    Browse <strong>50+ trades</strong> with salary data, growth projections, and training paths — all free on this tool.
+                    Look up wages for <strong>5 popular trades</strong> by ZIP code. Get salary estimates, growth projections, and training paths — free to use.
                   </p>
-                  <p className="text-emerald-600 font-semibold">No purchase required — full data included.</p>
+                  <p className="text-sm text-emerald-600">For access to all 50+ trades, get the $29 upgrade.</p>
                 </div>
               </div>
             </div>

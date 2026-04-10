@@ -413,6 +413,26 @@ export default function TradeOpportunityFinder({ onNavigate, stripeCheckoutUrl }
               </button>
             </div>
           </section>
+
+          {/* $29 Upsell - After free tool is used */}
+          <section className="py-8 bg-white">
+            <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="bg-amber-50 border-2 border-amber-300 rounded-xl p-6">
+                <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                  <div>
+                    <h4 className="font-bold text-slate-900 text-lg">Full Trade Database Access</h4>
+                    <p className="text-slate-700">Get all 50+ trades, every ZIP code, state-by-state breakdowns, and exportable reports.</p>
+                  </div>
+                  <button 
+                    onClick={() => stripeCheckoutUrl ? window.open(stripeCheckoutUrl, '_blank') : alert('Payment processing coming soon!')}
+                    className="bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 text-white px-6 py-3 rounded-lg font-bold transition-all shadow-lg whitespace-nowrap"
+                  >
+                    Get Full Access — $29
+                  </button>
+                </div>
+              </div>
+            </div>
+          </section>
         </>
       )}
 

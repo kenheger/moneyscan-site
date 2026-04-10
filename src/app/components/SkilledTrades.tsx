@@ -5,6 +5,7 @@ import WealthEngineIcon from './shared/WealthEngineIcon';
 
 interface SkilledTradesProps {
   onNavigate: (page: string) => void;
+  stripeCheckoutUrl?: string;
 }
 
 // All 25+ trades for $29 premium access
@@ -172,7 +173,7 @@ const regionalAdjustments: Record<string, number> = {
   default: 1.00
 };
 
-export default function SkilledTrades({ onNavigate }: SkilledTradesProps) {
+export default function SkilledTrades({ onNavigate, stripeCheckoutUrl }: SkilledTradesProps) {
   const [selectedTrade, setSelectedTrade] = useState<string>('');
   const [zipCode, setZipCode] = useState<string>('');
   const [wageResult, setWageResult] = useState<{hourly: number, annual: number, region: string} | null>(null);
@@ -508,93 +509,6 @@ export default function SkilledTrades({ onNavigate }: SkilledTradesProps) {
                 <span>This is general guidance, not personalized career advice.</span>
               </li>
             </ul>
-          </div>
-        </div>
-      </section>
-
-      {/* Premium Report Upsell */}
-      <section className="py-16 bg-gradient-to-br from-slate-50 to-emerald-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white p-10 rounded-2xl shadow-2xl border-2 border-emerald-200">
-            <div className="text-center mb-8">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-emerald-500 to-blue-600 rounded-xl mb-4">
-                <Hammer className="w-8 h-8 text-white" />
-              </div>
-              <h2 className="text-3xl font-bold text-slate-900 mb-3">
-                Comprehensive Trades Opportunity Report
-              </h2>
-              <p className="text-lg text-slate-700 mb-2">
-                All 25+ High-Demand Trades • All 50 States + Major Metros
-              </p>
-              <p className="text-[28px] font-bold text-emerald-600">
-                One-Time Price: $29
-              </p>
-            </div>
-
-            <div className="mb-8">
-              <h3 className="text-xl font-bold text-slate-900 mb-4">What You Get</h3>
-              <ul className="space-y-3 text-slate-700">
-                <li className="flex items-start gap-3">
-                  <CheckCircle className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-1" />
-                  <span>Detailed profiles for 25+ in-demand trades (Electrician, HVAC, Plumbing, Welding, Solar Installer, Wind Turbine Technician, Data Center Tech, Heavy Equipment Operator, and more)</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-1" />
-                  <span>State-by-state and major metro breakdowns (current openings, projected growth through 2033, salary ranges)</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-1" />
-                  <span>Clear timelines to reach $100K+ earnings with certifications and overtime</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-1" />
-                  <span>Side-by-side comparisons: Trade paths vs. traditional white-collar routes (time to earnings, training cost, student debt, AI risk)</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-1" />
-                  <span>Exportable tables and personalized planning worksheets</span>
-                </li>
-              </ul>
-            </div>
-
-            <div className="mb-8 p-6 bg-blue-50 border border-blue-200 rounded-xl">
-              <h3 className="text-lg font-bold text-slate-900 mb-3">Why This Report Is Worth $29</h3>
-              <p className="text-slate-700">
-                The free Trade Opportunity Finder gives you quick local insights for one trade. This full report gives you the complete national picture so you can compare opportunities across states, evaluate relocation potential, and choose the trade with the strongest long-term wealth-building potential.
-              </p>
-            </div>
-
-            <div className="mb-8">
-              <h3 className="text-lg font-bold text-slate-900 mb-3">Perfect for:</h3>
-              <ul className="space-y-2 text-slate-700">
-                <li className="flex items-start gap-2">
-                  <span className="font-bold text-emerald-600">•</span>
-                  <span>Recent graduates rethinking the traditional college path</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="font-bold text-emerald-600">•</span>
-                  <span>Professionals facing AI-driven displacement</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="font-bold text-emerald-600">•</span>
-                  <span>Anyone wanting a faster, more reliable route to six-figure income and business ownership</span>
-                </li>
-              </ul>
-            </div>
-
-            <div className="text-center mb-6">
-              <button 
-                onClick={() => setShowPremium(true)}
-                className="bg-gradient-to-r from-emerald-500 to-blue-600 hover:from-emerald-600 hover:to-blue-700 text-white px-10 py-4 rounded-lg font-bold text-lg transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-1 inline-flex items-center justify-center gap-2 group"
-              >
-                <span>Get the Full National Trades Report – $29</span>
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </button>
-            </div>
-
-            <div className="text-center text-xs text-slate-600">
-              <p><strong>Disclaimer:</strong> This is a general educational report based on the latest BLS and industry data. Actual earnings and opportunities vary by location, experience, certifications, and individual effort. Not personalized financial or career advice.</p>
-            </div>
           </div>
         </div>
       </section>

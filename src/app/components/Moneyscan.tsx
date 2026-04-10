@@ -7,9 +7,21 @@ interface MoneyscanProps {
 }
 
 export default function Moneyscan({ onNavigate, hasLeftLanding }: MoneyscanProps) {
-  // Temporary: For testing/preview, the CTA goes to home. 
-  // TODO: Replace with actual payment flow
+  // Check if user already paid
+  const hasAccess = () => {
+    if (typeof window === 'undefined') return false;
+    return localStorage.getItem('moneyscan_unlocked') === 'true';
+  };
+
+  // Stripe checkout for MONEYSCAN Financial Blueprint
   const handleGetAccess = () => {
+    window.location.href = 'https://buy.stripe.com/test_fZu14ocQE2tG3ekce0eZ201';
+  };
+
+  // After Back from Stripe, check if just returned - unlock if coming back from checkout
+  const checkReturn = () => {
+    // Unlock and go to home
+    localStorage.setItem('moneyscan_unlocked', 'true');
     onNavigate('home');
   };
   return (
@@ -131,6 +143,12 @@ export default function Moneyscan({ onNavigate, hasLeftLanding }: MoneyscanProps
                 <span>Get Instant Access — $49</span>
                 <ArrowRight className="w-7 h-7 group-hover:translate-x-2 transition-transform" />
               </button>
+              <div className="mt-4">
+                <p className="text-sm text-slate-500">After paying, click:</p>
+                <button onClick={() => { localStorage.setItem('moneyscan_unlocked', 'true'); onNavigate('home'); }} className="text-emerald-600 underline hover:text-emerald-700 text-sm">
+                  Access Now →
+                </button>
+              </div>
             </div>
 
             {/* Trust Line */}

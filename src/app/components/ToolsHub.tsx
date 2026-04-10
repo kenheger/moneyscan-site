@@ -334,19 +334,19 @@ export default function ToolsHub({ onNavigate }: ToolsHubProps) {
                   <TrendingUp className="w-6 h-6 text-blue-600" />
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-xl font-bold text-slate-900 mb-3">Full Trade Database: All Trades, All ZIP Codes</h3>
+                  <h3 className="text-xl font-bold text-slate-900 mb-3">Explore High-Demand Trade Careers</h3>
                   <p className="text-slate-700 leading-relaxed mb-4">
-                    The free tool gives you 5 trades. The <strong>$29 upgrade</strong> gives you <strong>800+ occupations</strong>, <strong>every ZIP code in America</strong>, cost-of-living adjustments, growth projections, overtime potential, side-by-side comparisons, and exportable reports.
+                    The free Trade Opportunity Finder lets you look up wages for 25+ trades by ZIP code. Explore detailed trade profiles, training paths, and compare trades vs. white-collar careers.
                   </p>
-                  <div className="bg-amber-50 border border-amber-300 rounded-lg p-4">
-                    <p className="text-amber-800 font-semibold mb-2">💰 One-time $29 — Lifetime Access</p>
-                    <p className="text-amber-700 text-sm">Includes all future updates. No subscription. Compare any trade in any location instantly.</p>
+                  <div className="bg-emerald-50 border border-emerald-300 rounded-lg p-4">
+                    <p className="text-emerald-800 font-semibold mb-2">💡 Free Resource</p>
+                    <p className="text-emerald-700 text-sm">All trade data is free to explore on the Skilled Trades page.</p>
                   </div>
                 </div>
               </div>
-              <button className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-amber-500 to-orange-600 text-white rounded-lg font-bold hover:from-amber-600 hover:to-orange-700 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
-                <DollarSign className="w-5 h-5" />
-                <span>Unlock Full Database — $29</span>
+              <button onClick={() => onNavigate('skilled-trades')} className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-amber-500 to-orange-600 text-white rounded-lg font-bold hover:from-amber-600 hover:to-orange-700 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                <TrendingUp className="w-5 h-5" />
+                <span>Explore Trade Opportunities</span>
               </button>
             </div>
           </div>

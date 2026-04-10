@@ -3,6 +3,7 @@ import { Wrench, Search, MapPin, TrendingUp, Download, ArrowRight, CheckCircle, 
 
 interface TradeOpportunityFinderProps {
   onNavigate: (page: string) => void;
+  stripeCheckoutUrl?: string;
 }
 
 // Sample trade data - in production this would come from a database
@@ -119,7 +120,7 @@ const TRADES_DATA = [
   }
 ];
 
-export default function TradeOpportunityFinder({ onNavigate }: TradeOpportunityFinderProps) {
+export default function TradeOpportunityFinder({ onNavigate, stripeCheckoutUrl }: TradeOpportunityFinderProps) {
   const [selectedTrade, setSelectedTrade] = useState('');
   const [zipCode, setZipCode] = useState('');
   const [showResults, setShowResults] = useState(false);
@@ -399,7 +400,10 @@ export default function TradeOpportunityFinder({ onNavigate }: TradeOpportunityF
                     Get detailed profiles for <strong>25+ trades across all 50 states</strong> with side-by-side comparisons, relocation analysis, and planning worksheets.
                   </p>
                   <p className="text-2xl font-bold text-emerald-600 mb-4">One-Time: $29</p>
-                  <button className="bg-gradient-to-r from-emerald-500 to-blue-600 hover:from-emerald-600 hover:to-blue-700 text-white px-6 py-3 rounded-lg font-bold transition-all inline-flex items-center gap-2">
+                  <button 
+                    onClick={() => stripeCheckoutUrl ? window.open(stripeCheckoutUrl, '_blank') : alert('Payment processing coming soon!')}
+                    className="bg-gradient-to-r from-emerald-500 to-blue-600 hover:from-emerald-600 hover:to-blue-700 text-white px-6 py-3 rounded-lg font-bold transition-all inline-flex items-center gap-2"
+                  >
                     <span>Get Full National Report</span>
                     <ArrowRight className="w-5 h-5" />
                   </button>

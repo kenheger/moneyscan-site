@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { TrendingUp } from 'lucide-react';
 import Header from './components/Header';
 import Home from './components/Home';
@@ -25,15 +25,54 @@ type Page = 'home' | 'old-home' | 'wealth-engine' | 'behavioral-finance' | 'debt
 export default function App() {
   const [currentPage, setCurrentPage] = useState<Page>('moneyscan');
   const [hasLeftLanding, setHasLeftLanding] = useState(false);
+  const [historyIndex, setHistoryIndex] = useState(0);
+  const [pageHistory, setPageHistory] = useState<Page[]>(['moneyscan']);
 
-  const navigateTo = (page: Page) => {
+  const navigateTo = useCallback((page: Page) => {
     // Mark that user has left the landing page
     if (currentPage === 'moneyscan' && page !== 'moneyscan') {
       setHasLeftLanding(true);
     }
     setCurrentPage(page);
+    setPageHistory(prev => [...prev, page]);
+    setHistoryIndex(prev => prev + 1);
+    // Push to browser history
+    window.history.pushState({ page, index: historyIndex + 1 }, '', `#${page}`);
     window.scrollTo(0, 0);
-  };
+  }, [currentPage, historyIndex]);
+
+  // Handle browser back button
+  useEffect(() => {
+    const handlePopstate = (e: PopStateEvent) => {
+      if (e.state && typeof e.state.index === 'number') {
+        const idx = e.state.index;
+        // Go back in history - restore the page at that index
+        if (idx >= 0 && idx < pageHistory.length) {
+          setCurrentPage(pageHistory[idx]);
+          setHistoryIndex(idx);
+        } else if (pageHistory.length > 1) {
+          // Default to previous page
+          setCurrentPage(pageHistory[pageHistory.length - 2]);
+          setHistoryIndex(pageHistory.length - 2);
+        }
+        window.scrollTo(0, 0);
+      }
+    };
+    
+    window.addEventListener('popstate', handlePopstate);
+    return () => window.removeEventListener('popstate', handlePopstate);
+  }, [pageHistory]);
+
+  // Initialize with current page
+  useEffect(() => {
+    // Check for hash in URL
+    const hash = window.location.hash.slice(1) as Page;
+    if (hash && hash !== currentPage) {
+      setCurrentPage(hash);
+      setPageHistory(['moneyscan', hash]);
+      setHistoryIndex(1);
+    }
+  }, []);
 
   // Show minimal header only on Moneyscan page (handled within Moneyscan component)
   const showHeader = currentPage !== 'moneyscan';
@@ -60,8 +99,8 @@ export default function App() {
         {currentPage === 'ai-skills-worksheet' && <AISkillsMapWorksheet onNavigate={navigateTo} />}
         {currentPage === 'tools-hub' && <ToolsHub onNavigate={navigateTo} />}
         {currentPage === 'moneyscan' && <Moneyscan onNavigate={navigateTo} hasLeftLanding={hasLeftLanding} />}
-        {currentPage === 'skilled-trades' && <SkilledTrades onNavigate={navigateTo} />}
-        {currentPage === 'trade-opportunity-finder' && <TradeOpportunityFinder onNavigate={navigateTo} />}
+        {currentPage === 'skilled-trades' && <SkilledTrades onNavigate={navigateTo} stripeCheckoutUrl="https://buy.stripe.com/test_14AaEY4k83xK3ek91OeZ200" />}
+        {currentPage === 'trade-opportunity-finder' && <TradeOpportunityFinder onNavigate={navigateTo} stripeCheckoutUrl="https://buy.stripe.com/test_14AaEY4k83xK3ek91OeZ200" />}
         {currentPage === 'legal-privacy' && <LegalPrivacy onNavigate={navigateTo} />}
       </main>
 

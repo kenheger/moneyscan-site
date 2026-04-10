@@ -392,15 +392,7 @@ export default function TradeOpportunityFinder({ onNavigate, stripeCheckoutUrl }
           <section className="py-12 bg-white">
             <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="grid md:grid-cols-2 gap-6">
-                {/* Free Tool Info */}
-                <div className="bg-gradient-to-br from-emerald-50 to-blue-50 p-8 rounded-xl border-2 border-emerald-200 md:col-span-2">
-                  <TrendingUp className="w-10 h-10 text-emerald-600 mb-4" />
-                  <h3 className="text-xl font-bold text-slate-900 mb-3">Free Trade Lookup</h3>
-                  <p className="text-slate-700 mb-4">
-                    Look up wages for <strong>5 popular trades</strong> by ZIP code. Get salary estimates, growth projections, and training paths — free to use.
-                  </p>
-                  <p className="text-sm text-emerald-600">For access to all 50+ trades, get the $29 upgrade.</p>
-                </div>
+                
               </div>
             </div>
           </section>

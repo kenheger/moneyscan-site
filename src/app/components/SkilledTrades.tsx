@@ -483,6 +483,21 @@ export default function SkilledTrades({ onNavigate, stripeCheckoutUrl }: Skilled
               </div>
             </div>
 
+            {/* $29 Upsell - Appears on Skilled Trades page */}
+            <div className="mt-8 p-6 bg-amber-50 border-2 border-amber-300 rounded-xl">
+              <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                <div>
+                  <h4 className="font-bold text-slate-900 text-lg">Full Trade Database Access</h4>
+                  <p className="text-slate-700">Get all 25+ trades, every ZIP code, state-by-state breakdowns, and exportable reports.</p>
+                </div>
+                <button 
+                  onClick={() => stripeCheckoutUrl ? window.open(stripeCheckoutUrl, '_blank') : alert('Payment processing coming soon!')}
+                  className="bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 text-white px-6 py-3 rounded-lg font-bold transition-all shadow-lg whitespace-nowrap"
+                >
+                  Get Full Access — $29
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </section>

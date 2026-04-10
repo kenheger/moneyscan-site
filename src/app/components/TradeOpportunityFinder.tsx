@@ -392,21 +392,14 @@ export default function TradeOpportunityFinder({ onNavigate, stripeCheckoutUrl }
           <section className="py-12 bg-white">
             <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="grid md:grid-cols-2 gap-6">
-                {/* Premium Report Upsell */}
+                {/* Free Tool Info */}
                 <div className="bg-gradient-to-br from-emerald-50 to-blue-50 p-8 rounded-xl border-2 border-emerald-200 md:col-span-2">
                   <TrendingUp className="w-10 h-10 text-emerald-600 mb-4" />
-                  <h3 className="text-xl font-bold text-slate-900 mb-3">Want the Complete Picture?</h3>
+                  <h3 className="text-xl font-bold text-slate-900 mb-3">All Trades Data — Free</h3>
                   <p className="text-slate-700 mb-4">
-                    Get detailed profiles for <strong>25+ trades across all 50 states</strong> with side-by-side comparisons, relocation analysis, and planning worksheets.
+                    Browse <strong>25+ trades</strong> with salary data, growth projections, and training paths — all free on this tool.
                   </p>
-                  <p className="text-2xl font-bold text-emerald-600 mb-4">One-Time: $29</p>
-                  <button 
-                    onClick={() => stripeCheckoutUrl ? window.open(stripeCheckoutUrl, '_blank') : alert('Payment processing coming soon!')}
-                    className="bg-gradient-to-r from-emerald-500 to-blue-600 hover:from-emerald-600 hover:to-blue-700 text-white px-6 py-3 rounded-lg font-bold transition-all inline-flex items-center gap-2"
-                  >
-                    <span>Get Full National Report</span>
-                    <ArrowRight className="w-5 h-5" />
-                  </button>
+                  <p className="text-emerald-600 font-semibold">No purchase required — full data included.</p>
                 </div>
               </div>
             </div>

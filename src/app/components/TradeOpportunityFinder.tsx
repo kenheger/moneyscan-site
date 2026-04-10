@@ -397,7 +397,7 @@ export default function TradeOpportunityFinder({ onNavigate, stripeCheckoutUrl }
                   <TrendingUp className="w-10 h-10 text-emerald-600 mb-4" />
                   <h3 className="text-xl font-bold text-slate-900 mb-3">All Trades Data — Free</h3>
                   <p className="text-slate-700 mb-4">
-                    Browse <strong>25+ trades</strong> with salary data, growth projections, and training paths — all free on this tool.
+                    Browse <strong>50+ trades</strong> with salary data, growth projections, and training paths — all free on this tool.
                   </p>
                   <p className="text-emerald-600 font-semibold">No purchase required — full data included.</p>
                 </div>

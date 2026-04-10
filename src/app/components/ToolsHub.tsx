@@ -336,7 +336,7 @@ export default function ToolsHub({ onNavigate }: ToolsHubProps) {
                 <div className="flex-1">
                   <h3 className="text-xl font-bold text-slate-900 mb-3">Explore High-Demand Trade Careers</h3>
                   <p className="text-slate-700 leading-relaxed mb-4">
-                    The free Trade Opportunity Finder lets you look up wages for 25+ trades by ZIP code. Explore detailed trade profiles, training paths, and compare trades vs. white-collar careers.
+                    The free Trade Opportunity Finder lets you look up wages for 50+ trades by ZIP code. Explore detailed trade profiles, training paths, and compare trades vs. white-collar careers.
                   </p>
                   <div className="bg-emerald-50 border border-emerald-300 rounded-lg p-4">
                     <p className="text-emerald-800 font-semibold mb-2">💡 Free Resource</p>

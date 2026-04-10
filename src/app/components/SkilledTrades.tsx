@@ -488,7 +488,7 @@ export default function SkilledTrades({ onNavigate, stripeCheckoutUrl }: Skilled
               <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                 <div>
                   <h4 className="font-bold text-slate-900 text-lg">Full Trade Database Access</h4>
-                  <p className="text-slate-700">Get all 25+ trades, every ZIP code, state-by-state breakdowns, and exportable reports.</p>
+                  <p className="text-slate-700">Get all 50+ trades, every ZIP code, state-by-state breakdowns, and exportable reports.</p>
                 </div>
                 <button 
                   onClick={() => stripeCheckoutUrl ? window.open(stripeCheckoutUrl, '_blank') : alert('Payment processing coming soon!')}
@@ -900,7 +900,7 @@ export default function SkilledTrades({ onNavigate, stripeCheckoutUrl }: Skilled
                   💰 This feature requires $29 upgrade
                 </p>
                 <p className="text-emerald-600 text-sm">
-                  Export includes all 25+ trades, all states, and comparison data
+                  Export includes all 50+ trades, all states, and comparison data
                 </p>
               </div>
               <button className="bg-gradient-to-r from-emerald-500 to-blue-600 text-white px-8 py-3 rounded-lg font-bold">

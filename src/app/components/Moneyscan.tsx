@@ -73,18 +73,13 @@ export default function Moneyscan({ onNavigate, hasLeftLanding, stripeCheckoutUr
                 Building Lasting Wealth
               </h2>
               <p className="text-3xl md:text-4xl font-bold font-sans text-slate-900 mt-2">
-                A First Principles Blueprint
+                A First Principles Blueprint in the AI Era
               </p>
             </div>
 
             {/* Tag Line - 24-28px on desktop */}
             <p className="text-2xl md:text-[28px] text-slate-700 max-w-3xl mx-auto" style={{ marginBottom: '45px' }}>
               Understand the math. Choose your path. Build wealth that lasts.
-            </p>
-
-            {/* Sub Tag - 18-22px italicized */}
-            <p className="text-lg md:text-xl italic text-slate-600 max-w-xl mx-auto" style={{ marginBottom: '55px' }}>
-              Directional & Actionable in the AI Era
             </p>
 
             {/* What You Get - Stacked Text with Title and Infinity Symbols */}

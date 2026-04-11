@@ -201,7 +201,7 @@ export default function App() {
 
           <div className="border-t border-slate-800 mt-8 pt-8 text-sm text-slate-400">
             <p>
-              © 2026 Moneyscan Financial. Educational only — not personalized advice.
+              © 2026 Moneyscan LLC. Educational only — not personalized advice.
               Past performance is no guarantee of future results.
             </p>
           </div>

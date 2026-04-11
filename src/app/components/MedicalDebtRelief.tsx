@@ -202,7 +202,7 @@ export default function MedicalDebtRelief({ onNavigate, hasLeftLanding }: Medica
             Contact: <a href="mailto:info@moneyscan.com" className="text-emerald-400 hover:text-emerald-300">info@moneyscan.com</a>
           </p>
           <p className="text-xs text-slate-500 mt-2">
-            © 2026 Moneyscan Financial. Educational only — not personalized advice.
+            © 2026 Moneyscan LLC. Educational only — not personalized advice.
           </p>
         </div>
       </footer>

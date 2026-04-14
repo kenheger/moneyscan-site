@@ -14,12 +14,42 @@ export default function Moneyscan({ onNavigate, hasLeftLanding, stripeCheckoutUr
     return localStorage.getItem('moneyscan_unlocked') === 'true';
   };
 
-  // Stripe checkout for MONEYSCAN Financial Blueprint
-  const handleGetAccess = () => {
-    if (stripeCheckoutUrl) {
-      window.open(stripeCheckoutUrl, '_blank');
-    } else {
-      window.location.href = 'https://buy.stripe.com/cNidRb0ONcy6caR1kSfMA06';
+  // Stripe checkout via API - enables automatic receipt emails
+  const handleGetAccess = async () => {
+    // Get price ID from environment variable (set in Vercel project settings)
+    const priceId = process.env.NEXT_PUBLIC_STRIPE_PRICE_ID || 'price_1R0Z2jLfvY7Kf9bZDqJqJqJq';
+    
+    try {
+      const response = await fetch('/api/checkout/create-session', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          priceId: priceId,
+          productName: 'MONEYSCAN Financial Blueprint',
+          successUrl: window.location.origin + '/?payment=success',
+          cancelUrl: window.location.origin + '/?payment=cancelled',
+        }),
+      });
+      
+      const data = await response.json();
+      
+      if (data.url) {
+        // Redirect to Stripe Checkout - this will collect email and send receipt automatically
+        window.location.href = data.url;
+      } else if (stripeCheckoutUrl) {
+        // Fallback to old payment link if API fails
+        window.open(stripeCheckoutUrl, '_blank');
+      } else {
+        window.location.href = 'https://buy.stripe.com/cNidRb0ONcy6caR1kSfMA06';
+      }
+    } catch (error) {
+      console.error('Checkout error:', error);
+      // Fallback to payment link on error
+      if (stripeCheckoutUrl) {
+        window.open(stripeCheckoutUrl, '_blank');
+      } else {
+        window.location.href = 'https://buy.stripe.com/cNidRb0ONcy6caR1kSfMA06';
+      }
     }
   };
 

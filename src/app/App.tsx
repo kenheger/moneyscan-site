@@ -28,6 +28,17 @@ export default function App() {
   const [historyIndex, setHistoryIndex] = useState(0);
   const [pageHistory, setPageHistory] = useState<Page[]>(['moneyscan']);
 
+  // Check for payment success return from Stripe
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('payment') === 'success') {
+      // Unlock access and clean URL
+      localStorage.setItem('moneyscan_unlocked', 'true');
+      window.history.replaceState({}, '', '/');
+      setCurrentPage('home');
+    }
+  }, []);
+
   const navigateTo = useCallback((page: Page) => {
     // Mark that user has left the landing page
     if (currentPage === 'moneyscan' && page !== 'moneyscan') {

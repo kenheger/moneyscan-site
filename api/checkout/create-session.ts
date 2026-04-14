@@ -1,8 +1,14 @@
 import Stripe from 'stripe';
 
 // Initialize Stripe with secret key from environment
-// Note: You'll need to add STRIPE_SECRET_KEY to Vercel project settings
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || '', {
+const stripeKey = process.env.STRIPE_SECRET_KEY;
+console.log('STRIPE_KEY exists:', !!stripeKey);
+console.log('STRIPE_KEY starts with:', stripeKey?.slice(0, 10));
+console.log('STRIPE_KEY length:', stripeKey?.length);
+
+// Clean any whitespace/encoding issues from the key
+const cleanKey = stripeKey?.trim();
+const stripe = new Stripe(cleanKey || '', {
   apiVersion: '2026-03-25.dahlia',
 });
 
@@ -11,10 +17,6 @@ export default async function handler(req, res) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
-
-  // Debug: log what's happening
-  console.log('STRIPE_KEY exists:', !!process.env.STRIPE_SECRET_KEY);
-  console.log('STRIPE_KEY starts with:', process.env.STRIPE_SECRET_KEY?.slice(0, 10));
 
   try {
     const { priceId, productName, successUrl, cancelUrl } = req.body;

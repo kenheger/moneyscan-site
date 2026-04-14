@@ -3,7 +3,7 @@ import Stripe from 'stripe';
 // Initialize Stripe with secret key from environment
 // Note: You'll need to add STRIPE_SECRET_KEY to Vercel project settings
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || '', {
-  apiVersion: '2024-12-18.acacia',
+  apiVersion: '2025-04-30.basil',
 });
 
 export default async function handler(req, res) {
@@ -30,8 +30,6 @@ export default async function handler(req, res) {
         },
       ],
       mode: 'payment',
-      // This enables automatic receipt emails to the customer
-      receipt_email: true,
       // Customer email will be collected by Stripe checkout
       customer_email: undefined, // Let Stripe collect it
       success_url: successUrl || `${req.headers.origin}/?payment=success`,

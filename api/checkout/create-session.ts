@@ -12,6 +12,10 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
+  // Debug: log what's happening
+  console.log('STRIPE_KEY exists:', !!process.env.STRIPE_SECRET_KEY);
+  console.log('STRIPE_KEY starts with:', process.env.STRIPE_SECRET_KEY?.slice(0, 10));
+
   try {
     const { priceId, productName, successUrl, cancelUrl } = req.body;
 

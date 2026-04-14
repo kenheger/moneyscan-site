@@ -40,6 +40,17 @@ export default function App() {
   }, []);
 
   const navigateTo = useCallback((page: Page) => {
+    // Paywall check - only allow free pages or if user has paid
+    const hasAccess = localStorage.getItem('moneyscan_unlocked') === 'true';
+    const freePages: Page[] = ['moneyscan', 'legal-privacy'];
+    
+    if (!hasAccess && !freePages.includes(page)) {
+      // Redirect to paywall
+      setCurrentPage('moneyscan');
+      window.scrollTo(0, 0);
+      return;
+    }
+    
     // Mark that user has left the landing page
     if (currentPage === 'moneyscan' && page !== 'moneyscan') {
       setHasLeftLanding(true);
@@ -76,12 +87,21 @@ export default function App() {
 
   // Initialize with current page
   useEffect(() => {
+    const hasAccess = localStorage.getItem('moneyscan_unlocked') === 'true';
+    const freePages: Page[] = ['moneyscan', 'legal-privacy'];
+    
     // Check for hash in URL
     const hash = window.location.hash.slice(1) as Page;
     if (hash && hash !== currentPage) {
-      setCurrentPage(hash);
-      setPageHistory(['moneyscan', hash]);
-      setHistoryIndex(1);
+      // If trying to access paid page without access, go to paywall
+      if (!hasAccess && !freePages.includes(hash)) {
+        setCurrentPage('moneyscan');
+        window.history.replaceState({}, '', '/');
+      } else {
+        setCurrentPage(hash);
+        setPageHistory(['moneyscan', hash]);
+        setHistoryIndex(1);
+      }
     }
   }, []);
 

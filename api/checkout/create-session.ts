@@ -38,6 +38,10 @@ export default async function handler(req, res) {
       mode: 'payment',
       // Customer email will be collected by Stripe checkout
       customer_email: undefined, // Let Stripe collect it
+      // Enable automatic receipt emails
+      invoice_creation: {
+        enabled: true,
+      },
       success_url: successUrl || `${req.headers.origin}/?payment=success`,
       cancel_url: cancelUrl || `${req.headers.origin}/?payment=cancelled`,
       metadata: {

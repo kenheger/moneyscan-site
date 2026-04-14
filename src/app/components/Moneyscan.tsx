@@ -53,6 +53,21 @@ export default function Moneyscan({ onNavigate, hasLeftLanding, stripeCheckoutUr
     }
   };
 
+  // Check if just returned from payment
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('payment') === 'success') {
+      // Unlock access and clean URL
+      localStorage.setItem('moneyscan_unlocked', 'true');
+      window.history.replaceState({}, '', '/');
+      onNavigate('home');
+    }
+    if (params.get('payment') === 'cancelled') {
+      // Clean URL
+      window.history.replaceState({}, '', '/');
+    }
+  }, [onNavigate]);
+
   // After Back from Stripe, check if just returned - unlock if coming back from checkout
   const checkReturn = () => {
     // Unlock and go to home

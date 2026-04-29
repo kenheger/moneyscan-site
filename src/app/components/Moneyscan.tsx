@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { ArrowRight } from 'lucide-react';
 import logoImage from '../../imports/Moneyscan_Logo_Final.jpg';
 
@@ -17,7 +18,7 @@ export default function Moneyscan({ onNavigate, hasLeftLanding, stripeCheckoutUr
   // Stripe checkout via API - enables automatic receipt emails
   const handleGetAccess = async () => {
     // Get price ID from environment variable (set in Vercel project settings)
-    const priceId = process.env.NEXT_PUBLIC_STRIPE_PRICE_ID || 'price_1R0Z2jLfvY7Kf9bZDqJqJqJq';
+    const priceId = import.meta.env.VITE_STRIPE_PRICE_ID || 'price_1R0Z2jLfvY7Kf9bZDqJqJqJq';
     
     try {
       const response = await fetch('/api/checkout/create-session', {

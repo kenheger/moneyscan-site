@@ -178,6 +178,114 @@ export default function RealEstatePaths({ onNavigate, hasLeftLanding }: RealEsta
         </div>
       </section>
 
+      {/* The Road Less Traveled - Build Your Own Home */}
+      <section className="py-16 bg-gradient-to-br from-emerald-50 via-blue-50 to-white">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold text-slate-900 text-center mb-12">The Road Less Traveled</h2>
+          
+          {/* Single Consolidated Block: Build Your Own Home */}
+          <div className="bg-white rounded-xl shadow-lg border border-slate-200 p-8">
+            <h3 className="text-2xl font-bold text-emerald-600 mb-6 flex items-center gap-3">
+              <span className="text-3xl">🏠</span> A Hidden Path to Wealth! Build Your Own Home
+            </h3>
+            
+            <p className="text-slate-700 mb-6 text-lg">
+              With our busy lives, this is a path not often considered. But, if you have any organizational or trade skills, or a real estate acumen for assessing property, this is a tremendous path to building significant wealth in a matter of years.
+            </p>
+            
+            <div className="bg-emerald-50 rounded-lg p-4 mb-6 border border-emerald-200">
+              <h4 className="font-bold text-slate-900 mb-3 flex items-center gap-2">
+                <span className="text-xl">🗺️</span> Key Considerations:
+              </h4>
+              <p className="text-slate-700 mb-3">
+                <span className="font-bold text-emerald-700" style={{ marginLeft: '-1.5em' }}>  </span>
+                <strong>B</strong>uy your raw land property first! Almost any bank <strong>will</strong> provide you with a construction loan if you own the property. And how smart you are in picking the location makes a huge difference. Scout the exurbs and the trendy locations for wealth building locations. For example, almost anyone that bought land and built a home in the Myrtle Beach, SC area in the past 10 years is doing very well indeed.
+              </p>
+              <p className="text-slate-700">
+                <span className="font-bold text-emerald-700" style={{ marginLeft: '-1.5em' }}>  </span>
+                <strong>C</strong>heck NAR (National Association of Realtors) for hot spots to scout property for appreciation. Also check out niche.com for best schools and family-supportive areas.
+              </p>
+            </div>
+            
+            <h4 className="font-bold text-slate-900 mb-3 flex items-center gap-2">
+              <span className="text-xl">📈</span> 2026 Hot Spots:
+            </h4>
+            <ul className="text-slate-600 mb-6 space-y-1">
+              <li><strong>Charleston, SC & Savannah, GA:</strong> Rapidly expanding exurbs due to port growth and tech migration</li>
+              <li><strong>Huntsville, AL:</strong> Known as a "recession-proof" exurb due to the aerospace/defense industry</li>
+              <li><strong>Raleigh/Durham (The Triangle), NC:</strong> Wake Forest and Apex remain the premier examples of exurbs where "forced equity" through building is still very profitable</li>
+            </ul>
+            
+            <h4 className="font-bold text-slate-900 mb-3 flex items-center gap-2">
+              <span className="text-xl">📊</span> Top Growth Areas (Last 5–10 Years):
+            </h4>
+            <ul className="text-slate-600 mb-6 space-y-1">
+              <li><strong>Mountain West:</strong> Vineyard, UT (Provo Metro) — housing inventory surged over 7,000% between 2013 and 2022</li>
+              <li><strong>Boise, Idaho:</strong> Home values grew roughly 121% between 2017 and 2023</li>
+              <li><strong>Texas Powerhouses:</strong> Fulshear (Houston Metro) — housing stock grew by 1,138% over 10 years</li>
+              <li><strong>Florida's Surging Markets:</strong> Nocatee (Jacksonville Metro) — housing stock grew by 382% in a decade</li>
+            </ul>
+            
+            <h4 className="font-bold text-slate-900 mb-3 flex items-center gap-2">
+              <span className="text-xl">🛠️</span> Key Drivers of Suburban Appreciation:
+            </h4>
+            <ul className="text-slate-600 mb-6 space-y-1">
+              <li><strong>Remote Work Flexibility:</strong> No longer tethered to urban cores, buyers sought more space for less money in exurban locations</li>
+              <li><strong>Inventory Scarcity:</strong> In the Northeast and Midwest, stringent building regulations have limited new supply, causing prices to spike under high demand</li>
+              <li><strong>Institutional Migration:</strong> Areas like Nashville, Charlotte, and Indianapolis have seen massive value growth due to strong job markets and corporate headquarters relocating</li>
+            </ul>
+            
+            <div className="overflow-x-auto mb-6">
+              <table className="w-full text-sm text-left border-collapse">
+                <thead>
+                  <tr className="bg-slate-100">
+                    <th className="p-3 border border-slate-300 font-bold">Region</th>
+                    <th className="p-3 border border-slate-300 font-bold">Top Exurban "Build" Markets (2026)</th>
+                    <th className="p-3 border border-slate-300 font-bold">Primary Driver</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td className="p-3 border border-slate-300">Southeast</td><td className="p-3 border border-slate-300">Acworth/Cumming, GA & Wake Forest, NC</td><td className="p-3 border border-slate-300">Tech/Finance Migration</td></tr>
+                  <tr><td className="p-3 border border-slate-300">South</td><td className="p-3 border border-slate-300">Boerne, TX & Round Rock, TX</td><td className="p-3 border border-slate-300">Corporate HQ Relocations</td></tr>
+                  <tr><td className="p-3 border border-slate-300">Midwest</td><td className="p-3 border border-slate-300">Carmel, IN & Overland Park, KS</td><td className="p-3 border border-slate-300">Elite School Systems</td></tr>
+                  <tr><td className="p-3 border border-slate-300">Mountain</td><td className="p-3 border border-slate-300">Boise, ID & Broomfield, CO</td><td className="p-3 border border-slate-300">Outdoor Lifestyle + Lower Taxes</td></tr>
+                </tbody>
+              </table>
+            </div>
+            
+            <hr className="my-6 border-slate-200" />
+            
+            <div className="bg-blue-50 rounded-lg p-4 mb-6 border border-blue-200">
+              <h4 className="font-bold text-slate-900 mb-3 flex items-center gap-2">
+                <span className="text-xl">📦</span> Material Costs:
+              </h4>
+              <p className="text-slate-700 mb-3">
+                Material costs for a traditional new home build, typically, run 40%. Add 10% for contingencies and "unforeseen" items and you can see that only half the cost of the new home lies in materials.
+              </p>
+              <h5 className="font-bold text-slate-900 mb-2">Get yourself a Home Depot Pro Account!</h5>
+              <ul className="text-slate-600 text-sm space-y-1">
+                <li>• After a $2,500 purchase threshold, you can save up to 15% on bulk items</li>
+                <li>• Up to 20% on paints and flooring</li>
+                <li>• Pro Desk Bid-Room pricing for even more savings</li>
+              </ul>
+            </div>
+            
+            <p className="text-slate-700 mb-4">
+              You (and a few friends) might be able to tend to interior finishes (floors, paints, cabinets) and act as your own general contractor while hiring sub-contractors for the rest.
+            </p>
+            
+            <div className="bg-emerald-50 rounded-lg p-4 border border-emerald-200">
+              <h4 className="font-bold text-slate-900 mb-2 flex items-center gap-2">
+                <span className="text-xl">🏠</span> The Capital Gains "Two-Year Rule"
+              </h4>
+              <p className="text-slate-700">
+                Your new build house should be your primary residence for at least two years for the full tax benefit. If you live there for 2 out of the 5 years before selling, the first <strong>$250,000 (single) or $500,000 (married)</strong> of profit is typically tax-free. This meshes perfectly with family-raising scenarios where the kids are in area schools for a number of years.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Footer */}
       <footer className="bg-slate-900 text-slate-300 py-8">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

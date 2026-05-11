@@ -57,6 +57,39 @@ export default function BuildYourOwnHome({ onNavigate }: BuildYourOwnHomeProps) 
                   <span><strong>Raleigh/Durham (The Triangle), NC:</strong> Wake Forest and Apex remain the premier examples of exurbs where "forced equity" through building is still very profitable.</span>
                 </li>
               </ul>
+
+              <p className="text-gray-600 text-xs mt-3 mb-1"><strong>Summary of "Wealth-Building" Exurbs by Region</strong></p>
+              <table className="w-full text-xs border-collapse">
+                <thead>
+                  <tr className="bg-blue-400 text-white">
+                    <th className="p-1 text-left font-medium">Region</th>
+                    <th className="p-1 text-left font-medium">Markets</th>
+                    <th className="p-1 text-left font-medium">Primary Driver</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="bg-gray-100">
+                    <td className="p-1">Southeast</td>
+                    <td className="p-1">Acworth/Cumming, GA & Wake Forest, NC</td>
+                    <td className="p-1">Tech/Finance Migration</td>
+                  </tr>
+                  <tr className="bg-white">
+                    <td className="p-1">South</td>
+                    <td className="p-1">Boerne, TX & Round Rock, TX</td>
+                    <td className="p-1">Corporate HQ Relocations</td>
+                  </tr>
+                  <tr className="bg-gray-100">
+                    <td className="p-1">Midwest</td>
+                    <td className="p-1">Carmel, IN & Overland Park, KS</td>
+                    <td className="p-1">Elite School Systems</td>
+                  </tr>
+                  <tr className="bg-white">
+                    <td className="p-1">Mountain</td>
+                    <td className="p-1">Boise, ID & Broomfield, CO</td>
+                    <td className="p-1">Outdoor Lifestyle + Lower Taxes</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
         </div>

@@ -99,65 +99,49 @@ export default function Moneyscan({ onNavigate, hasLeftLanding, stripeCheckoutUr
         </div>
       </header>
 
-      {/* Hero Section - Centered with Generous Spacing */}
-      <section className="pt-8 pb-32">
+      {/* Hero Section - Compact single view */}
+      <section className="pt-4 pb-8">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             {/* MONEYSCAN Logo */}
-            <div className="flex justify-center" style={{ paddingTop: '40px', marginBottom: '70px' }}>
+            <div className="flex justify-center mb-6">
               <img
                 src={logoImage}
                 alt="MONEYSCAN"
-                className="w-full max-w-[450px] h-auto"
-                style={{ maxWidth: '450px' }}
+                className="w-full max-w-[350px] h-auto"
               />
             </div>
 
-            {/* Stacked Hero Headline */}
-            <div className="max-w-4xl mx-auto" style={{ marginBottom: '45px' }}>
-              <h2 className="text-4xl md:text-5xl font-bold font-sans text-slate-900 leading-tight">
-                Building Lasting Wealth
-              </h2>
-              <p className="text-3xl md:text-4xl font-bold font-sans text-slate-900 mt-2">
-                A First Principles Blueprint in the AI Era
-              </p>
-            </div>
-
-            {/* Tag Line - 24-28px on desktop */}
-            <p className="text-2xl md:text-[28px] text-slate-700 max-w-3xl mx-auto" style={{ marginBottom: '45px' }}>
-              Understand the math. Choose your path. Build wealth that lasts.
+            {/* Tag Line - 18pt */}
+            <p className="text-lg md:text-xl font-bold text-slate-900 mb-2">
+              A First Principles Guide to Creating Wealth in the AI Era
             </p>
 
-            {/* What You Get - Stacked Text with Title and Infinity Symbols */}
-            <div className="max-w-2xl mx-auto px-12" style={{ marginBottom: '55px' }}>
-              <h3 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6">What You Get:</h3>
-              <div className="space-y-3 text-left">
-                <p className="text-base md:text-lg text-slate-700 leading-snug">
-                  <span className="text-xl mr-2">♾️</span>
-                  <strong>First Principles Framework</strong> — Timeless math-based guidance on investing, cash flow, debt elimination, and wealth building.
-                </p>
-                <p className="text-base md:text-lg text-slate-700 leading-snug">
-                  <span className="text-xl mr-2">♾️</span>
-                  <strong>Practical Tools Included</strong> — Compound interest, debt payoff, AI literacy assessment, skills mapping and US trades salaries database.
-                </p>
-                <p className="text-base md:text-lg text-slate-700 leading-snug">
-                  <span className="text-xl mr-2">♾️</span>
-                  <strong>Lifetime Access</strong> — One-time $49 fee. No subscription. Includes future updates as AI and markets evolve.
-                </p>
+            {/* Understand line - 21pt */}
+            <p className="text-xl md:text-2xl text-slate-700 mb-6">
+              Understand the Math. Choose your Path. Build Wealth that Lasts.
+            </p>
+
+            {/* What You Get - compact box */}
+            <div className="max-w-[400px] mx-auto mb-4">
+              <h3 className="text-base font-bold text-slate-900 mb-1">What You Get:</h3>
+              <div className="text-left text-sm text-slate-700 border border-slate-300 p-2 rounded leading-tight">
+                <p><span className="text-base mr-2">♾️</span><strong>First Principles Framework</strong> — Timeless math-based guidance on investing, cash flow, debt elimination, and wealth building.</p>
+                <p><span className="text-base mr-2">♾️</span><strong>Practical Tools Included</strong> — A dedicated AI Tools Arsenal, AI literacy assessment, skills mapping and US trades salaries database.</p>
+                <p><span className="text-base mr-2">♾️</span><strong>Lifetime Access</strong> — One-time $49 fee. No subscription. Includes future updates as AI and markets evolve.</p>
               </div>
             </div>
 
-            {/* Pricing - 36-42px */}
-            <div style={{ marginBottom: '55px' }}>
-              <p className="text-[40px] font-bold text-emerald-600">
+            {/* Pricing */}
+            <div className="mb-4">
+              <p className="text-2xl font-bold text-emerald-600">
                 One-Time Fee: $49
               </p>
             </div>
 
-            {/* CTA Button - Large and Prominent */}
-            <div style={{ marginBottom: '35px' }}>
-              {/* Legal Agreement Text */}
-              <p className="text-sm md:text-base text-slate-600 mb-4">
+            {/* CTA Button */}
+            <div className="mb-4">
+              <p className="text-xs text-slate-500 mb-2">
                 By purchasing, you agree to our{' '}
                 <button
                   onClick={() => {
@@ -185,31 +169,23 @@ export default function Moneyscan({ onNavigate, hasLeftLanding, stripeCheckoutUr
                 .
               </p>
 
-              <button onClick={handleGetAccess} className="bg-gradient-to-r from-emerald-500 to-blue-600 hover:from-emerald-600 hover:to-blue-700 text-white px-12 py-5 md:px-16 md:py-6 rounded-xl font-bold text-xl md:text-2xl transition-all duration-200 shadow-2xl hover:shadow-3xl transform hover:-translate-y-1 inline-flex items-center justify-center gap-3 group min-w-[360px] md:min-w-[440px]">
+              <button onClick={handleGetAccess} className="bg-gradient-to-r from-emerald-500 to-blue-600 hover:from-emerald-600 hover:to-blue-700 text-white px-8 py-3 rounded-lg font-bold text-base transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 inline-flex items-center gap-2">
                 <span>Get Instant Access — $49</span>
-                <ArrowRight className="w-7 h-7 group-hover:translate-x-2 transition-transform" />
+                <ArrowRight className="w-5 h-5" />
               </button>
-              <div className="mt-4">
-                
-              </div>
             </div>
 
             {/* Trust Line */}
-            <div className="mb-20">
-              <p className="text-lg md:text-xl text-slate-600">
+            <div className="mb-2">
+              <p className="text-sm text-slate-600">
                 Instant access. No subscription. Lifetime updates.
               </p>
             </div>
 
-            {/* Footer */}
-            <footer className="bg-slate-900 text-slate-300 py-8">
-              <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <p className="text-sm">
-                  Contact: <a href="mailto:info@moneyscan.com" className="text-emerald-400 hover:text-emerald-300">info@moneyscan.com</a>
-                </p>
-                <p className="text-xs text-slate-500 mt-2">
-                  © 2026 Moneyscan LLC. Educational only — not personalized advice.
-                </p>
+            {/* Footer - compact */}
+            <footer className="bg-slate-100 text-slate-500 py-2 text-xs">
+              <div className="max-w-5xl mx-auto text-center">
+                © 2026 Moneyscan LLC.
               </div>
             </footer>
           </div>

@@ -1,4 +1,4 @@
-import { Wrench, CheckCircle, ArrowRight, FileText, BookOpen, Calculator, TrendingUp, Download, Brain, Zap, DollarSign } from 'lucide-react';
+import { Wrench, CheckCircle, ArrowRight, FileText, BookOpen, Calculator, TrendingUp, Download, Brain, Zap, DollarSign, Target } from 'lucide-react';
 
 interface ToolsHubProps {
   onNavigate: (page: string) => void;
@@ -8,17 +8,17 @@ export default function ToolsHub({ onNavigate }: ToolsHubProps) {
   return (
     <div className="w-full">
       {/* Hero */}
-      <section className="bg-gradient-to-br from-emerald-50 via-blue-50 to-white py-16">
+      <section className="bg-gradient-to-br from-emerald-50 via-blue-50 to-white py-8">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-4 mb-6">
-            <div className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-blue-600 rounded-xl flex items-center justify-center">
+          <div className="flex items-center gap-4 mb-2">
+            <div className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-blue-600 rounded-lg flex items-center justify-center">
               <Wrench className="w-8 h-8 text-white" />
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold text-slate-900">
+            <h1 className="text-xl md:text-base font-bold text-slate-900">
               Tools Hub
             </h1>
           </div>
-          <p className="text-2xl text-slate-600 mb-4">
+          <p className="text-base text-slate-600 mb-4">
             Free Resources to Build Wealth and Advance Your Career
           </p>
           <p className="text-sm text-slate-500">
@@ -28,10 +28,10 @@ export default function ToolsHub({ onNavigate }: ToolsHubProps) {
       </section>
 
       {/* First Principle */}
-      <section className="py-12 bg-white">
+      <section className="py-6 bg-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-emerald-50 border-l-4 border-emerald-600 p-8 rounded-r-lg">
-            <h2 className="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-2">
+          <div className="bg-emerald-50 border-l-4 border-emerald-600 p-4 rounded-r-lg">
+            <h2 className="text-base font-bold text-slate-900 mb-4 flex items-center gap-2">
               <CheckCircle className="w-6 h-6 text-emerald-600" />
               First Principle
             </h2>
@@ -43,14 +43,14 @@ export default function ToolsHub({ onNavigate }: ToolsHubProps) {
       </section>
 
       {/* Core Wealth Tools Section */}
-      <section className="py-12 bg-slate-50">
+      <section className="py-6 bg-slate-50">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-slate-900 mb-8">Core Wealth Tools</h2>
+          <h2 className="text-lg font-bold text-slate-900 mb-3">Core Wealth Tools</h2>
 
-          <div className="space-y-6">
+          <div className="space-y-3">
             {/* Compound Interest Calculator */}
-            <div className="bg-white p-8 rounded-xl shadow-md border border-slate-200">
-              <div className="flex items-start gap-4 mb-6">
+            <div className="bg-white p-4 rounded-lg shadow-md border border-slate-200">
+              <div className="flex items-start gap-4 mb-2">
                 <div className="w-12 h-12 bg-emerald-100 rounded-lg flex items-center justify-center flex-shrink-0">
                   <Calculator className="w-6 h-6 text-emerald-600" />
                 </div>
@@ -61,15 +61,40 @@ export default function ToolsHub({ onNavigate }: ToolsHubProps) {
                   </p>
                 </div>
               </div>
-              <button className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-emerald-500 to-blue-600 text-white rounded-lg font-bold hover:from-emerald-600 hover:to-blue-700 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+              <button 
+                onClick={() => onNavigate('compound-interest-tool')}
+                className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-emerald-500 to-blue-600 text-white rounded-lg font-bold hover:from-emerald-600 hover:to-blue-700 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+              >
                 <Calculator className="w-5 h-5" />
-                <span>Try It Free</span>
+                <span>Launch Tool</span>
+              </button>
+            </div>
+
+            {/* Wealth Goal Calculator - NEW */}
+            <div className="bg-white p-4 rounded-lg shadow-md border-2 border-amber-200">
+              <div className="flex items-start gap-4 mb-2">
+                <div className="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <Target className="w-6 h-6 text-amber-600" />
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-xl font-bold text-slate-900 mb-3">Wealth Goal Calculator</h3>
+                  <p className="text-slate-700 leading-relaxed">
+                    Reverse-engineer your wealth goal. Enter your target amount and timeline — the tool calculates the return you need, then shows wealth paths that could hit it.
+                  </p>
+                </div>
+              </div>
+              <button 
+                onClick={() => onNavigate('wealth-goal')}
+                className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-amber-500 to-orange-600 text-white rounded-lg font-bold hover:from-amber-600 hover:to-orange-700 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+              >
+                <Target className="w-5 h-5" />
+                <span>Launch Tool</span>
               </button>
             </div>
 
             {/* Debt Payoff Projector */}
-            <div className="bg-white p-8 rounded-xl shadow-md border border-slate-200">
-              <div className="flex items-start gap-4 mb-6">
+            <div className="bg-white p-4 rounded-lg shadow-md border border-slate-200">
+              <div className="flex items-start gap-4 mb-2">
                 <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
                   <TrendingUp className="w-6 h-6 text-blue-600" />
                 </div>
@@ -90,8 +115,8 @@ export default function ToolsHub({ onNavigate }: ToolsHubProps) {
             </div>
 
             {/* Surplus Tracker Worksheet */}
-            <div className="bg-white p-8 rounded-xl shadow-md border border-slate-200">
-              <div className="flex items-start gap-4 mb-6">
+            <div className="bg-white p-4 rounded-lg shadow-md border border-slate-200">
+              <div className="flex items-start gap-4 mb-2">
                 <div className="w-12 h-12 bg-emerald-100 rounded-lg flex items-center justify-center flex-shrink-0">
                   <FileText className="w-6 h-6 text-emerald-600" />
                 </div>
@@ -115,14 +140,14 @@ export default function ToolsHub({ onNavigate }: ToolsHubProps) {
       </section>
 
       {/* AI Era Career Tools Section */}
-      <section className="py-12 bg-white">
+      <section className="py-6 bg-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-slate-900 mb-8">AI Era Career Tools</h2>
+          <h2 className="text-lg font-bold text-slate-900 mb-3">AI Era Career Tools</h2>
 
-          <div className="space-y-6">
+          <div className="space-y-3">
             {/* AI Literacy Assessment */}
-            <div className="bg-white p-8 rounded-xl shadow-md border border-slate-200">
-              <div className="flex items-start gap-4 mb-6">
+            <div className="bg-white p-4 rounded-lg shadow-md border border-slate-200">
+              <div className="flex items-start gap-4 mb-2">
                 <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
                   <Brain className="w-6 h-6 text-blue-600" />
                 </div>
@@ -144,7 +169,7 @@ export default function ToolsHub({ onNavigate }: ToolsHubProps) {
               {/* Assessment Details */}
               <div className="mt-8 pt-8 border-t border-slate-200">
                 <h4 className="font-bold text-slate-900 mb-4">Rate each statement from 0–3 (0 = Never / Strongly Disagree, 3 = Always / Strongly Agree):</h4>
-                <div className="bg-slate-50 p-6 rounded-lg mb-6">
+                <div className="bg-slate-50 p-3 rounded-lg mb-2">
                   <ol className="space-y-3 text-slate-700 list-decimal list-inside">
                     <li>I regularly use AI tools (ChatGPT, Claude, Gemini, etc.) to help me work faster or smarter.</li>
                     <li>I know how to write effective prompts that get useful, specific results instead of generic answers.</li>
@@ -161,7 +186,7 @@ export default function ToolsHub({ onNavigate }: ToolsHubProps) {
                   </ol>
                 </div>
 
-                <div className="bg-blue-50 border-l-4 border-blue-600 p-6 rounded-r-lg">
+                <div className="bg-blue-50 border-l-4 border-blue-600 p-3 rounded-r-lg">
                   <h4 className="font-bold text-slate-900 mb-3">Scoring</h4>
                   <ul className="space-y-2 text-slate-700">
                     <li><strong>0–12 points: Beginner</strong> – Focus on foundational prompting and daily use.</li>
@@ -173,8 +198,8 @@ export default function ToolsHub({ onNavigate }: ToolsHubProps) {
             </div>
 
             {/* Skills Map Worksheet */}
-            <div className="bg-white p-8 rounded-xl shadow-md border border-slate-200">
-              <div className="flex items-start gap-4 mb-6">
+            <div className="bg-white p-4 rounded-lg shadow-md border border-slate-200">
+              <div className="flex items-start gap-4 mb-2">
                 <div className="w-12 h-12 bg-emerald-100 rounded-lg flex items-center justify-center flex-shrink-0">
                   <FileText className="w-6 h-6 text-emerald-600" />
                 </div>
@@ -197,8 +222,8 @@ export default function ToolsHub({ onNavigate }: ToolsHubProps) {
             </div>
 
             {/* Freelance AI Gigs Explorer */}
-            <div className="bg-white p-8 rounded-xl shadow-md border border-slate-200">
-              <div className="flex items-start gap-4 mb-6">
+            <div className="bg-white p-4 rounded-lg shadow-md border border-slate-200">
+              <div className="flex items-start gap-4 mb-2">
                 <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
                   <Zap className="w-6 h-6 text-blue-600" />
                 </div>
@@ -273,7 +298,7 @@ export default function ToolsHub({ onNavigate }: ToolsHubProps) {
               </div>
 
               {/* How to Get Started */}
-              <div className="mt-8 bg-blue-50 border-l-4 border-blue-600 p-6 rounded-r-lg">
+              <div className="mt-8 bg-blue-50 border-l-4 border-blue-600 p-3 rounded-r-lg">
                 <h4 className="font-bold text-slate-900 mb-4">How to Get Started (Simple 3-Step Process)</h4>
                 <ol className="space-y-3 text-slate-700">
                   <li className="flex items-start gap-3">
@@ -300,14 +325,14 @@ export default function ToolsHub({ onNavigate }: ToolsHubProps) {
       </section>
 
       {/* Trade & Opportunity Tools Section */}
-      <section className="py-12 bg-slate-50">
+      <section className="py-6 bg-slate-50">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-slate-900 mb-8">Trade & Opportunity Tools</h2>
+          <h2 className="text-lg font-bold text-slate-900 mb-3">Trade & Opportunity Tools</h2>
 
-          <div className="space-y-6">
+          <div className="space-y-3">
             {/* Trade Opportunity Finder */}
-            <div className="bg-white p-8 rounded-xl shadow-md border border-slate-200">
-              <div className="flex items-start gap-4 mb-6">
+            <div className="bg-white p-4 rounded-lg shadow-md border border-slate-200">
+              <div className="flex items-start gap-4 mb-2">
                 <div className="w-12 h-12 bg-emerald-100 rounded-lg flex items-center justify-center flex-shrink-0">
                   <Wrench className="w-6 h-6 text-emerald-600" />
                 </div>
@@ -328,8 +353,8 @@ export default function ToolsHub({ onNavigate }: ToolsHubProps) {
             </div>
 
             {/* National Trades Report - Upgraded to Interactive */}
-            <div className="bg-white p-8 rounded-xl shadow-md border border-slate-200">
-              <div className="flex items-start gap-4 mb-6">
+            <div className="bg-white p-4 rounded-lg shadow-md border border-slate-200">
+              <div className="flex items-start gap-4 mb-2">
                 <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
                   <TrendingUp className="w-6 h-6 text-blue-600" />
                 </div>
@@ -354,14 +379,14 @@ export default function ToolsHub({ onNavigate }: ToolsHubProps) {
       </section>
 
       {/* How to Use These Tools */}
-      <section className="py-12 bg-white">
+      <section className="py-6 bg-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-slate-900 mb-6">How to Use These Tools</h2>
-          <p className="text-lg text-slate-700 mb-8 leading-relaxed">
+          <h2 className="text-lg font-bold text-slate-900 mb-2">How to Use These Tools</h2>
+          <p className="text-lg text-slate-700 mb-3 leading-relaxed">
             Start with the <strong>Compound Interest Calculator</strong> or <strong>AI Literacy Assessment</strong> — they provide the clearest "aha" moments. Then move to the <strong>Surplus Tracker</strong>, <strong>Freelance AI Gigs Explorer</strong>, or <strong>Trade Opportunity Finder</strong> to turn insight into consistent action.
           </p>
 
-          <div className="bg-blue-50 border-l-4 border-blue-600 p-8 rounded-r-lg mb-8">
+          <div className="bg-blue-50 border-l-4 border-blue-600 p-4 rounded-r-lg mb-3">
             <h3 className="text-xl font-bold text-slate-900 mb-4 flex items-center gap-2">
               <CheckCircle className="w-6 h-6 text-blue-600" />
               How This Connects
@@ -382,7 +407,7 @@ export default function ToolsHub({ onNavigate }: ToolsHubProps) {
             </ul>
           </div>
 
-          <div className="bg-gradient-to-r from-emerald-100 to-blue-100 p-6 rounded-xl border border-emerald-200">
+          <div className="bg-gradient-to-r from-emerald-100 to-blue-100 p-3 rounded-lg border border-emerald-200">
             <h3 className="text-xl font-bold text-slate-900 mb-3">Next Steps</h3>
             <p className="text-lg text-slate-800">
               Pick one tool and use it today. Small, consistent action compounds faster than you think.
@@ -392,12 +417,12 @@ export default function ToolsHub({ onNavigate }: ToolsHubProps) {
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-gradient-to-br from-emerald-600 to-blue-700 text-white">
+      <section className="py-8 bg-gradient-to-br from-emerald-600 to-blue-700 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-black mb-6">
+          <h2 className="text-lg md:text-xl font-black mb-2">
             Ready to Take Action?
           </h2>
-          <p className="text-xl text-emerald-100 mb-8 max-w-2xl mx-auto">
+          <p className="text-xl text-emerald-100 mb-3 max-w-2xl mx-auto">
             Start with one tool today and build momentum toward lasting wealth.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

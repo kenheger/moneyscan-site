@@ -105,6 +105,36 @@ export default function Header({ onNavigate, currentPage, hasLeftLanding }: Head
             >
               Tools
             </button>
+            <button
+              onClick={() => handleNavigate('entrepreneurship-page')}
+              className={`px-4 py-2 rounded-lg transition-colors ${
+                currentPage === 'entrepreneurship-page'
+                  ? 'text-emerald-600 bg-emerald-50'
+                  : 'text-slate-700 hover:text-emerald-600 hover:bg-emerald-50'
+              }`}
+            >
+              Entrepreneurship
+            </button>
+            <button
+              onClick={() => handleNavigate('tax-strategies')}
+              className={`px-4 py-2 rounded-lg transition-colors ${
+                currentPage === 'tax-strategies'
+                  ? 'text-emerald-600 bg-emerald-50'
+                  : 'text-slate-700 hover:text-emerald-600 hover:bg-emerald-50'
+              }`}
+            >
+              Tax Strategies
+            </button>
+            <button
+              onClick={() => handleNavigate('prompts-vault')}
+              className={`px-4 py-2 rounded-lg transition-colors ${
+                currentPage === 'prompts-vault'
+                  ? 'text-amber-600 bg-amber-50'
+                  : 'text-slate-700 hover:text-amber-600 hover:bg-amber-50'
+              }`}
+            >
+              Prompts
+            </button>
           </nav>
 
           {/* Mobile menu button */}
@@ -160,6 +190,24 @@ export default function Header({ onNavigate, currentPage, hasLeftLanding }: Head
               className="block w-full text-left px-4 py-2 text-slate-700 hover:bg-slate-50"
             >
               Tools
+            </button>
+            <button
+              onClick={() => handleNavigate('entrepreneurship-page')}
+              className="block w-full text-left px-4 py-2 text-slate-700 hover:bg-slate-50"
+            >
+              Entrepreneurship
+            </button>
+            <button
+              onClick={() => handleNavigate('tax-strategies')}
+              className="block w-full text-left px-4 py-2 text-slate-700 hover:bg-slate-50"
+            >
+              Tax Strategies
+            </button>
+            <button
+              onClick={() => handleNavigate('prompts-vault')}
+              className="block w-full text-left px-4 py-2 text-slate-700 hover:bg-slate-50 font-medium"
+            >
+              ⚡ AI Prompts Vault
             </button>
           </nav>
         )}

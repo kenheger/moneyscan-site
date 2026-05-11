@@ -11,17 +11,17 @@ export default function WealthEngine({ onNavigate }: WealthEngineProps) {
   return (
     <div className="w-full">
       {/* Hero */}
-      <section className="bg-gradient-to-br from-emerald-50 via-blue-50 to-white py-16">
+      <section className="bg-gradient-to-br from-emerald-50 via-blue-50 to-white py-8">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-3 mb-6">
-            <div className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-blue-600 rounded-xl flex items-center justify-center">
+          <div className="flex items-center gap-3 mb-2">
+            <div className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-blue-600 rounded-lg flex items-center justify-center">
               <TrendingUp className="w-8 h-8 text-white" />
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold text-slate-900">
+            <h1 className="text-xl md:text-base font-bold text-slate-900">
               The Wealth Engine
             </h1>
           </div>
-          <p className="text-2xl text-slate-600 mb-4">
+          <p className="text-base text-slate-600 mb-4">
             Compound Interest and Long-Term Investing
           </p>
           <p className="text-sm text-slate-500">
@@ -31,10 +31,10 @@ export default function WealthEngine({ onNavigate }: WealthEngineProps) {
       </section>
 
       {/* First Principle */}
-      <section className="py-12 bg-white">
+      <section className="py-6 bg-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-emerald-50 border-l-4 border-emerald-600 p-8 rounded-r-lg">
-            <h2 className="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-2">
+          <div className="bg-emerald-50 border-l-4 border-emerald-600 p-4 rounded-r-lg">
+            <h2 className="text-base font-bold text-slate-900 mb-4 flex items-center gap-2">
               <CheckCircle className="w-6 h-6 text-emerald-600" />
               First Principle
             </h2>
@@ -56,7 +56,7 @@ export default function WealthEngine({ onNavigate }: WealthEngineProps) {
               This is the only principle that turns time into your greatest financial ally.
             </p>
 
-            <div className="my-8 p-6 bg-blue-50 rounded-xl border border-blue-200">
+            <div className="my-8 p-3 bg-blue-50 rounded-lg border border-blue-200">
               <h4 className="font-bold text-slate-900 mb-3">Simple Illustration</h4>
               <p className="text-slate-700">
                 Imagine putting away <strong>$300 per month</strong> instead of spending it. Over decades, that money doesn't just add up — it <strong>multiplies</strong>.
@@ -67,21 +67,21 @@ export default function WealthEngine({ onNavigate }: WealthEngineProps) {
       </section>
 
       {/* Calculator */}
-      <section className="py-12 bg-slate-50">
+      <section className="py-6 bg-slate-50">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white p-8 rounded-2xl shadow-xl">
+          <div className="bg-white p-4 rounded-lg shadow-xl">
             <CompoundCalculator />
           </div>
         </div>
       </section>
 
       {/* Benchmark */}
-      <section className="py-12 bg-white">
+      <section className="py-6 bg-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-slate-900 mb-6">Benchmark: The Math You Can Count On</h2>
+          <h2 className="text-lg font-bold text-slate-900 mb-2">Benchmark: The Math You Can Count On</h2>
 
-          <div className="mb-8">
-            <div className="bg-gradient-to-r from-emerald-100 to-blue-100 p-6 rounded-xl border border-emerald-200">
+          <div className="mb-3">
+            <div className="bg-gradient-to-r from-emerald-100 to-blue-100 p-3 rounded-lg border border-emerald-200">
               <p className="text-lg text-slate-800">
                 <strong>Historical Performance:</strong> Broad U.S. stock market indexes (represented by the S&P 500) have delivered an average annual total return of approximately <strong>10% nominally</strong> (including dividends) over the past 90+ years, or roughly <strong>7% after inflation</strong>.
               </p>
@@ -121,7 +121,7 @@ export default function WealthEngine({ onNavigate }: WealthEngineProps) {
             </table>
           </div>
 
-          <div className="mt-6 p-6 bg-yellow-50 border border-yellow-200 rounded-xl">
+          <div className="mt-6 p-3 bg-yellow-50 border border-yellow-200 rounded-lg">
             <h4 className="font-bold text-slate-900 mb-2 flex items-center gap-2">
               <TrendingUp className="w-5 h-5 text-yellow-600" />
               Key Takeaway
@@ -134,10 +134,10 @@ export default function WealthEngine({ onNavigate }: WealthEngineProps) {
       </section>
 
       {/* Real-World Achievers */}
-      <section className="py-12 bg-slate-50">
+      <section className="py-6 bg-slate-50">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-slate-900 mb-6">Real-World Achievers</h2>
-          <div className="bg-white p-8 rounded-xl shadow-md">
+          <h2 className="text-lg font-bold text-slate-900 mb-2">Real-World Achievers</h2>
+          <div className="bg-white p-4 rounded-lg shadow-md">
             <p className="text-lg text-slate-700 mb-4">
               Millions of everyday investors have built substantial wealth by simply:
             </p>
@@ -157,16 +157,16 @@ export default function WealthEngine({ onNavigate }: WealthEngineProps) {
       </section>
 
       {/* Actionable Vehicles */}
-      <section className="py-12 bg-white">
+      <section className="py-6 bg-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-slate-900 mb-2">
+          <h2 className="text-lg font-bold text-slate-900 mb-2">
             Simple Actionable Vehicles <span className="text-slate-500 text-xl">(Examples Only)</span>
           </h2>
-          <p className="text-slate-600 mb-8">
+          <p className="text-slate-600 mb-3">
             These popular, low-cost options help many people execute the principle of consistent, diversified long-term investing:
           </p>
 
-          <div className="space-y-6">
+          <div className="space-y-3">
             <VehicleCard
               name="Vanguard Total Stock Market ETF (VTI)"
               description="Provides broad exposure to nearly the entire U.S. stock market (large-, mid-, and small-cap stocks) with an ultra-low expense ratio of 0.03%. A simple, set-it-and-forget-it core holding for compounding."
@@ -192,7 +192,7 @@ export default function WealthEngine({ onNavigate }: WealthEngineProps) {
             />
           </div>
 
-          <div className="mt-8 p-6 bg-blue-50 border border-blue-200 rounded-xl">
+          <div className="mt-8 p-3 bg-blue-50 border border-blue-200 rounded-lg">
             <h4 className="font-bold text-slate-900 mb-3">How to Execute:</h4>
             <p className="text-slate-700">
               Open or use an existing tax-advantaged account (401(k) with employer match first, then IRA), select one of these (or a similar total-market fund), and set up recurring investments from your paycheck. Increase the amount over time as income grows.
@@ -202,10 +202,10 @@ export default function WealthEngine({ onNavigate }: WealthEngineProps) {
       </section>
 
       {/* Caveats */}
-      <section className="py-12 bg-slate-50">
+      <section className="py-6 bg-slate-50">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-amber-50 border-l-4 border-amber-500 p-8 rounded-r-lg">
-            <h2 className="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-2">
+          <div className="bg-amber-50 border-l-4 border-amber-500 p-4 rounded-r-lg">
+            <h2 className="text-base font-bold text-slate-900 mb-4 flex items-center gap-2">
               <AlertCircle className="w-6 h-6 text-amber-600" />
               Important Context & Caveats
             </h2>
@@ -232,10 +232,10 @@ export default function WealthEngine({ onNavigate }: WealthEngineProps) {
       </section>
 
       {/* How It Connects */}
-      <section className="py-12 bg-white">
+      <section className="py-6 bg-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-slate-900 mb-6">How This Connects to Other Principles</h2>
-          <div className="grid md:grid-cols-2 gap-6">
+          <h2 className="text-lg font-bold text-slate-900 mb-2">How This Connects to Other Principles</h2>
+          <div className="grid md:grid-cols-2 gap-3">
             <ConnectionCard
               title="Cash Flow Mastery"
               description="Creates the monthly contributions that feed the engine"
@@ -254,15 +254,19 @@ export default function WealthEngine({ onNavigate }: WealthEngineProps) {
               description="Provides additional surplus or alternative forms of growth and control"
               onClick={() => onNavigate('real-estate-crowdfunding')}
             />
+            <ConnectionCard
+              title="Crypto: Beyond Scope"
+              description="High risk, high speculation. Educational mention only — research thoroughly before considering."
+            />
           </div>
         </div>
       </section>
 
       {/* Next Steps */}
-      <section className="py-16 bg-gradient-to-br from-emerald-500 to-blue-600 text-white">
+      <section className="py-8 bg-gradient-to-br from-emerald-500 to-blue-600 text-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold mb-6">Ready to Put the Wealth Engine to Work?</h2>
-          <p className="text-xl mb-8 text-emerald-50">
+          <h2 className="text-lg font-bold mb-2">Ready to Put the Wealth Engine to Work?</h2>
+          <p className="text-xl mb-3 text-emerald-50">
             Start by calculating what consistent investing could mean for you, then explore how to protect and accelerate it.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

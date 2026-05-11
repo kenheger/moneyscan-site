@@ -19,8 +19,17 @@ import TradeOpportunityFinder from './components/TradeOpportunityFinder';
 import RealEstatePaths from './components/RealEstatePaths';
 import FirstTimeHomeBuyer from './components/FirstTimeHomeBuyer';
 import LegalPrivacy from './components/LegalPrivacy';
+import EntrepreneurshipPage from './components/EntrepreneurshipPage';
+import WealthGoalCalculator from './components/WealthGoalCalculator';
+import PromptsVault from './components/PromptsVault';
+import CompoundInterest from './components/CompoundInterest';
+import CompoundInterestTool from './components/CompoundInterestTool';
+import DebtEliminationPage from './components/DebtEliminationPage';
+import BudgetingPage from './components/BudgetingPage';
+import TaxStrategies from './components/TaxStrategies';
+import TaxAdvantagesChildren from './components/TaxAdvantagesChildren';
 
-type Page = 'home' | 'old-home' | 'wealth-engine' | 'behavioral-finance' | 'debt-elimination' | 'real-estate-crowdfunding' | 'house-hacking' | 'real-estate-paths' | 'first-time-home-buyer' | 'cash-flow-mastery' | 'ai-era-careers' | 'ai-career-tools' | 'ai-skills-worksheet' | 'tools-hub' | 'moneyscan' | 'skilled-trades' | 'trade-opportunity-finder' | 'legal-privacy';
+type Page = 'moneyscan' | 'home' | 'wealth-engine' | 'behavioral-finance' | 'debt-elimination' | 'real-estate-crowdfunding' | 'house-hacking' | 'real-estate-paths' | 'first-time-home-buyer' | 'cash-flow-mastery' | 'ai-era-careers' | 'ai-career-tools' | 'ai-skills-worksheet' | 'tools-hub' | 'skilled-trades' | 'trade-opportunity-finder' | 'legal-privacy' | 'wealth-goal' | 'prompts-vault' | 'compound-interest' | 'compound-interest-tool' | 'debt-elimination-page' | 'budgeting-page' | 'entrepreneurship-page' | 'tax-strategies' | 'tax-advantages-children';
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState<Page>('moneyscan');
@@ -42,7 +51,7 @@ export default function App() {
   const navigateTo = useCallback((page: Page) => {
     // Paywall check - only allow free pages or if user has paid
     const hasAccess = localStorage.getItem('moneyscan_unlocked') === 'true';
-    const freePages: Page[] = ['moneyscan', 'legal-privacy'];
+    const freePages: Page[] = ['moneyscan', 'legal-privacy', 'prompts-vault', 'wealth-goal', 'compound-interest', 'compound-interest-tool', 'home', 'wealth-engine', 'real-estate-paths', 'debt-elimination-page', 'budgeting-page', 'ai-era-careers', 'ai-skills-worksheet', 'skilled-trades', 'cash-flow-mastery', 'house-hacking', 'entrepreneurship-page', 'tax-strategies', 'tax-advantages-children'];
     
     if (!hasAccess && !freePages.includes(page)) {
       // Redirect to paywall
@@ -88,7 +97,7 @@ export default function App() {
   // Initialize with current page
   useEffect(() => {
     const hasAccess = localStorage.getItem('moneyscan_unlocked') === 'true';
-    const freePages: Page[] = ['moneyscan', 'legal-privacy'];
+    const freePages: Page[] = ['moneyscan', 'legal-privacy', 'prompts-vault', 'wealth-goal', 'compound-interest', 'compound-interest-tool', 'home', 'wealth-engine', 'real-estate-paths', 'debt-elimination-page', 'budgeting-page', 'ai-era-careers', 'ai-skills-worksheet', 'skilled-trades', 'cash-flow-mastery', 'house-hacking', 'entrepreneurship-page', 'tax-strategies', 'tax-advantages-children'];
     
     // Check for hash in URL
     const hash = window.location.hash.slice(1) as Page;
@@ -132,7 +141,16 @@ export default function App() {
         {currentPage === 'moneyscan' && <Moneyscan onNavigate={navigateTo} hasLeftLanding={hasLeftLanding} stripeCheckoutUrl="https://buy.stripe.com/cNidRb0ONcy6caR1kSfMA06" />}
         {currentPage === 'skilled-trades' && <SkilledTrades onNavigate={navigateTo} stripeCheckoutUrl="https://buy.stripe.com/9B6fZj9lj55EcaRd3AfMA05" />}
         {currentPage === 'trade-opportunity-finder' && <TradeOpportunityFinder onNavigate={navigateTo} stripeCheckoutUrl="https://buy.stripe.com/9B6fZj9lj55EcaRd3AfMA05" />}
+        {currentPage === 'wealth-goal' && <WealthGoalCalculator onNavigate={navigateTo} />}
+        {currentPage === 'prompts-vault' && <PromptsVault onNavigate={navigateTo} />}
+        {currentPage === 'compound-interest' && <CompoundInterest onNavigate={navigateTo} />}
+        {currentPage === 'compound-interest-tool' && <CompoundInterestTool onNavigate={navigateTo} />}
+        {currentPage === 'debt-elimination-page' && <DebtEliminationPage onNavigate={navigateTo} />}
+        {currentPage === 'budgeting-page' && <BudgetingPage onNavigate={navigateTo} />}
         {currentPage === 'legal-privacy' && <LegalPrivacy onNavigate={navigateTo} />}
+        {currentPage === 'entrepreneurship-page' && <EntrepreneurshipPage onNavigate={navigateTo} />}
+        {currentPage === 'tax-strategies' && <TaxStrategies onNavigate={navigateTo} />}
+        {currentPage === 'tax-advantages-children' && <TaxAdvantagesChildren onNavigate={navigateTo} />}
       </main>
 
       {/* Footer */}

@@ -198,12 +198,10 @@ export default function RealEstatePaths({ onNavigate, hasLeftLanding }: RealEsta
                 <span className="text-xl">🗺️</span> Key Considerations:
               </h4>
               <p className="text-slate-700 mb-3">
-                <span className="font-bold text-emerald-700" style={{ marginLeft: '-1.5em' }}>  </span>
-                <strong>B</strong>uy your raw land property first! Almost any bank <strong>will</strong> provide you with a construction loan if you own the property. And how smart you are in picking the location makes a huge difference. Scout the exurbs and the trendy locations for wealth building locations. For example, almost anyone that bought land and built a home in the Myrtle Beach, SC area in the past 10 years is doing very well indeed.
+                <strong>🅱️</strong>uy your raw land property first! Almost any bank <strong>will</strong> provide you with a construction loan if you own the property. And how smart you are in picking the location makes a huge difference. Scout the exurbs and the trendy locations for wealth building locations. For example, almost anyone that bought land and built a home in the Myrtle Beach, SC area in the past 10 years is doing very well indeed.
               </p>
               <p className="text-slate-700">
-                <span className="font-bold text-emerald-700" style={{ marginLeft: '-1.5em' }}>  </span>
-                <strong>C</strong>heck NAR (National Association of Realtors) for hot spots to scout property for appreciation. Also check out niche.com for best schools and family-supportive areas.
+                <strong>🅲</strong>heck NAR (National Association of Realtors) for hot spots to scout property for appreciation. Also check out niche.com for best schools and family-supportive areas.
               </p>
             </div>
             
@@ -257,7 +255,7 @@ export default function RealEstatePaths({ onNavigate, hasLeftLanding }: RealEsta
             
             <div className="bg-blue-50 rounded-lg p-4 mb-6 border border-blue-200">
               <h4 className="font-bold text-slate-900 mb-3 flex items-center gap-2">
-                <span className="text-xl">📦</span> Material Costs:
+                <span className="text-xl">📦</span> 🅼aterial Costs:
               </h4>
               <p className="text-slate-700 mb-3">
                 Material costs for a traditional new home build, typically, run 40%. Add 10% for contingencies and "unforeseen" items and you can see that only half the cost of the new home lies in materials.
@@ -276,11 +274,8 @@ export default function RealEstatePaths({ onNavigate, hasLeftLanding }: RealEsta
             
             <div className="bg-emerald-50 rounded-lg p-4 border border-emerald-200">
               <h4 className="font-bold text-slate-900 mb-2 flex items-center gap-2">
-                <span className="text-xl">🏠</span> The Capital Gains "Two-Year Rule"
+                <span className="text-xl">🏠</span> 🆈our new build house should be your primary residence for at least two years for the full tax benefit. If you live there for 2 out of the 5 years before selling, the first <strong>$250,000 (single) or $500,000 (married)</strong> of profit is typically tax-free. This meshes perfectly with family-raising scenarios where the kids are in area schools for a number of years.
               </h4>
-              <p className="text-slate-700">
-                Your new build house should be your primary residence for at least two years for the full tax benefit. If you live there for 2 out of the 5 years before selling, the first <strong>$250,000 (single) or $500,000 (married)</strong> of profit is typically tax-free. This meshes perfectly with family-raising scenarios where the kids are in area schools for a number of years.
-              </p>
             </div>
           </div>
         </div>

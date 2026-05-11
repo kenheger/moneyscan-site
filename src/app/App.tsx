@@ -28,8 +28,9 @@ import DebtEliminationPage from './components/DebtEliminationPage';
 import BudgetingPage from './components/BudgetingPage';
 import TaxStrategies from './components/TaxStrategies';
 import TaxAdvantagesChildren from './components/TaxAdvantagesChildren';
+import BuildYourOwnHome from './components/BuildYourOwnHome';
 
-type Page = 'moneyscan' | 'home' | 'wealth-engine' | 'behavioral-finance' | 'debt-elimination' | 'real-estate-crowdfunding' | 'house-hacking' | 'real-estate-paths' | 'first-time-home-buyer' | 'cash-flow-mastery' | 'ai-era-careers' | 'ai-career-tools' | 'ai-skills-worksheet' | 'tools-hub' | 'skilled-trades' | 'trade-opportunity-finder' | 'legal-privacy' | 'wealth-goal' | 'prompts-vault' | 'compound-interest' | 'compound-interest-tool' | 'debt-elimination-page' | 'budgeting-page' | 'entrepreneurship-page' | 'tax-strategies' | 'tax-advantages-children';
+type Page = 'moneyscan' | 'home' | 'wealth-engine' | 'behavioral-finance' | 'debt-elimination' | 'real-estate-crowdfunding' | 'house-hacking' | 'real-estate-paths' | 'first-time-home-buyer' | 'cash-flow-mastery' | 'ai-era-careers' | 'ai-career-tools' | 'ai-skills-worksheet' | 'tools-hub' | 'skilled-trades' | 'trade-opportunity-finder' | 'legal-privacy' | 'wealth-goal' | 'prompts-vault' | 'compound-interest' | 'compound-interest-tool' | 'debt-elimination-page' | 'budgeting-page' | 'entrepreneurship-page' | 'tax-strategies' | 'tax-advantages-children' | 'build-your-own-home';
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState<Page>('moneyscan');
@@ -51,7 +52,7 @@ export default function App() {
   const navigateTo = useCallback((page: Page) => {
     // Paywall check - only allow free pages or if user has paid
     const hasAccess = localStorage.getItem('moneyscan_unlocked') === 'true';
-    const freePages: Page[] = ['moneyscan', 'legal-privacy', 'prompts-vault', 'wealth-goal', 'compound-interest', 'compound-interest-tool', 'home', 'wealth-engine', 'real-estate-paths', 'debt-elimination-page', 'budgeting-page', 'ai-era-careers', 'ai-skills-worksheet', 'skilled-trades', 'cash-flow-mastery', 'house-hacking', 'entrepreneurship-page', 'tax-strategies', 'tax-advantages-children'];
+    const freePages: Page[] = ['moneyscan', 'legal-privacy', 'prompts-vault', 'wealth-goal', 'compound-interest', 'compound-interest-tool', 'home', 'wealth-engine', 'real-estate-paths', 'debt-elimination-page', 'budgeting-page', 'ai-era-careers', 'ai-skills-worksheet', 'skilled-trades', 'cash-flow-mastery', 'house-hacking', 'entrepreneurship-page', 'tax-strategies', 'tax-advantages-children', 'build-your-own-home'];
     
     if (!hasAccess && !freePages.includes(page)) {
       // Redirect to paywall
@@ -97,7 +98,7 @@ export default function App() {
   // Initialize with current page
   useEffect(() => {
     const hasAccess = localStorage.getItem('moneyscan_unlocked') === 'true';
-    const freePages: Page[] = ['moneyscan', 'legal-privacy', 'prompts-vault', 'wealth-goal', 'compound-interest', 'compound-interest-tool', 'home', 'wealth-engine', 'real-estate-paths', 'debt-elimination-page', 'budgeting-page', 'ai-era-careers', 'ai-skills-worksheet', 'skilled-trades', 'cash-flow-mastery', 'house-hacking', 'entrepreneurship-page', 'tax-strategies', 'tax-advantages-children'];
+    const freePages: Page[] = ['moneyscan', 'legal-privacy', 'prompts-vault', 'wealth-goal', 'compound-interest', 'compound-interest-tool', 'home', 'wealth-engine', 'real-estate-paths', 'debt-elimination-page', 'budgeting-page', 'ai-era-careers', 'ai-skills-worksheet', 'skilled-trades', 'cash-flow-mastery', 'house-hacking', 'entrepreneurship-page', 'tax-strategies', 'tax-advantages-children', 'build-your-own-home'];
     
     // Check for hash in URL
     const hash = window.location.hash.slice(1) as Page;
@@ -151,6 +152,7 @@ export default function App() {
         {currentPage === 'entrepreneurship-page' && <EntrepreneurshipPage onNavigate={navigateTo} />}
         {currentPage === 'tax-strategies' && <TaxStrategies onNavigate={navigateTo} />}
         {currentPage === 'tax-advantages-children' && <TaxAdvantagesChildren onNavigate={navigateTo} />}
+        {currentPage === 'build-your-own-home' && <BuildYourOwnHome onNavigate={navigateTo} />}
       </main>
 
       {/* Footer */}

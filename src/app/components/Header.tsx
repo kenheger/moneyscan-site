@@ -126,6 +126,16 @@ export default function Header({ onNavigate, currentPage, hasLeftLanding }: Head
               Tax Strategies
             </button>
             <button
+              onClick={() => handleNavigate('build-your-own-home')}
+              className={`px-4 py-2 rounded-lg transition-colors ${
+                currentPage === 'build-your-own-home'
+                  ? 'text-emerald-600 bg-emerald-50'
+                  : 'text-slate-700 hover:text-emerald-600 hover:bg-emerald-50'
+              }`}
+            >
+              Build Your Own
+            </button>
+            <button
               onClick={() => handleNavigate('prompts-vault')}
               className={`px-4 py-2 rounded-lg transition-colors ${
                 currentPage === 'prompts-vault'
@@ -202,6 +212,12 @@ export default function Header({ onNavigate, currentPage, hasLeftLanding }: Head
               className="block w-full text-left px-4 py-2 text-slate-700 hover:bg-slate-50"
             >
               Tax Strategies
+            </button>
+            <button
+              onClick={() => handleNavigate('build-your-own-home')}
+              className="block w-full text-left px-4 py-2 text-slate-700 hover:bg-slate-50"
+            >
+              Build Your Own
             </button>
             <button
               onClick={() => handleNavigate('prompts-vault')}

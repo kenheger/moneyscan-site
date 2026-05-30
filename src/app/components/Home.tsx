@@ -1,4 +1,5 @@
-import { ArrowRight, TrendingUp, DollarSign, CreditCard, Briefcase, Calculator } from 'lucide-react';
+import { TrendingUp, Zap, Briefcase, Calculator, Brain } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 interface HomeProps {
   onNavigate: (page: string) => void;
@@ -8,207 +9,161 @@ export default function Home({ onNavigate }: HomeProps) {
   return (
     <div className="w-full">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-emerald-50 via-blue-50 to-white py-20">
+      <section className="bg-gradient-to-br from-emerald-50 via-blue-50 to-white pb-12 pt-16">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-xl md:text-base text-slate-600 mb-2">
-            First Principles. Lasting Wealth.
-          </p>
-
-          <h1 className="text-xl md:text-base lg:text-lg font-bold text-slate-900 mb-2 leading-tight">
-            Build Lasting Wealth – A First Principles Blueprint
+          <h1 className="text-xl md:text-2xl lg:text-3xl font-bold text-slate-900 mb-3">
+            Building Lasting Wealth in the AI Era
           </h1>
-
-          <p className="text-base md:text-lg text-slate-700 mb-2 max-w-3xl mx-auto">
+          
+          <p className="text-lg md:text-xl text-slate-700 mb-3 max-w-3xl mx-auto">
             Understand the math. Choose your path. Build wealth that lasts.
           </p>
 
-          <p className="text-lg md:text-xl italic text-slate-600 mb-4">
-            Directional & Actionable in the AI Era
+          <p className="text-md md:text-lg italic text-slate-600 mb-6">
+            AI is reshaping jobs and opportunities. Stay on top of it right here.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button
-              onClick={() => onNavigate('wealth-engine')}
-              className="bg-gradient-to-r from-emerald-500 to-blue-600 hover:from-emerald-600 hover:to-blue-700 text-white px-8 py-4 rounded-lg font-bold text-lg transition-all duration-200 shadow-xl hover:shadow-2xl transform hover:-translate-y-1 inline-flex items-center justify-center gap-2"
-            >
-              <span>Explore the Wealth Engine</span>
-              <ArrowRight className="w-5 h-5" />
-            </button>
-            <button
-              onClick={() => onNavigate('moneyscan')}
-              className="bg-white border-2 border-emerald-500 text-emerald-600 hover:bg-emerald-50 px-8 py-4 rounded-lg font-bold text-lg transition-all duration-200 shadow-lg hover:shadow-xl inline-flex items-center justify-center gap-2"
-            >
-              <span>Get the $49 Blueprint</span>
-              <ArrowRight className="w-5 h-5" />
-            </button>
-          </div>
-        </div>
-      </section>
-
-      {/* Why First Principles Section */}
-      <section className="py-8 bg-white">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-lg md:text-xl font-bold text-slate-900 mb-2 text-center">
-            Why First Principles Matter
-          </h2>
-          <p className="text-lg md:text-xl text-slate-700 leading-relaxed max-w-4xl mx-auto text-center mb-3">
-            Most financial advice changes with trends and market noise. First principles never do.
-          </p>
-
-          <h3 className="text-base md:text-lg font-bold text-slate-900 mb-4 text-center">
-            One Simple Truth That Changes Everything
-          </h3>
-          <p className="text-lg md:text-xl text-slate-700 leading-relaxed max-w-4xl mx-auto text-center mb-4">
-            Even pro athletes with massive contracts are often stunned when they first see a basic compound interest table. Once you understand how consistently investing a portion of your money grows over time — after taxes, spending, and fees — everything clicks. That single benchmark becomes your clearest overlay for every investing decision.
-          </p>
-          <p className="text-lg md:text-xl text-slate-700 leading-relaxed max-w-4xl mx-auto text-center">
-            This is where we start: with the math that actually builds lasting wealth.
+          <p className="text-lg font-medium text-red-600">
+            Explore Your Wealth Path Resources
           </p>
         </div>
       </section>
 
-      {/* Core Modules Section */}
-      <section className="py-8 bg-slate-50">
+      {/* 6 Navigation Boxes - moved up closer to title */}
+      <section className="py-6 bg-slate-50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-lg md:text-xl font-bold text-slate-900 mb-4 text-center">
-            Your Blueprint for Building Wealth
-          </h2>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
-            {/* Wealth Engine */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+            
+            {/* Keystones */}
             <button
-              onClick={() => onNavigate('compound-interest')}
-              className="bg-white p-4 rounded-lg shadow-md border border-slate-200 hover:shadow-xl transition-all text-left group"
+              onClick={() => onNavigate('ai-literacy-assessment')}
+              className="bg-white p-5 rounded-lg shadow-md border border-slate-200 hover:shadow-xl transition-all text-left group"
             >
               <div className="w-12 h-12 bg-gradient-to-br from-emerald-500 to-blue-600 rounded-lg flex items-center justify-center mb-4">
-                <TrendingUp className="w-6 h-6 text-white" />
+                <Zap className="w-6 h-6 text-white" />
               </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-emerald-600 transition-colors">
-                Compound Interest
+              <h3 className="text-lg font-bold text-slate-900 mb-2 group-hover:text-emerald-600 transition-colors">
+                Keystones
               </h3>
-              <p className="text-slate-700">
-                The 10% benchmark — the foundation every wealth path must beat
+              <p className="text-sm text-slate-600 mb-3">
+                Master the 10% benchmark. Know where you stand. Build core skills for the AI shift.
               </p>
+              <div className="text-xs text-emerald-600 font-medium">
+                Skills Assessment · Compounding · Budgeting
+              </div>
             </button>
 
-            {/* Wealth Engine */}
+            {/* Early Career */}
             <button
-              onClick={() => onNavigate('wealth-engine')}
-              className="bg-white p-4 rounded-lg shadow-md border border-slate-200 hover:shadow-xl transition-all text-left group"
+              onClick={() => onNavigate('job-heatmap')}
+              className="bg-white p-5 rounded-lg shadow-md border border-slate-200 hover:shadow-xl transition-all text-left group"
             >
-              <div className="w-12 h-12 bg-gradient-to-br from-emerald-500 to-blue-600 rounded-lg flex items-center justify-center mb-4">
-                <TrendingUp className="w-6 h-6 text-white" />
-              </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-emerald-600 transition-colors">
-                Wealth Engine
-              </h3>
-              <p className="text-slate-700">
-                Master the core math of compounding and steady investing
-              </p>
-            </button>
-
-            {/* Cash Flow Mastery */}
-            <button
-              onClick={() => onNavigate('cash-flow-mastery')}
-              className="bg-white p-4 rounded-lg shadow-md border border-slate-200 hover:shadow-xl transition-all text-left group"
-            >
-              <div className="w-12 h-12 bg-gradient-to-br from-emerald-500 to-blue-600 rounded-lg flex items-center justify-center mb-4">
-                <DollarSign className="w-6 h-6 text-white" />
-              </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-emerald-600 transition-colors">
-                Cash Flow Mastery
-              </h3>
-              <p className="text-slate-700">
-                Create consistent surplus you can actually invest
-              </p>
-            </button>
-
-            {/* Debt Elimination */}
-            <button
-              onClick={() => onNavigate('debt-elimination-page')}
-              className="bg-white p-4 rounded-lg shadow-md border border-slate-200 hover:shadow-xl transition-all text-left group"
-            >
-              <div className="w-12 h-12 bg-gradient-to-br from-red-500 to-orange-600 rounded-lg flex items-center justify-center mb-4">
-                <CreditCard className="w-6 h-6 text-white" />
-              </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-emerald-600 transition-colors">
-                Debt Elimination
-              </h3>
-              <p className="text-slate-700">
-                Stop reverse compounding and free up your money
-              </p>
-            </button>
-
-            {/* AI Era Careers */}
-            <button
-              onClick={() => onNavigate('ai-era-careers')}
-              className="bg-white p-4 rounded-lg shadow-md border border-slate-200 hover:shadow-xl transition-all text-left group"
-            >
-              <div className="w-12 h-12 bg-gradient-to-br from-emerald-500 to-blue-600 rounded-lg flex items-center justify-center mb-4">
+              <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center mb-4">
                 <Briefcase className="w-6 h-6 text-white" />
               </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-emerald-600 transition-colors">
-                AI Era Careers
+              <h3 className="text-lg font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition-colors">
+                Early Career
               </h3>
-              <p className="text-slate-700">
-                High-growth, AI-resistant paths including skilled trades
+              <p className="text-sm text-slate-600 mb-3">
+                Find your rising tide. Map the hottest jobs. Build skills that pay — now and into the AI shift.
               </p>
+              <div className="text-xs text-blue-600 font-medium">
+                Jobs · Housing · First Home
+              </div>
             </button>
 
-            {/* Tools */}
+            {/* Mid Career */}
             <button
-              onClick={() => onNavigate('tools-hub')}
-              className="bg-white p-4 rounded-lg shadow-md border border-slate-200 hover:shadow-xl transition-all text-left group"
+              onClick={() => onNavigate('mid-career-ai')}
+              className="bg-white p-5 rounded-lg shadow-md border border-slate-200 hover:shadow-xl transition-all text-left group"
             >
-              <div className="w-12 h-12 bg-gradient-to-br from-emerald-500 to-blue-600 rounded-lg flex items-center justify-center mb-4">
+              <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-600 rounded-lg flex items-center justify-center mb-4">
+                <TrendingUp className="w-6 h-6 text-white" />
+              </div>
+              <h3 className="text-lg font-bold text-slate-900 mb-2 group-hover:text-purple-600 transition-colors">
+                Mid Career
+              </h3>
+              <p className="text-sm text-slate-600 mb-3">
+                Defend your position. Grow what you've built. Build wealth that survives AI disruption.
+              </p>
+              <div className="text-xs text-purple-600 font-medium">
+                Career Defense · Investing · Real Estate
+              </div>
+            </button>
+
+            {/* Tax Strategies */}
+            <button
+              onClick={() => onNavigate('tax-strategies')}
+              className="bg-white p-5 rounded-lg shadow-md border border-slate-200 hover:shadow-xl transition-all text-left group"
+            >
+              <div className="w-12 h-12 bg-gradient-to-br from-amber-500 to-orange-600 rounded-lg flex items-center justify-center mb-4">
                 <Calculator className="w-6 h-6 text-white" />
               </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-emerald-600 transition-colors">
-                Tools
+              <h3 className="text-lg font-bold text-slate-900 mb-2 group-hover:text-orange-600 transition-colors">
+                Tax Strategies
               </h3>
-              <p className="text-slate-700">
-                Practical calculators, assessments, and worksheets
+              <p className="text-sm text-slate-600 mb-3">
+                Keep more of what you earn. Smart optimization strategies for every stage.
               </p>
+              <div className="text-xs text-orange-600 font-medium">
+                Optimization · Kids · Retirement
+              </div>
             </button>
-          </div>
-        </div>
-      </section>
 
-      {/* AI Era Insight Section */}
-      <section className="py-8 bg-white">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-lg md:text-xl font-bold text-slate-900 mb-2 text-center">
-            Built for the AI Era
-          </h2>
-          <p className="text-lg md:text-xl text-slate-700 leading-relaxed max-w-4xl mx-auto text-center">
-            AI is reshaping jobs and opportunities. This site helps you navigate both white-collar hybrid roles and high-demand skilled trades so you can build surplus faster and protect your wealth long-term.
-          </p>
-        </div>
-      </section>
-
-      {/* Final CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-emerald-500 to-blue-600">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-lg md:text-xl font-bold text-white mb-3">
-            Ready to Build Lasting Wealth?
-          </h2>
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button
-              onClick={() => onNavigate('moneyscan')}
-              className="bg-white text-emerald-600 hover:bg-emerald-50 px-8 py-4 rounded-lg font-bold text-lg transition-all duration-200 shadow-xl hover:shadow-2xl transform hover:-translate-y-1 inline-flex items-center justify-center gap-2"
-            >
-              <span>Get the $49 Blueprint</span>
-              <ArrowRight className="w-5 h-5" />
-            </button>
+            {/* Tools to Use */}
             <button
               onClick={() => onNavigate('tools-hub')}
-              className="bg-white/10 backdrop-blur border-2 border-white text-white hover:bg-white/20 px-8 py-4 rounded-lg font-bold text-lg transition-all duration-200 inline-flex items-center justify-center gap-2"
+              className="bg-white p-5 rounded-lg shadow-md border border-slate-200 hover:shadow-xl transition-all text-left group"
             >
-              <span>Browse Free Tools</span>
-              <ArrowRight className="w-5 h-5" />
+              <div className="w-12 h-12 bg-gradient-to-br from-cyan-500 to-teal-600 rounded-lg flex items-center justify-center mb-4">
+                <Calculator className="w-6 h-6 text-white" />
+              </div>
+              <h3 className="text-lg font-bold text-slate-900 mb-2 group-hover:text-teal-600 transition-colors">
+                Tools to Use
+              </h3>
+              <p className="text-sm text-slate-600 mb-3">
+                Interactive calculators and databases. Quantify your path. Find trades that pay.
+              </p>
+              <div className="text-xs text-teal-600 font-medium">
+                Compound · Budget · Trades DB
+              </div>
             </button>
+
+            {/* AI Tools Arsenal */}
+            <button
+              onClick={() => onNavigate('ai-tools-arsenal')}
+              className="bg-white p-5 rounded-lg shadow-md border border-slate-200 hover:shadow-xl transition-all text-left group"
+            >
+              <div className="w-12 h-12 bg-gradient-to-br from-violet-500 to-purple-600 rounded-lg flex items-center justify-center mb-4">
+                <Brain className="w-6 h-6 text-white" />
+              </div>
+              <h3 className="text-lg font-bold text-slate-900 mb-2 group-hover:text-violet-600 transition-colors">
+                AI Tools Arsenal
+              </h3>
+              <p className="text-sm text-slate-600 mb-3">
+                Curated AI tools by category. Proven prompts that work. Build your productivity edge.
+              </p>
+              <div className="text-xs text-violet-600 font-medium">
+                Curated Picks · Prompts Vault
+              </div>
+            </button>
+
           </div>
+        </div>
+      </section>
+
+      {/* Bottom CTA */}
+      <section className="py-12 bg-white">
+        <div className="max-w-3xl mx-auto px-4 text-center">
+          <p className="text-lg text-slate-700 mb-4">
+            Your wealth journey has a path. Start anywhere.
+          </p>
+          <button
+            onClick={() => onNavigate('ai-literacy-assessment')}
+            className="inline-flex items-center gap-2 text-emerald-600 font-bold hover:underline"
+          >
+            Keystones <ArrowRight className="w-4 h-4" />
+          </button>
         </div>
       </section>
     </div>

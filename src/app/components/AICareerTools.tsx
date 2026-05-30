@@ -10,6 +10,7 @@ interface AICareerToolsProps {
 export default function AICareerTools({ onNavigate }: AICareerToolsProps) {
   const [answers, setAnswers] = useState<number[]>(Array(12).fill(-1));
   const [showResults, setShowResults] = useState(false);
+  const [answeredCount, setAnsweredCount] = useState(0);
 
   const questions = [
     "How comfortable are you using AI tools like ChatGPT, Grok, or Claude for everyday tasks (writing, research, brainstorming)?",
@@ -27,9 +28,14 @@ export default function AICareerTools({ onNavigate }: AICareerToolsProps) {
   ];
 
   const handleAnswer = (questionIndex: number, value: number) => {
+    // Only count as new answer if it was previously unanswered (-1)
+    const isNewAnswer = answers[questionIndex] === -1;
     const newAnswers = [...answers];
     newAnswers[questionIndex] = value;
     setAnswers(newAnswers);
+    if (isNewAnswer) {
+      setAnsweredCount(prev => prev + 1);
+    }
   };
 
   const calculateScore = () => {
@@ -37,7 +43,9 @@ export default function AICareerTools({ onNavigate }: AICareerToolsProps) {
   };
 
   const handleSubmit = () => {
-    if (answers.every(a => a >= 0)) {
+    console.log('handleSubmit clicked, answeredCount:', answeredCount, 'answers:', answers);
+    if (answeredCount === 12) {
+      console.log('All 12 answered, showing results');
       setShowResults(true);
       // Scroll to results
       setTimeout(() => {
@@ -46,6 +54,8 @@ export default function AICareerTools({ onNavigate }: AICareerToolsProps) {
           resultsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
       }, 100);
+    } else {
+      console.log('Not all answered:', answeredCount);
     }
   };
 
@@ -91,7 +101,7 @@ export default function AICareerTools({ onNavigate }: AICareerToolsProps) {
 
   const score = calculateScore();
   const results = getResultsData(score);
-  const allAnswered = answers.every(a => a >= 0);
+  const allAnswered = answeredCount === 12;
 
   return (
     <div className="w-full">{/* Hero */}

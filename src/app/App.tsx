@@ -11,6 +11,7 @@ import HouseHacking from './components/HouseHacking';
 import CashFlowMastery from './components/CashFlowMastery';
 import AIEraCareers from './components/AIEraCareers';
 import AICareerTools from './components/AICareerTools';
+import AIToolFluency from './components/AIToolFluency';
 import AISkillsMapWorksheet from './components/AISkillsMapWorksheet';
 import ToolsHub from './components/ToolsHub';
 import Moneyscan from './components/Moneyscan';
@@ -29,8 +30,17 @@ import BudgetingPage from './components/BudgetingPage';
 import TaxStrategies from './components/TaxStrategies';
 import TaxAdvantagesChildren from './components/TaxAdvantagesChildren';
 import BuildYourOwnHome from './components/BuildYourOwnHome';
+import Adulting101 from './components/Adulting101';
+import JobHeatmap from './components/JobHeatmap';
+import AIToolsArsenal from './components/AIToolsArsenal';
+import WealthBlindSpots from './components/WealthBlindSpots';
+import AILiteracyAssessment from './components/AILiteracyAssessment';
+import EssentialSkills from './components/EssentialSkills';
+import HousingMap from './components/HousingMap';
+import MidCareerAI from './components/MidCareerAI';
+import EquitiesInvesting from './components/EquitiesInvesting';
 
-type Page = 'moneyscan' | 'home' | 'wealth-engine' | 'behavioral-finance' | 'debt-elimination' | 'real-estate-crowdfunding' | 'house-hacking' | 'real-estate-paths' | 'first-time-home-buyer' | 'cash-flow-mastery' | 'ai-era-careers' | 'ai-career-tools' | 'ai-skills-worksheet' | 'tools-hub' | 'skilled-trades' | 'trade-opportunity-finder' | 'legal-privacy' | 'wealth-goal' | 'prompts-vault' | 'compound-interest' | 'compound-interest-tool' | 'debt-elimination-page' | 'budgeting-page' | 'entrepreneurship-page' | 'tax-strategies' | 'tax-advantages-children' | 'build-your-own-home';
+type Page = 'moneyscan' | 'home' | 'wealth-engine' | 'behavioral-finance' | 'debt-elimination' | 'real-estate-crowdfunding' | 'house-hacking' | 'real-estate-paths' | 'first-time-home-buyer' | 'cash-flow-mastery' | 'ai-era-careers' | 'ai-career-tools' | 'ai-skills-worksheet' | 'tools-hub' | 'skilled-trades' | 'trade-opportunity-finder' | 'legal-privacy' | 'wealth-goal' | 'prompts-vault' | 'compound-interest' | 'compound-interest-tool' | 'debt-elimination-page' | 'budgeting-page' | 'entrepreneurship-page' | 'tax-strategies' | 'tax-advantages-children' | 'build-your-own-home' | 'adulting-101' | 'job-heatmap' | 'ai-tools-arsenal' | 'wealth-blind-spots' | 'ai-literacy-assessment' | 'essential-skills' | 'housing-map' | 'mid-career-ai' | 'equities-investing' | 'ai-tool-fluency';
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState<Page>('moneyscan');
@@ -52,7 +62,7 @@ export default function App() {
   const navigateTo = useCallback((page: Page) => {
     // Paywall check - only allow free pages or if user has paid
     const hasAccess = localStorage.getItem('moneyscan_unlocked') === 'true';
-    const freePages: Page[] = ['moneyscan', 'legal-privacy', 'prompts-vault', 'wealth-goal', 'compound-interest', 'compound-interest-tool', 'home', 'wealth-engine', 'real-estate-paths', 'debt-elimination-page', 'budgeting-page', 'ai-era-careers', 'ai-skills-worksheet', 'skilled-trades', 'cash-flow-mastery', 'house-hacking', 'entrepreneurship-page', 'tax-strategies', 'tax-advantages-children', 'build-your-own-home'];
+    const freePages: Page[] = ['moneyscan', 'legal-privacy', 'prompts-vault', 'wealth-goal', 'compound-interest', 'compound-interest-tool', 'home', 'wealth-engine', 'real-estate-paths', 'debt-elimination-page', 'budgeting-page', 'ai-era-careers', 'ai-career-tools', 'ai-skills-worksheet', 'skilled-trades', 'cash-flow-mastery', 'house-hacking', 'entrepreneurship-page', 'tax-strategies', 'tax-advantages-children', 'build-your-own-home', 'first-time-home-buyer', 'housing-map', 'mid-career-ai', 'equities-investing', 'ai-tool-fluency'];
     
     if (!hasAccess && !freePages.includes(page)) {
       // Redirect to paywall
@@ -98,7 +108,7 @@ export default function App() {
   // Initialize with current page
   useEffect(() => {
     const hasAccess = localStorage.getItem('moneyscan_unlocked') === 'true';
-    const freePages: Page[] = ['moneyscan', 'legal-privacy', 'prompts-vault', 'wealth-goal', 'compound-interest', 'compound-interest-tool', 'home', 'wealth-engine', 'real-estate-paths', 'debt-elimination-page', 'budgeting-page', 'ai-era-careers', 'ai-skills-worksheet', 'skilled-trades', 'cash-flow-mastery', 'house-hacking', 'entrepreneurship-page', 'tax-strategies', 'tax-advantages-children', 'build-your-own-home'];
+    const freePages: Page[] = ['moneyscan', 'legal-privacy', 'prompts-vault', 'wealth-goal', 'compound-interest', 'compound-interest-tool', 'home', 'wealth-engine', 'real-estate-paths', 'debt-elimination-page', 'budgeting-page', 'ai-era-careers', 'ai-career-tools', 'ai-skills-worksheet', 'skilled-trades', 'cash-flow-mastery', 'house-hacking', 'entrepreneurship-page', 'tax-strategies', 'tax-advantages-children', 'build-your-own-home', 'adulting-101', 'job-heatmap', 'ai-tools-arsenal', 'wealth-blind-spots', 'ai-literacy-assessment', 'essential-skills', 'first-time-home-buyer', 'housing-map', 'mid-career-ai', 'equities-investing', 'ai-tool-fluency'];
     
     // Check for hash in URL
     const hash = window.location.hash.slice(1) as Page;
@@ -137,6 +147,7 @@ export default function App() {
         {currentPage === 'first-time-home-buyer' && <FirstTimeHomeBuyer onNavigate={navigateTo} hasLeftLanding={hasLeftLanding} />}
         {currentPage === 'ai-era-careers' && <AIEraCareers onNavigate={navigateTo} />}
         {currentPage === 'ai-career-tools' && <AICareerTools onNavigate={navigateTo} />}
+        {currentPage === 'ai-tool-fluency' && <AIToolFluency onNavigate={navigateTo} />}
         {currentPage === 'ai-skills-worksheet' && <AISkillsMapWorksheet onNavigate={navigateTo} />}
         {currentPage === 'tools-hub' && <ToolsHub onNavigate={navigateTo} />}
         {currentPage === 'moneyscan' && <Moneyscan onNavigate={navigateTo} hasLeftLanding={hasLeftLanding} stripeCheckoutUrl="https://buy.stripe.com/cNidRb0ONcy6caR1kSfMA06" />}
@@ -153,79 +164,116 @@ export default function App() {
         {currentPage === 'tax-strategies' && <TaxStrategies onNavigate={navigateTo} />}
         {currentPage === 'tax-advantages-children' && <TaxAdvantagesChildren onNavigate={navigateTo} />}
         {currentPage === 'build-your-own-home' && <BuildYourOwnHome onNavigate={navigateTo} />}
+        {currentPage === 'adulting-101' && <Adulting101 onNavigate={navigateTo} />}
+        {currentPage === 'job-heatmap' && <JobHeatmap onNavigate={navigateTo} />}
+        {currentPage === 'ai-tools-arsenal' && <AIToolsArsenal onNavigate={navigateTo} />}
+        {currentPage === 'wealth-blind-spots' && <WealthBlindSpots onNavigate={navigateTo} />}
+        {currentPage === 'ai-literacy-assessment' && <AILiteracyAssessment onNavigate={navigateTo} />}
+        {currentPage === 'essential-skills' && <EssentialSkills onNavigate={navigateTo} />}
+        {currentPage === 'housing-map' && <HousingMap onNavigate={navigateTo} />}
+        {currentPage === 'mid-career-ai' && <MidCareerAI onNavigate={navigateTo} />}
+        {currentPage === 'equities-investing'  && <EquitiesInvesting onNavigate={navigateTo} />}
       </main>
 
       {/* Footer */}
       <footer className="bg-slate-900 text-slate-300 mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div>
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
+            {/* Column 1: Brand */}
+            <div className="col-span-2 md:col-span-1">
               <div className="flex items-center space-x-2 mb-4">
                 <div className="w-8 h-8 bg-gradient-to-br from-emerald-500 to-blue-600 rounded-lg flex items-center justify-center">
                   <TrendingUp className="w-5 h-5 text-white" />
                 </div>
-                <div className="flex flex-col">
-                  <span className="font-bold text-white">First Principles</span>
-                  <span className="text-xs">Lasting Wealth.</span>
-                </div>
+                <span className="font-bold text-white">Moneyscan</span>
               </div>
               <p className="text-sm text-slate-400">
-                Clear direction based on timeless financial truths.
+                A first-principles guide to creating wealth in the AI era. Covering investing, cash flow, debt elimination, and the tools reshaping financial opportunity.
               </p>
             </div>
 
+            {/* Column 2: Early Career */}
             <div>
-              <h3 className="font-semibold text-white mb-3">Quick Links</h3>
+              <h3 className="font-semibold text-white mb-3">Early Career</h3>
               <ul className="space-y-2 text-sm">
                 <li>
-                  <button onClick={() => navigateTo('home')} className="hover:text-emerald-400 transition-colors">
-                    Home
+                  <button onClick={() => navigateTo('ai-skills-worksheet')} className="hover:text-emerald-400 transition-colors">
+                    Skills
                   </button>
                 </li>
                 <li>
-                  <button onClick={() => navigateTo('wealth-engine')} className="hover:text-emerald-400 transition-colors">
-                    Wealth Engine
+                  <button onClick={() => navigateTo('job-heatmap')} className="hover:text-emerald-400 transition-colors">
+                    Jobs
                   </button>
                 </li>
                 <li>
-                  <button onClick={() => navigateTo('tools-hub')} className="hover:text-emerald-400 transition-colors">
-                    Tools
+                  <button onClick={() => navigateTo('housing-map')} className="hover:text-emerald-400 transition-colors">
+                    Housing
                   </button>
                 </li>
                 <li>
-                  <button onClick={() => navigateTo('moneyscan')} className="hover:text-emerald-400 transition-colors">
-                    $49 Blueprint
+                  <button onClick={() => navigateTo('skilled-trades')} className="hover:text-emerald-400 transition-colors">
+                    Trades
                   </button>
                 </li>
               </ul>
             </div>
 
+            {/* Column 3: Mid Career */}
             <div>
-              <h3 className="font-semibold text-white mb-3">Resources</h3>
+              <h3 className="font-semibold text-white mb-3">Mid Career</h3>
               <ul className="space-y-2 text-sm">
                 <li>
-                  <button onClick={() => navigateTo('cash-flow-mastery')} className="hover:text-emerald-400 transition-colors">
-                    Cash Flow
+                  <button onClick={() => navigateTo('mid-career-ai')} className="hover:text-emerald-400 transition-colors">
+                    Defense
                   </button>
                 </li>
                 <li>
-                  <button onClick={() => navigateTo('debt-elimination')} className="hover:text-emerald-400 transition-colors">
-                    Debt Elimination
+                  <button onClick={() => navigateTo('equities-investing')} className="hover:text-emerald-400 transition-colors">
+                    Investing
                   </button>
                 </li>
                 <li>
                   <button onClick={() => navigateTo('real-estate-paths')} className="hover:text-emerald-400 transition-colors">
-                    Real Estate Paths
+                    Housing
                   </button>
                 </li>
                 <li>
-                  <button onClick={() => navigateTo('ai-era-careers')} className="hover:text-emerald-400 transition-colors">
-                    AI Era Careers
+                  <button onClick={() => navigateTo('tax-strategies')} className="hover:text-emerald-400 transition-colors">
+                    Taxes
                   </button>
                 </li>
               </ul>
             </div>
 
+            {/* Column 4: AI Tools */}
+            <div>
+              <h3 className="font-semibold text-white mb-3">AI Tools</h3>
+              <ul className="space-y-2 text-sm">
+                <li>
+                  <button onClick={() => navigateTo('ai-literacy-assessment')} className="hover:text-emerald-400 transition-colors">
+                    Scoring
+                  </button>
+                </li>
+                <li>
+                  <button onClick={() => navigateTo('ai-skills-worksheet')} className="hover:text-emerald-400 transition-colors">
+                    Essentials
+                  </button>
+                </li>
+                <li>
+                  <button onClick={() => navigateTo('ai-tools-arsenal')} className="hover:text-emerald-400 transition-colors">
+                    Arsenal
+                  </button>
+                </li>
+                <li>
+                  <button onClick={() => navigateTo('prompts-vault')} className="hover:text-emerald-400 transition-colors">
+                    Prompts
+                  </button>
+                </li>
+              </ul>
+            </div>
+
+            {/* Column 5: Legal + Contact */}
             <div>
               <h3 className="font-semibold text-white mb-3">Legal</h3>
               <ul className="space-y-2 text-sm">
@@ -235,15 +283,9 @@ export default function App() {
                 <li>
                   <button onClick={() => navigateTo('legal-privacy')} className="hover:text-emerald-400 transition-colors">Privacy Policy</button>
                 </li>
-              </ul>
-            </div>
-
-            <div>
-              <h3 className="font-semibold text-white mb-3">Contact</h3>
-              <ul className="space-y-2 text-sm">
                 <li>
                   <a href="mailto:info@moneyscan.com" className="hover:text-emerald-400 transition-colors">
-                    info@moneyscan.com
+                    Contact
                   </a>
                 </li>
               </ul>

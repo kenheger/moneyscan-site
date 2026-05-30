@@ -16,6 +16,51 @@ export default function Header({ onNavigate, currentPage, hasLeftLanding }: Head
     setMobileMenuOpen(false);
   };
 
+  // Nav items matching the 7 across
+  const navItems = [
+    { label: 'Home', page: 'home' },
+    { label: 'Keystones', page: 'compound-interest' },
+    { label: 'Early Career', page: 'job-heatmap' },
+    { label: 'Mid Career', page: 'mid-career-ai' },
+    { label: 'Tax Strategies', page: 'tax-strategies' },
+    { label: 'Tools to Use', page: 'tools-hub' },
+    { label: 'AI Tools Arsenal', page: 'ai-tools-arsenal' },
+  ];
+
+  const getPageKey = (page: string) => {
+    // Map sub-pages to their category for highlighting
+    const categoryMap: Record<string, string> = {
+      'wealth-engine': 'keystones',
+      'compound-interest': 'keystones',
+      'compound-interest-tool': 'keystones',
+      'budgeting-page': 'keystones',
+      'debt-elimination': 'keystones',
+      'debt-elimination-page': 'keystones',
+      'job-heatmap': 'early-career',
+      'housing-map': 'early-career',
+      'skilled-trades': 'early-career',
+      'entrepreneurship-page': 'early-career',
+      'first-time-home-buyer': 'early-career',
+      'mid-career-ai': 'mid-career',
+      'ai-career-tools': 'keystones',
+      'ai-skills-worksheet': 'mid-career',
+      'ai-literacy-assessment': 'keystones',
+      'real-estate-paths': 'mid-career',
+      'build-your-own-home': 'mid-career',
+      'equities-investing': 'mid-career',
+      'tax-strategies': 'tax-strategies',
+      'tax-advantages-children': 'tax-strategies',
+      'tools-hub': 'tools',
+      'wealth-goal': 'tools',
+      'trade-opportunity-finder': 'tools',
+      'ai-tools-arsenal': 'ai-arsenal',
+      'prompts-vault': 'ai-arsenal',
+    };
+    return categoryMap[page] || page;
+  };
+
+  const isActive = (page: string) => currentPage === page || getPageKey(page || '') === currentPage?.toLowerCase().replace(' ', '-');
+
   return (
     <header className="bg-white border-b border-slate-200 sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -33,199 +78,51 @@ export default function Header({ onNavigate, currentPage, hasLeftLanding }: Head
             />
           </button>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-1">
-            <button
-              onClick={() => handleNavigate('home')}
-              className={`px-4 py-2 rounded-lg transition-colors ${
-                currentPage === 'home'
-                  ? 'text-emerald-600 bg-emerald-50'
-                  : 'text-slate-700 hover:text-emerald-600 hover:bg-emerald-50'
-              }`}
-            >
-              Home
-            </button>
-            <button
-              onClick={() => handleNavigate('wealth-engine')}
-              className={`px-4 py-2 rounded-lg transition-colors ${
-                currentPage === 'wealth-engine'
-                  ? 'text-emerald-600 bg-emerald-50'
-                  : 'text-slate-700 hover:text-emerald-600 hover:bg-emerald-50'
-              }`}
-            >
-              Wealth Engine
-            </button>
-            <button
-              onClick={() => handleNavigate('cash-flow-mastery')}
-              className={`px-4 py-2 rounded-lg transition-colors ${
-                currentPage === 'cash-flow-mastery'
-                  ? 'text-emerald-600 bg-emerald-50'
-                  : 'text-slate-700 hover:text-emerald-600 hover:bg-emerald-50'
-              }`}
-            >
-              Cash Flow Mastery
-            </button>
-            <button
-              onClick={() => handleNavigate('debt-elimination')}
-              className={`px-4 py-2 rounded-lg transition-colors ${
-                currentPage === 'debt-elimination'
-                  ? 'text-emerald-600 bg-emerald-50'
-                  : 'text-slate-700 hover:text-emerald-600 hover:bg-emerald-50'
-              }`}
-            >
-              Debt Elimination
-            </button>
-            <button
-              onClick={() => handleNavigate('real-estate-paths')}
-              className={`px-4 py-2 rounded-lg transition-colors ${
-                currentPage === 'real-estate-paths'
-                  ? 'text-emerald-600 bg-emerald-50'
-                  : 'text-slate-700 hover:text-emerald-600 hover:bg-emerald-50'
-              }`}
-            >
-              Real Estate
-            </button>
-            <button
-              onClick={() => handleNavigate('ai-era-careers')}
-              className={`px-4 py-2 rounded-lg transition-colors ${
-                currentPage === 'ai-era-careers'
-                  ? 'text-emerald-600 bg-emerald-50'
-                  : 'text-slate-700 hover:text-emerald-600 hover:bg-emerald-50'
-              }`}
-            >
-              AI Era Careers
-            </button>
-            <button
-              onClick={() => handleNavigate('tools-hub')}
-              className={`px-4 py-2 rounded-lg transition-colors ${
-                currentPage === 'tools-hub'
-                  ? 'text-emerald-600 bg-emerald-50'
-                  : 'text-slate-700 hover:text-emerald-600 hover:bg-emerald-50'
-              }`}
-            >
-              Tools
-            </button>
-            <button
-              onClick={() => handleNavigate('entrepreneurship-page')}
-              className={`px-4 py-2 rounded-lg transition-colors ${
-                currentPage === 'entrepreneurship-page'
-                  ? 'text-emerald-600 bg-emerald-50'
-                  : 'text-slate-700 hover:text-emerald-600 hover:bg-emerald-50'
-              }`}
-            >
-              Entrepreneurship
-            </button>
-            <button
-              onClick={() => handleNavigate('tax-strategies')}
-              className={`px-4 py-2 rounded-lg transition-colors ${
-                currentPage === 'tax-strategies'
-                  ? 'text-emerald-600 bg-emerald-50'
-                  : 'text-slate-700 hover:text-emerald-600 hover:bg-emerald-50'
-              }`}
-            >
-              Tax Strategies
-            </button>
-            <button
-              onClick={() => handleNavigate('build-your-own-home')}
-              className={`px-4 py-2 rounded-lg transition-colors ${
-                currentPage === 'build-your-own-home'
-                  ? 'text-emerald-600 bg-emerald-50'
-                  : 'text-slate-700 hover:text-emerald-600 hover:bg-emerald-50'
-              }`}
-            >
-              Build Your Own
-            </button>
-            <button
-              onClick={() => handleNavigate('prompts-vault')}
-              className={`px-4 py-2 rounded-lg transition-colors ${
-                currentPage === 'prompts-vault'
-                  ? 'text-amber-600 bg-amber-50'
-                  : 'text-slate-700 hover:text-amber-600 hover:bg-amber-50'
-              }`}
-            >
-              Prompts
-            </button>
+          {/* Desktop Navigation - 7 across */}
+          <nav className="hidden lg:flex items-center space-x-1">
+            {navItems.map((item) => (
+              <button
+                key={item.page}
+                onClick={() => handleNavigate(item.page)}
+                className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors whitespace-nowrap ${
+                  currentPage === item.page || (currentPage && getPageKey(currentPage) === item.label.toLowerCase().replace(' ', '-'))
+                    ? 'text-emerald-600 bg-emerald-50'
+                    : 'text-slate-700 hover:text-emerald-600 hover:bg-emerald-50'
+                }`}
+              >
+                {item.label}
+              </button>
+            ))}
           </nav>
 
-          {/* Mobile menu button */}
+          {/* Mobile hamburger */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 text-slate-700 hover:text-emerald-600"
+            className="lg:hidden p-2 text-slate-700"
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
 
-        {/* Mobile Navigation */}
+        {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <nav className="md:hidden py-4 border-t border-slate-200">
-            <button
-              onClick={() => handleNavigate('home')}
-              className="block w-full text-left px-4 py-2 text-slate-700 hover:bg-slate-50"
-            >
-              Home
-            </button>
-            <button
-              onClick={() => handleNavigate('wealth-engine')}
-              className="block w-full text-left px-4 py-2 text-slate-700 hover:bg-slate-50"
-            >
-              Wealth Engine
-            </button>
-            <button
-              onClick={() => handleNavigate('cash-flow-mastery')}
-              className="block w-full text-left px-4 py-2 text-slate-700 hover:bg-slate-50"
-            >
-              Cash Flow Mastery
-            </button>
-            <button
-              onClick={() => handleNavigate('debt-elimination')}
-              className="block w-full text-left px-4 py-2 text-slate-700 hover:bg-slate-50"
-            >
-              Debt Elimination
-            </button>
-            <button
-              onClick={() => handleNavigate('real-estate-paths')}
-              className="block w-full text-left px-4 py-2 text-slate-700 hover:bg-slate-50"
-            >
-              Real Estate Paths
-            </button>
-            <button
-              onClick={() => handleNavigate('ai-era-careers')}
-              className="block w-full text-left px-4 py-2 text-slate-700 hover:bg-slate-50"
-            >
-              AI Era Careers
-            </button>
-            <button
-              onClick={() => handleNavigate('tools-hub')}
-              className="block w-full text-left px-4 py-2 text-slate-700 hover:bg-slate-50"
-            >
-              Tools
-            </button>
-            <button
-              onClick={() => handleNavigate('entrepreneurship-page')}
-              className="block w-full text-left px-4 py-2 text-slate-700 hover:bg-slate-50"
-            >
-              Entrepreneurship
-            </button>
-            <button
-              onClick={() => handleNavigate('tax-strategies')}
-              className="block w-full text-left px-4 py-2 text-slate-700 hover:bg-slate-50"
-            >
-              Tax Strategies
-            </button>
-            <button
-              onClick={() => handleNavigate('build-your-own-home')}
-              className="block w-full text-left px-4 py-2 text-slate-700 hover:bg-slate-50"
-            >
-              Build Your Own
-            </button>
-            <button
-              onClick={() => handleNavigate('prompts-vault')}
-              className="block w-full text-left px-4 py-2 text-slate-700 hover:bg-slate-50 font-medium"
-            >
-              ⚡ AI Prompts Vault
-            </button>
-          </nav>
+          <div className="lg:hidden border-t border-slate-200 py-4">
+            <nav className="flex flex-col space-y-2">
+              {navItems.map((item) => (
+                <button
+                  key={item.page}
+                  onClick={() => handleNavigate(item.page)}
+                  className={`px-4 py-3 rounded-lg text-left font-medium ${
+                    currentPage === item.page
+                      ? 'text-emerald-600 bg-emerald-50'
+                      : 'text-slate-700'
+                  }`}
+                >
+                  {item.label}
+                </button>
+              ))}
+            </nav>
+          </div>
         )}
       </div>
     </header>

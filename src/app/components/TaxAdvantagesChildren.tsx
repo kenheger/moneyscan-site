@@ -6,15 +6,25 @@ interface TaxAdvantagesChildrenProps {
 
 export default function TaxAdvantagesChildren({ onNavigate }: TaxAdvantagesChildrenProps) {
   return (
-    <div className="min-h-screen bg-white">
-      <header className="bg-emerald-500 text-white py-6 px-4">
-        <div className="max-w-[820px] mx-auto">
-          <h1 className="text-xl font-bold mb-1">A Tax-Advantaged "Wealth Path" for Children</h1>
-          <p className="text-emerald-100 text-xs">Setting up the next generation for financial flexibility</p>
+    <div className="w-full bg-white min-h-screen">
+      {/* Header - matching site style */}
+      <section className="bg-gradient-to-br from-emerald-50 via-teal-50 to-white py-6">
+        <div className="max-w-5xl mx-auto px-4">
+          <div className="flex items-center gap-3 mb-2">
+            <div className="w-10 h-10 bg-gradient-to-r from-emerald-500 to-teal-600 rounded-lg flex items-center justify-center">
+              <PiggyBank className="w-5 h-5 text-white" />
+            </div>
+            <h1 className="text-xl md:text-2xl font-bold text-slate-900">
+              Tax-Advantaged Wealth Path for Children
+            </h1>
+          </div>
+          <p className="text-base text-slate-600 italic">
+            Setting up the next generation for financial flexibility
+          </p>
         </div>
-      </header>
+      </section>
 
-      <main className="max-w-[820px] mx-auto px-4 py-4">
+      <main className="max-w-5xl mx-auto px-4 py-4">
         <p className="text-gray-700 text-xs mb-4 leading-relaxed">
           There is a path for families with newborns and young children to set them up on their own "wealth path" before they reach age 18. This is particularly relevant in the AI Era — as there is uncertainty about the impact AI will have on traditional or expected employment careers.
         </p>

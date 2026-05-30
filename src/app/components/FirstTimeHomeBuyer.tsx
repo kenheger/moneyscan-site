@@ -32,60 +32,68 @@ export default function FirstTimeHomeBuyer({ onNavigate, hasLeftLanding }: First
       </header>
 
       {/* Hero */}
-      <section className="py-16">
+      <section className="py-12">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-amber-500 to-emerald-600 rounded-xl mb-6">
               <Home className="w-8 h-8 text-white" />
             </div>
-            <h1 className="text-4xl md:text-5xl font-black text-slate-900 mb-4">
-              First-Time Home Buyer
+            <h1 className="text-3xl md:text-4xl font-black text-slate-900 mb-4">
+              BUY THAT FIRST HOME!
             </h1>
-            <p className="text-xl md:text-2xl text-slate-700 max-w-3xl mx-auto">
-              Everything you need to buy your first home — without the confusion.
+            <p className="text-lg md:text-xl text-slate-700 max-w-3xl mx-auto mb-4">
+              The best strategy for building long-term wealth, when you're starting out is to buy that first home as fast as possible to start building equity and then, systematically trading up.
+            </p>
+            <p className="text-lg md:text-xl text-emerald-700 font-semibold">
+              Many Resources to Get You on that Path — Now:
             </p>
           </div>
         </div>
       </section>
 
-      {/* Why Buy Now */}
-      <section className="py-12 bg-white">
+      {/* Ken's Resources */}
+      <section className="py-8 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-gradient-to-r from-amber-50 to-emerald-50 rounded-2xl p-8 border-2 border-amber-200">
-            <h2 className="text-2xl font-bold text-slate-900 mb-4">Why Buying a Home Still Makes Sense</h2>
-            <div className="grid md:grid-cols-2 gap-6">
-              <div>
-                <ul className="space-y-3 text-slate-700">
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-1" />
-                    <span><strong>Mortgage rates are down</strong> from the 2023 peak — if you bought in 2022-2023, refinancing could save you thousands.</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-1" />
-                    <span><strong>Inventory is rising</strong> — more homes for sale means more negotiating power for buyers.</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-1" />
-                    <span><strong>Prices are stabilizing</strong> — the wild 2020-2022 increases have cooled in most markets.</span>
-                  </li>
-                </ul>
-              </div>
-              <div>
-                <ul className="space-y-3 text-slate-700">
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-1" />
-                    <span><strong>Down payment programs</strong> — as low as 3% (conventional) or 3.5% (FHA) with grants available.</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-1" />
-                    <span><strong>Tax benefits</strong> — mortgage interest deduction, property tax deduction, capital gains exclusion.</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-1" />
-                    <span><strong>Wealth building</strong> — forced savings through equity + appreciation over time.</span>
-                  </li>
-                </ul>
-              </div>
+          <div className="grid gap-4">
+            {/* Down Payment Resource */}
+            <div className="p-4 bg-emerald-50 rounded-xl border border-emerald-200">
+              <h3 className="font-bold text-slate-900 mb-2">Down Payment Resource</h3>
+              <p className="text-sm text-slate-700 mb-2">Massive national database tracking over 2,600 local, state, and federal housing programs. Plug in your household income, profession, and target area — it matches you with specific grants, forgivable loans, and tax credits you can actually use.</p>
+              <a href="https://www.downpaymentresource.com" target="_blank" rel="noopener noreferrer" className="text-sm text-emerald-700 hover:text-emerald-900 font-medium">DownPaymentResource.com →</a>
+            </div>
+
+            {/* Fannie Mae */}
+            <div className="p-4 bg-blue-50 rounded-xl border border-blue-200">
+              <h3 className="font-bold text-slate-900 mb-2">Fannie Mae's Down Payment Assistance Tool</h3>
+              <p className="text-sm text-slate-700 mb-2">Powered by Down Payment Resource, this tool lets you cross-reference specific neighborhoods to see exactly what kind of first-time buyer assistance is baked into the area. FHA loans with a 3.5% down payment are still available everywhere when you meet specific parameters like income and credit score.</p>
+              <a href="https://www.knowyouroptions.com/down-payment-assistance/" target="_blank" rel="noopener noreferrer" className="text-sm text-blue-700 hover:text-blue-900 font-medium">KnowYourOptions.com →</a>
+            </div>
+
+            {/* State Housing */}
+            <div className="p-4 bg-amber-50 rounded-xl border border-amber-200">
+              <h3 className="font-bold text-slate-900 mb-2">Check State Housing Department Websites</h3>
+              <p className="text-sm text-slate-700 mb-2">Many states offer specialized low-interest initiatives, lower down payment options, competitive interest rates, and down payment assistance up to $15,000–$20,000 for qualified buyers. See real-time parameters for every program. Target profession perks. Housing Authorities explicitly outline boosted assistance for "PEN" applicants (Protectors, Educators, Nurses/Healthcare workers, and active military).</p>
+              <p className="text-sm text-slate-700 mb-2">Example: <a href="https://welcomehome.tdhca.texas.gov" target="_blank" rel="noopener noreferrer" className="text-amber-700 hover:text-amber-900 font-medium">Texas Housing Authority</a></p>
+            </div>
+
+            {/* HUD Homestore */}
+            <div className="p-4 bg-emerald-50 rounded-xl border border-emerald-200">
+              <h3 className="font-bold text-slate-900 mb-2">HUD Homestore</h3>
+              <p className="text-sm text-slate-700 mb-2">HUD lists FHA foreclosed properties here. Huge first-time home buyer advantage: owner-occupants have first dibs on these properties for a specific period before any real estate investors can bid. This eliminates corporate competition and lets you hunt for properties with built-in equity margins.</p>
+              <a href="https://www.hudhomestore.com" target="_blank" rel="noopener noreferrer" className="text-sm text-emerald-700 hover:text-emerald-900 font-medium">HUDHomestore.com →</a>
+            </div>
+
+            {/* Cosmetic Fixer-Uppers */}
+            <div className="p-4 bg-blue-50 rounded-xl border border-blue-200">
+              <h3 className="font-bold text-slate-900 mb-2">Target Cosmetic Fixer-Uppers</h3>
+              <p className="text-sm text-slate-700 mb-2">Look for structurally sound homes that need cosmetic work (flooring, paint, outdated kitchens/bathrooms). Buying a home that scares off turnkey buyers allows you to purchase at a discount. You and your friends can possibly do much of the finishing work yourselves — increasing your equity.</p>
+            </div>
+
+            {/* House Hacking */}
+            <div className="p-4 bg-amber-50 rounded-xl border border-amber-200">
+              <h3 className="font-bold text-slate-900 mb-2">House Hacking</h3>
+              <p className="text-sm text-slate-700 mb-2">Buy a duplex, triplex, or a single-family home with a rentable basement or accessory dwelling unit (ADU). Letting a tenant cover half of your mortgage completely changes your debt-to-income math.</p>
+              <button onClick={() => onNavigate('house-hacking')} className="text-sm text-amber-700 hover:text-amber-900 font-medium">See House Hacking Page →</button>
             </div>
           </div>
         </div>
@@ -99,12 +107,13 @@ export default function FirstTimeHomeBuyer({ onNavigate, hasLeftLanding }: First
           <div className="grid md:grid-cols-3 gap-6">
             <div className="bg-white rounded-xl shadow-md p-6 border-t-4 border-emerald-500">
               <h3 className="text-xl font-bold text-slate-900 mb-3">Conventional</h3>
-              <p className="text-3xl font-black text-emerald-600 mb-4">3%</p>
-              <p className="text-slate-600 text-sm mb-4">Fannie Mae/Freddie Mac loans for buyers with decent credit. PMI required if down payment &lt; 20%.</p>
+              <p className="text-3xl font-black text-emerald-600 mb-4">3%*</p>
+              <p className="text-slate-600 text-sm mb-4">Fannie Mae Home Ready / Freddie Mac Home Possible programs for first-time buyers. PMI required if down payment &lt; 20%.</p>
               <ul className="text-sm text-slate-600 space-y-2">
                 <li>✓ Credit score: 620+</li>
-                <li>✓ DTI: typically &lt; 43%</li>
+                <li>✓ Income limits apply</li>
                 <li>✓ PMI: 0.5%–1% of loan annually</li>
+                <li className="text-xs text-slate-500 mt-2">* Traditional conventional = 20% (no PMI)</li>
               </ul>
             </div>
 

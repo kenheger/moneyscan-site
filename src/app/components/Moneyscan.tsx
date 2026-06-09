@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { ArrowRight } from 'lucide-react';
-import logoImage from '../../imports/Moneyscan_Logo_Final.jpg';
+import logoImage from '../../imports/Moneyscan_Logo_Final.png';
 
 interface MoneyscanProps {
   onNavigate: (page: string) => void;

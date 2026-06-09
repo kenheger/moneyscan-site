@@ -6,9 +6,9 @@ interface ToolsHubProps {
 
 const tools = [
   {
-    title: "Skills Assessment",
-    description: "Know where you stand with AI. Take the assessment to identify your gaps and get a personalized action plan.",
-    page: "ai-literacy-assessment",
+    title: "AI Essentials",
+    description: "Know what time it is in the AI Era - and the kind of skills you should focus on.",
+    page: "essential-skills",
     icon: Target,
     color: "purple"
   },
@@ -63,10 +63,10 @@ export default function ToolsHub({ onNavigate }: ToolsHubProps) {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-4">
             {tools.map((tool, idx) => (
-              <button
+              <a
                 key={idx}
-                onClick={() => onNavigate(tool.page)}
-                className="bg-white p-5 rounded-lg shadow-md border border-slate-200 hover:shadow-xl transition-all text-left group"
+                href={`#${tool.page}`}
+                className="bg-white p-5 rounded-lg shadow-md border border-slate-200 hover:shadow-xl transition-all text-left group block"
               >
                 <div className={`w-12 h-12 bg-${tool.color}-100 rounded-lg flex items-center justify-center mb-4`}>
                   <tool.icon className={`w-6 h-6 text-${tool.color}-600`} />
@@ -80,7 +80,7 @@ export default function ToolsHub({ onNavigate }: ToolsHubProps) {
                 <div className={`inline-flex items-center gap-1 text-${tool.color}-600 text-sm font-medium`}>
                   Launch <ArrowRight className="w-4 h-4" />
                 </div>
-              </button>
+              </a>
             ))}
           </div>
         </div>

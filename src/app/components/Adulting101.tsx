@@ -1,4 +1,4 @@
-import { ArrowRight, TrendingUp, Home, Wallet, Target, Sparkles } from 'lucide-react';
+import { ArrowRight, TrendingUp, Wallet, Target, Sparkles } from 'lucide-react';
 
 interface Adulting101Props {
   onNavigate: (page: string) => void;
@@ -15,14 +15,11 @@ export default function Adulting101({ onNavigate }: Adulting101Props) {
               <Sparkles className="w-5 h-5 text-white" />
             </div>
             <h1 className="text-2xl md:text-3xl font-bold text-slate-900">
-              Adulting 101: The AI Force Multiplier
+              Building Capital: Use AI as a Force Multiplier
             </h1>
           </div>
           <p className="text-lg text-slate-600 italic mb-3">
-            For the 22-year-old D1 athlete turned adult. You've got the grit. Now multiply it.
-          </p>
-          <p className="text-sm font-semibold text-slate-700">
-            Your competitive advantage: Use AI as a force multiplier across career, investing, real estate, and daily habits.
+            As a young careerist, it is really important to focus on building your own capital — first — even as you face the challenges of consumerism, debt and services. AI can help by being a focused instrument in many financial decision areas.
           </p>
         </div>
       </section>
@@ -106,7 +103,7 @@ export default function Adulting101({ onNavigate }: Adulting101Props) {
             <div className="border border-blue-200 rounded-lg p-4 bg-white">
               <h3 className="font-bold text-slate-900 mb-2">Set It and Forget It</h3>
               <p className="text-sm text-slate-700 mb-3">
-                AI-driven robo-advisors automatically rebalance your portfolio and perform tax-loss harvesting. You're 22 — you won't check this for years. Let the algorithm do the work.
+                AI-driven robo-advisors automatically rebalance your portfolio and perform tax-loss harvesting. As a 20-something - you won't check this for years, but the critical step: DO IT NOW!
               </p>
               <a 
                 href="https://www.betterment.com" 
@@ -134,7 +131,7 @@ export default function Adulting101({ onNavigate }: Adulting101Props) {
                 Buy actual stocks in an index vs. ETFs. Customize to your values (tech-heavy, ESG-focused) with surgical precision — and often lower fees than traditional funds.
               </p>
               <div className="bg-emerald-50 rounded p-3 border border-emerald-100">
-                <p className="text-xs font-semibold text-slate-600">Why it matters at 22:</p>
+                <p className="text-xs font-semibold text-slate-600">Why it matters:</p>
                 <p className="text-xs text-slate-600">Time = biggest edge. 40 years of tax-loss harvesting beats 10 years of scrambling.</p>
               </div>
             </div>
@@ -142,55 +139,14 @@ export default function Adulting101({ onNavigate }: Adulting101Props) {
         </div>
       </section>
 
-      {/* Pillar 3: Real Estate */}
-      <section className="py-6">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-2 mb-4">
-            <div className="w-8 h-8 bg-emerald-500 rounded-lg flex items-center justify-center">
-              <Home className="w-4 h-4 text-white" />
-            </div>
-            <h2 className="text-xl font-bold text-slate-900">3. Real Estate: The House Hacking Scout</h2>
-          </div>
-          
-          <div className="grid md:grid-cols-3 gap-4">
-            {/* Market Analysis */}
-            <div className="border border-slate-200 rounded-lg p-4 bg-slate-50">
-              <h3 className="font-bold text-slate-900 mb-2">AI Market Analysis</h3>
-              <p className="text-sm text-slate-700 mb-2">
-                AI can find undervalued neighborhoods by ingesting data on transit lines, school ratings, and local business permits — predicting where values rise in 5 years.
-              </p>
-              <p className="text-xs text-slate-500 italic">Tool: Zillow AI, RE Devita, or Spark AI</p>
-            </div>
-
-            {/* ADU Strategy */}
-            <div className="border border-blue-200 rounded-lg p-4 bg-blue-50">
-              <h3 className="font-bold text-slate-900 mb-2">The ADU Strategy</h3>
-              <p className="text-sm text-slate-700 mb-2">
-                Buy a home with a backyard? Design a Tiny Home or ADU (Accessory Dwelling Unit). Rent it out. Your "adulting" journey becomes cash-flow positive from day one.
-              </p>
-              <p className="text-xs text-blue-600 font-semibold">$800-1,500/mo rental income offset</p>
-            </div>
-
-            {/* House Hacking */}
-            <div className="border border-emerald-200 rounded-lg p-4 bg-emerald-50">
-              <h3 className="font-bold text-slate-900 mb-2">House Hacking 101</h3>
-              <p className="text-sm text-slate-700 mb-2">
-                Buy a 2-4 unit, live in one, rent the rest. Rent covers your mortgage. You're not just a renter — you're building equity while paying less than an apartment.
-              </p>
-              <p className="text-xs text-emerald-600 font-semibold">Zero down payment programs exist</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Pillar 4: Lifestyle */}
+      {/* Pillar 3: Lifestyle */}
       <section className="py-6 bg-blue-50">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-2 mb-4">
             <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
               <Target className="w-4 h-4 text-white" />
             </div>
-            <h2 className="text-xl font-bold text-slate-900">4. Lifestyle: Frictionless Budgeting</h2>
+            <h2 className="text-xl font-bold text-slate-900">3. Lifestyle: Frictionless Budgeting</h2>
           </div>
           
           <div className="grid md:grid-cols-2 gap-4">
@@ -198,7 +154,7 @@ export default function Adulting101({ onNavigate }: Adulting101Props) {
             <div className="border border-blue-200 rounded-lg p-4 bg-white">
               <h3 className="font-bold text-slate-900 mb-2">The Wealth Leak Stopper</h3>
               <p className="text-sm text-slate-700 mb-3">
-                Most 22-year-olds lose $200-500/mo to subscription creep and lifestyle inflation. AI banking apps predict bills 3 months out and automatically move money to wealth accounts <span className="font-semibold">before</span> you spend it.
+                It's easy to lose $200-500/mo to subscription creep and lifestyle inflation. AI banking apps predict bills 3 months out and automatically move money to wealth accounts <span className="font-semibold">before</span> you spend it.
               </p>
               <div className="bg-blue-50 rounded p-3">
                 <p className="text-xs font-semibold text-blue-700">Try: Rocket Money, Monarch, or YNAB</p>
@@ -286,13 +242,13 @@ export default function Adulting101({ onNavigate }: Adulting101Props) {
       <section className="py-8 bg-white border-t border-slate-100">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-lg text-slate-700 mb-4">
-            You've got the athlete's discipline. Now apply it to wealth.
+            Now as you build capital moving up in your career continue using AI as a Multiplier.
           </p>
           <button 
-            onClick={() => onNavigate('home')}
+            onClick={() => onNavigate('mid-career-ai')}
             className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-emerald-500 to-blue-500 text-white font-semibold rounded-lg hover:from-emerald-600 hover:to-blue-600 transition-all"
           >
-            Explore More Tools <ArrowRight className="w-4 h-4" />
+            Mid Career Considerations <ArrowRight className="w-4 h-4" />
           </button>
         </div>
       </section>

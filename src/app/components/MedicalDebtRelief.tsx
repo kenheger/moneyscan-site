@@ -1,5 +1,5 @@
 import { ArrowRight, Heart, Shield, DollarSign, CheckCircle } from 'lucide-react';
-import logoImage from '../../imports/Moneyscan_Logo_Final.jpg';
+import logoImage from '../../imports/Moneyscan_Logo_Final.png';
 
 interface MedicalDebtReliefProps {
   onNavigate: (page: string) => void;

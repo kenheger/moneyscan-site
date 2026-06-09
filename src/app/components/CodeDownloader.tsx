@@ -264,7 +264,7 @@ FILE: src/app/components/Header.tsx
 ========================================
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
-import logoImage from '../../imports/Moneyscan_Logo_Final.jpg';
+import logoImage from '../../imports/Moneyscan_Logo_Final.png';
 
 interface HeaderProps {
   onNavigate: (page: string) => void;
@@ -904,7 +904,7 @@ function ToolCard({ icon, title }: any) {
 FILE: src/app/components/Moneyscan.tsx
 ========================================
 import { ArrowRight } from 'lucide-react';
-import logoImage from '../../imports/Moneyscan_Logo_Final.jpg';
+import logoImage from '../../imports/Moneyscan_Logo_Final.png';
 
 interface MoneyscanProps {
   onNavigate: (page: string) => void;

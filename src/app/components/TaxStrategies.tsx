@@ -55,6 +55,33 @@ const strategies: Strategy[] = [
       "Irrevocable: Moves assets out of taxable estate. Vital if wealth exceeds ~$15M/$30M.",
       "Income shifting to lower-bracket family members works."
     ]
+  },
+  {
+    title: "Backdoor Roth IRA",
+    icon: Shield,
+    points: [
+      "Earn too much for a Roth? Contribute to traditional IRA, then convert. Legal loophole that's been tested.",
+      "2026 limit: $7,000/yr. Anyone can do it — no employer needed.",
+      "Watch out: Pro-rata rule if you have other traditional IRA balances."
+    ]
+  },
+  {
+    title: "HSA as Stealth Retirement Account",
+    icon: Wallet,
+    points: [
+      "Health Savings Account = triple tax advantage. Invest the money instead of spending it.",
+      "2016: $4,300 individual / $8,550 family. After 65, non-medical withdrawals taxed as ordinary income.",
+      "Strategy: Save receipts. Let it invest. Reimburse yourself anytime, tax-free."
+    ]
+  },
+  {
+    title: "Mega Backdoor Roth",
+    icon: TrendingUp,
+    points: [
+      "401k allows after-tax contributions. Convert to Roth before growth. Some employers allow this — ask HR.",
+      "Potential: $30K+/yr extra to Roth. Huge for high earners maxing out 401k.",
+      "Only works with employer plan that allows after-tax + in-service withdrawals/rollovers."
+    ]
   }
 ];
 

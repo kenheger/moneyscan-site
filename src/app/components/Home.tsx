@@ -35,9 +35,9 @@ export default function Home({ onNavigate }: HomeProps) {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
             
             {/* Keystones */}
-            <button
-              onClick={() => onNavigate('ai-literacy-assessment')}
-              className="bg-white p-5 rounded-lg shadow-md border border-slate-200 hover:shadow-xl transition-all text-left group"
+            <a
+              href="#essential-skills"
+              className="bg-white p-5 rounded-lg shadow-md border border-slate-200 hover:shadow-xl transition-all text-left group block"
             >
               <div className="w-12 h-12 bg-gradient-to-br from-emerald-500 to-blue-600 rounded-lg flex items-center justify-center mb-4">
                 <Zap className="w-6 h-6 text-white" />
@@ -49,14 +49,14 @@ export default function Home({ onNavigate }: HomeProps) {
                 Master the 10% benchmark. Know where you stand. Build core skills for the AI shift.
               </p>
               <div className="text-xs text-emerald-600 font-medium">
-                Skills Assessment · Compounding · Budgeting
+                <a href="#essential-skills" className="hover:underline">Skills Assessment</a> · <a href="#compound-interest" className="hover:underline">Compounding</a> · <a href="#budgeting-page" className="hover:underline">Budgeting</a>
               </div>
-            </button>
+            </a>
 
             {/* Early Career */}
-            <button
-              onClick={() => onNavigate('job-heatmap')}
-              className="bg-white p-5 rounded-lg shadow-md border border-slate-200 hover:shadow-xl transition-all text-left group"
+            <a
+              href="#ai-era-careers"
+              className="bg-white p-5 rounded-lg shadow-md border border-slate-200 hover:shadow-xl transition-all text-left group block"
             >
               <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center mb-4">
                 <Briefcase className="w-6 h-6 text-white" />
@@ -68,14 +68,14 @@ export default function Home({ onNavigate }: HomeProps) {
                 Find your rising tide. Map the hottest jobs. Build skills that pay — now and into the AI shift.
               </p>
               <div className="text-xs text-blue-600 font-medium">
-                Jobs · Housing · First Home
+                <a href="#job-heatmap" className="hover:underline">Jobs</a> · <a href="#housing-map" className="hover:underline">Housing</a> · <a href="#first-time-home-buyer" className="hover:underline">First Home</a> · <a href="#entrepreneurship-page" className="hover:underline">Entrepreneurship</a> · <a href="#gig-economy" className="hover:underline">Gig Economy</a>
               </div>
-            </button>
+            </a>
 
             {/* Mid Career */}
-            <button
-              onClick={() => onNavigate('mid-career-ai')}
-              className="bg-white p-5 rounded-lg shadow-md border border-slate-200 hover:shadow-xl transition-all text-left group"
+            <a
+              href="#mid-career-ai"
+              className="bg-white p-5 rounded-lg shadow-md border border-slate-200 hover:shadow-xl transition-all text-left group block"
             >
               <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-600 rounded-lg flex items-center justify-center mb-4">
                 <TrendingUp className="w-6 h-6 text-white" />
@@ -87,14 +87,14 @@ export default function Home({ onNavigate }: HomeProps) {
                 Defend your position. Grow what you've built. Build wealth that survives AI disruption.
               </p>
               <div className="text-xs text-purple-600 font-medium">
-                Career Defense · Investing · Real Estate
+                <a href="#mid-career-ai" className="hover:underline">Career Defense</a> · <a href="#equities-investing" className="hover:underline">Investing</a> · <a href="#real-estate-dynamics" className="hover:underline">Real Estate</a>
               </div>
-            </button>
+            </a>
 
             {/* Tax Strategies */}
-            <button
-              onClick={() => onNavigate('tax-strategies')}
-              className="bg-white p-5 rounded-lg shadow-md border border-slate-200 hover:shadow-xl transition-all text-left group"
+            <a
+              href="#tax-strategies"
+              className="bg-white p-5 rounded-lg shadow-md border border-slate-200 hover:shadow-xl transition-all text-left group block"
             >
               <div className="w-12 h-12 bg-gradient-to-br from-amber-500 to-orange-600 rounded-lg flex items-center justify-center mb-4">
                 <Calculator className="w-6 h-6 text-white" />
@@ -106,14 +106,14 @@ export default function Home({ onNavigate }: HomeProps) {
                 Keep more of what you earn. Smart optimization strategies for every stage.
               </p>
               <div className="text-xs text-orange-600 font-medium">
-                Optimization · Kids · Retirement
+                <a href="#tax-strategies" className="hover:underline">Optimization</a> · <a href="#tax-advantages-children" className="hover:underline">Kids</a>
               </div>
-            </button>
+            </a>
 
             {/* Tools to Use */}
-            <button
-              onClick={() => onNavigate('tools-hub')}
-              className="bg-white p-5 rounded-lg shadow-md border border-slate-200 hover:shadow-xl transition-all text-left group"
+            <a
+              href="#tools-hub"
+              className="bg-white p-5 rounded-lg shadow-md border border-slate-200 hover:shadow-xl transition-all text-left group block"
             >
               <div className="w-12 h-12 bg-gradient-to-br from-cyan-500 to-teal-600 rounded-lg flex items-center justify-center mb-4">
                 <Calculator className="w-6 h-6 text-white" />
@@ -125,14 +125,14 @@ export default function Home({ onNavigate }: HomeProps) {
                 Interactive calculators and databases. Quantify your path. Find trades that pay.
               </p>
               <div className="text-xs text-teal-600 font-medium">
-                Compound · Budget · Trades DB
+                <a href="#compound-interest-tool" className="hover:underline">Compound</a> · <a href="#budgeting-page" className="hover:underline">Budget</a> · <a href="#skilled-trades" className="hover:underline">Trades DB</a>
               </div>
-            </button>
+            </a>
 
             {/* AI Tools Arsenal */}
-            <button
-              onClick={() => onNavigate('ai-tools-arsenal')}
-              className="bg-white p-5 rounded-lg shadow-md border border-slate-200 hover:shadow-xl transition-all text-left group"
+            <a
+              href="#ai-tools-arsenal"
+              className="bg-white p-5 rounded-lg shadow-md border border-slate-200 hover:shadow-xl transition-all text-left group block"
             >
               <div className="w-12 h-12 bg-gradient-to-br from-violet-500 to-purple-600 rounded-lg flex items-center justify-center mb-4">
                 <Brain className="w-6 h-6 text-white" />
@@ -144,9 +144,9 @@ export default function Home({ onNavigate }: HomeProps) {
                 Curated AI tools by category. Proven prompts that work. Build your productivity edge.
               </p>
               <div className="text-xs text-violet-600 font-medium">
-                Curated Picks · Prompts Vault
+                <a href="#ai-tools-arsenal" className="hover:underline">Curated Picks</a> · <a href="#prompts-vault" className="hover:underline">Prompts Vault</a>
               </div>
-            </button>
+            </a>
 
           </div>
         </div>
@@ -158,12 +158,12 @@ export default function Home({ onNavigate }: HomeProps) {
           <p className="text-lg text-slate-700 mb-4">
             Your wealth journey has a path. Start anywhere.
           </p>
-          <button
-            onClick={() => onNavigate('ai-literacy-assessment')}
+          <a
+            href="#essential-skills"
             className="inline-flex items-center gap-2 text-emerald-600 font-bold hover:underline"
           >
             Keystones <ArrowRight className="w-4 h-4" />
-          </button>
+          </a>
         </div>
       </section>
     </div>

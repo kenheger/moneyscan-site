@@ -176,20 +176,20 @@ export default function EntrepreneurshipPage({ onNavigate }: EntrepreneurshipPag
             Combine your skills with AI. Start with one niche, expand from there.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <button 
-              onClick={() => onNavigate('prompts-vault')}
+            <a 
+              href="#gig-economy"
               className="bg-gradient-to-r from-emerald-500 to-blue-600 hover:from-emerald-600 hover:to-blue-700 text-white px-6 py-3 rounded-lg font-bold text-sm transition-all shadow-md inline-flex items-center justify-center gap-2"
             >
-              <span>Get AI Prompts</span>
+              <span>Check Gig Economy</span>
               <ArrowRight className="w-4 h-4" />
-            </button>
-            <button 
-              onClick={() => onNavigate('ai-era-careers')}
-              className="bg-white border-2 border-emerald-500 text-emerald-600 hover:bg-emerald-50 px-6 py-3 rounded-lg font-bold text-sm transition-all shadow-md inline-flex items-center justify-center gap-2"
+            </a>
+            <a 
+              href="#ai-tools-arsenal"
+              className="bg-white hover:bg-slate-50 text-slate-700 px-6 py-3 rounded-lg font-bold text-sm transition-all shadow-md border border-slate-200 inline-flex items-center justify-center gap-2"
             >
-              <span>AI Careers</span>
+              <span>Check AI Tools</span>
               <ArrowRight className="w-4 h-4" />
-            </button>
+            </a>
           </div>
         </div>
       </section>

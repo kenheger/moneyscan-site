@@ -115,7 +115,7 @@ export default function JobHeatmap({ onNavigate }: JobHeatmapProps) {
             </h1>
           </div>
           <p className="text-lg text-slate-600 italic mb-3">
-            You're a recent college graduate or young professional. This is where the jobs are growing, and what's driving them.
+            As a recent college graduate or young professional. This is where the jobs are growing, and what's driving them.
           </p>
           <p className="text-sm font-semibold text-slate-700">
             These 10 metros are seeing the fastest job growth in 2026 — driven by tech, remote work, and business-friendly policies.

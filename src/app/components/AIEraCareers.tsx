@@ -127,137 +127,49 @@ export default function AIEraCareers({ onNavigate }: AIEraCareersProps) {
           </p>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-3">
-            <button 
-              onClick={() => onNavigate('job-heatmap')}
-              className="bg-white rounded-lg p-4 border border-emerald-200 hover:border-emerald-400 transition-all text-left"
+            <a 
+              href="#job-heatmap"
+              className="bg-white rounded-lg p-4 border border-emerald-200 hover:border-emerald-400 transition-all text-left block"
             >
               <div className="flex items-center gap-2 mb-2">
                 <MapPin className="w-4 h-4 text-emerald-600" />
                 <span className="font-semibold text-slate-900">Job Heatmap</span>
               </div>
               <p className="text-xs text-slate-500">Where jobs are growing fastest — 10 top metros</p>
-            </button>
+            </a>
             
-            <button 
-              onClick={() => onNavigate('housing-map')}
-              className="bg-white rounded-lg p-4 border border-emerald-200 hover:border-emerald-400 transition-all text-left"
+            <a 
+              href="#housing-map"
+              className="bg-white rounded-lg p-4 border border-emerald-200 hover:border-emerald-400 transition-all text-left block"
             >
               <div className="flex items-center gap-2 mb-2">
                 <TrendingUp className="w-4 h-4 text-emerald-600" />
                 <span className="font-semibold text-slate-900">Housing Map</span>
               </div>
               <p className="text-xs text-slate-500">Where to live — buy vs rent by market</p>
-            </button>
+            </a>
             
-            <button 
-              onClick={() => onNavigate('ai-skills-worksheet')}
-              className="bg-white rounded-lg p-4 border border-emerald-200 hover:border-emerald-400 transition-all text-left"
+            <a 
+              href="#entrepreneurship-page"
+              className="bg-white rounded-lg p-4 border border-emerald-200 hover:border-emerald-400 transition-all text-left block"
             >
               <div className="flex items-center gap-2 mb-2">
-                <Brain className="w-4 h-4 text-emerald-600" />
-                <span className="font-semibold text-slate-900">AI Skills</span>
+                <Target className="w-4 h-4 text-emerald-600" />
+                <span className="font-semibold text-slate-900">Entrepreneurship</span>
               </div>
-              <p className="text-xs text-slate-500">Map your skills and identify gaps</p>
-            </button>
+              <p className="text-xs text-slate-500">In this AI Era - You could be your own boss</p>
+            </a>
             
-            <button 
-              onClick={() => onNavigate('ai-tools-arsenal')}
-              className="bg-white rounded-lg p-4 border border-emerald-200 hover:border-emerald-400 transition-all text-left"
+            <a 
+              href="#gig-economy"
+              className="bg-white rounded-lg p-4 border border-emerald-200 hover:border-emerald-400 transition-all text-left block"
             >
               <div className="flex items-center gap-2 mb-2">
-                <Calculator className="w-4 h-4 text-emerald-600" />
-                <span className="font-semibold text-slate-900">Tools</span>
+                <Briefcase className="w-4 h-4 text-emerald-600" />
+                <span className="font-semibold text-slate-900">Gig Economy</span>
               </div>
-              <p className="text-xs text-slate-500">AI tools for your job search</p>
-            </button>
-          </div>
-        </div>
-      </section>
-
-      {/* Freelance AI Gigs Explorer - replaces Remote Work */}
-      <section className="py-6 bg-slate-50">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white p-6 rounded-xl shadow-md border border-slate-200">
-            <div className="flex items-start gap-4 mb-6">
-              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                <Zap className="w-6 h-6 text-blue-600" />
-              </div>
-              <div className="flex-1">
-                <h3 className="text-xl font-bold text-slate-900 mb-3">Freelance AI Gigs Explorer</h3>
-                <p className="text-slate-700 leading-relaxed">
-                  Discover accessible freelance opportunities that combine basic AI tools with your current skills. Most gigs require only prompting skills and 5–10 hours per week to start.
-                </p>
-              </div>
-            </div>
-
-            {/* Gigs Table */}
-            <div className="mt-6 overflow-x-auto">
-              <table className="w-full border-collapse bg-white rounded-lg overflow-hidden text-sm">
-                <thead className="bg-gradient-to-r from-emerald-600 to-blue-600 text-white">
-                  <tr>
-                    <th className="px-4 py-3 text-left font-semibold">Gig</th>
-                    <th className="px-4 py-3 text-left font-semibold">Description</th>
-                    <th className="px-4 py-3 text-left font-semibold">Who It's Good For</th>
-                    <th className="px-4 py-3 text-left font-semibold">Monthly</th>
-                    <th className="px-4 py-3 text-left font-semibold">Level</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-slate-200">
-                  <tr className="hover:bg-emerald-50 transition-colors">
-                    <td className="px-4 py-3 font-semibold text-slate-900">AI-Assisted Content</td>
-                    <td className="px-4 py-3 text-slate-700">Draft blog posts, social media for small biz</td>
-                    <td className="px-4 py-3 text-slate-700">Writers, marketers</td>
-                    <td className="px-4 py-3 text-emerald-700 font-semibold">$800–$2,500</td>
-                    <td className="px-4 py-3 text-slate-700">Beginner</td>
-                  </tr>
-                  <tr className="hover:bg-emerald-50 transition-colors">
-                    <td className="px-4 py-3 font-semibold text-slate-900">Prompt Engineering</td>
-                    <td className="px-4 py-3 text-slate-700">Better prompts for ChatGPT, Claude</td>
-                    <td className="px-4 py-3 text-slate-700">Comfortable with AI chat</td>
-                    <td className="px-4 py-3 text-emerald-700 font-semibold">$1,000–$3,000</td>
-                    <td className="px-4 py-3 text-slate-700">Beginner</td>
-                  </tr>
-                  <tr className="hover:bg-emerald-50 transition-colors">
-                    <td className="px-4 py-3 font-semibold text-slate-900">AI Workflow Automation</td>
-                    <td className="px-4 py-3 text-slate-700">Simple Zapier + AI for small biz</td>
-                    <td className="px-4 py-3 text-slate-700">Organized, likes systems</td>
-                    <td className="px-4 py-3 text-emerald-700 font-semibold">$1,200–$4,000</td>
-                    <td className="px-4 py-3 text-slate-700">Intermediate</td>
-                  </tr>
-                  <tr className="hover:bg-emerald-50 transition-colors">
-                    <td className="px-4 py-3 font-semibold text-slate-900">AI Data Labeling</td>
-                    <td className="px-4 py-3 text-slate-700">Label data for AI models</td>
-                    <td className="px-4 py-3 text-slate-700">Detail-oriented</td>
-                    <td className="px-4 py-3 text-emerald-700 font-semibold">$600–$1,800</td>
-                    <td className="px-4 py-3 text-slate-700">Beginner</td>
-                  </tr>
-                  <tr className="hover:bg-emerald-50 transition-colors">
-                    <td className="px-4 py-3 font-semibold text-slate-900">AI-Enhanced Consulting</td>
-                    <td className="px-4 py-3 text-slate-700">Niche consulting w/ AI research</td>
-                    <td className="px-4 py-3 text-slate-700">Experienced professionals</td>
-                    <td className="px-4 py-3 text-emerald-700 font-semibold">$1,500–$5,000+</td>
-                    <td className="px-4 py-3 text-slate-700">Intermediate</td>
-                  </tr>
-                  <tr className="hover:bg-emerald-50 transition-colors">
-                    <td className="px-4 py-3 font-semibold text-slate-900">AI Image/Video Gen</td>
-                    <td className="px-4 py-3 text-slate-700">Visuals using Midjourney</td>
-                    <td className="px-4 py-3 text-slate-700">Creative people</td>
-                    <td className="px-4 py-3 text-emerald-700 font-semibold">$900–$2,800</td>
-                    <td className="px-4 py-3 text-slate-700">Beginner</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            {/* How to Get Started */}
-            <div className="mt-6 bg-blue-50 border-l-4 border-blue-600 p-4 rounded-r-lg">
-              <h4 className="font-bold text-slate-900 mb-3">How to Get Started</h4>
-              <ol className="text-sm text-slate-700 space-y-1">
-                <li>1. Take AI Literacy Assessment to identify your level</li>
-                <li>2. Pick 1–2 gigs matching your skills</li>
-                <li>3. Practice 1 week, then create Upwork/Fiverr profile</li>
-              </ol>
-            </div>
+              <p className="text-xs text-slate-500">Explore more hybrid job opportunities</p>
+            </a>
           </div>
         </div>
       </section>

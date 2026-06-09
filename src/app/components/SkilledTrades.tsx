@@ -252,9 +252,9 @@ export default function SkilledTrades({ onNavigate, stripeCheckoutUrl }: Skilled
   return (
     <div className="w-full">
       {/* Hero */}
-      <section className="bg-gradient-to-br from-emerald-50 via-blue-50 to-white py-16">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-4 mb-6">
+      <section className="bg-gradient-to-br from-emerald-50 via-blue-50 to-white py-6">
+        <div className="max-w-5xl mx-auto px-4 sm:px-3 lg:px-4">
+          <div className="flex items-center gap-2 mb-3">
             <div className="relative">
               <div className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-blue-600 rounded-xl flex items-center justify-center">
                 <Wrench className="w-8 h-8 text-white" />
@@ -263,7 +263,7 @@ export default function SkilledTrades({ onNavigate, stripeCheckoutUrl }: Skilled
                 <TrendingUp className="w-4 h-4 text-white" />
               </div>
             </div>
-            <h1 className="text-4xl md:text-5xl font-black text-slate-900">
+            <h1 className="text-xl md:text-2xl font-bold text-slate-900">
               Skilled Trades & Blue-Collar Wealth Building
             </h1>
           </div>
@@ -271,27 +271,27 @@ export default function SkilledTrades({ onNavigate, stripeCheckoutUrl }: Skilled
       </section>
 
       {/* First Principle */}
-      <section className="py-12 bg-white">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-6 bg-white">
+        <div className="max-w-5xl mx-auto px-4 sm:px-3 lg:px-4">
           <div className="bg-emerald-50 border-l-4 border-emerald-600 p-8 rounded-r-lg">
-            <h2 className="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-2">
+            <h2 className="text-base font-bold text-slate-900 mb-2 flex items-center gap-2">
               <CheckCircle className="w-6 h-6 text-emerald-600" />
               First Principle
               <div className="ml-auto">
                 <WealthEngineIcon />
               </div>
             </h2>
-            <p className="text-lg text-slate-700 leading-relaxed">
+            <p className="text-sm text-slate-700 leading-relaxed">
               AI will automate many entry-level and routine white-collar jobs, but it cannot replace human judgment, physical dexterity, or on-site problem-solving. <strong>Skilled trades offer stable, high-earning paths with strong demand, shorter training timelines, and real entrepreneurship potential</strong> — often delivering surplus faster than traditional college routes.
             </p>
           </div>
 
           <div className="mt-8">
-            <h3 className="text-xl font-bold text-slate-900 mb-4">Why This Matters</h3>
-            <p className="text-lg text-slate-700 mb-4">
+            <h3 className="text-base font-bold text-slate-900 mb-2">Why This Matters</h3>
+            <p className="text-sm text-slate-700 mb-2">
               BLS projections show construction and extraction occupations growing 5.6%, installation/maintenance/repair growing 5.3%, with specific roles like wind turbine technicians (+50%) and solar installers (+42%) among the fastest-growing.
             </p>
-            <p className="text-lg text-slate-700">
+            <p className="text-sm text-slate-700">
               Many trades already pay six figures with overtime and certifications, and they are <strong>largely AI-resistant</strong>.
             </p>
           </div>
@@ -299,30 +299,30 @@ export default function SkilledTrades({ onNavigate, stripeCheckoutUrl }: Skilled
       </section>
 
       {/* Free Interactive Trade Lookup */}
-      <section className="py-12 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-6 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-3 lg:px-4">
           <div className="bg-gradient-to-br from-blue-50 to-emerald-50 rounded-2xl p-8 shadow-xl border border-blue-100">
-            <div className="flex items-center gap-3 mb-6">
+            <div className="flex items-center gap-3 mb-3">
               <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-emerald-500 rounded-xl flex items-center justify-center">
                 <Search className="w-6 h-6 text-white" />
               </div>
               <div>
-                <h2 className="text-2xl font-bold text-slate-900">Free Trade Salary Lookup</h2>
+                <h2 className="text-base font-bold text-slate-900">Free Trade Salary Lookup</h2>
                 <p className="text-slate-600">Select a trade and enter your ZIP for local wage estimates</p>
               </div>
             </div>
 
-            <p className="text-sm text-slate-600 mb-6 bg-blue-100 p-3 rounded-lg border border-blue-200">
+            <p className="text-sm text-slate-600 mb-3 bg-blue-100 p-3 rounded-lg border border-blue-200">
               💡 <strong>Why does your ZIP code matter?</strong> Wages vary significantly by region due to cost of living, local demand, and industry concentration. An electrician in San Francisco earns more than one in rural Missouri — because the COL is higher and demand is stronger. We factor that in.
             </p>
 
-            <div className="grid md:grid-cols-3 gap-4 mb-6">
+            <div className="grid md:grid-cols-3 gap-2 mb-3">
               <div>
                 <label className="block text-sm font-medium text-slate-700 mb-2">Select Trade</label>
                 <select
                   value={selectedTrade}
                   onChange={(e) => setSelectedTrade(e.target.value)}
-                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                  className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                 >
                   <option value="">Choose a trade...</option>
                   {freeTrades.map(trade => (
@@ -337,14 +337,14 @@ export default function SkilledTrades({ onNavigate, stripeCheckoutUrl }: Skilled
                   value={zipCode}
                   onChange={(e) => setZipCode(e.target.value.replace(/\D/g, '').slice(0, 5))}
                   placeholder="12345"
-                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                  className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                 />
               </div>
               <div className="flex items-end">
                 <button
                   onClick={handleLookup}
                   disabled={!selectedTrade || !zipCode || zipCode.length < 5}
-                  className="w-full px-6 py-3 bg-gradient-to-r from-blue-500 to-emerald-500 hover:from-blue-600 hover:to-emerald-600 text-white font-semibold rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                  className="w-full px-3 py-2 bg-gradient-to-r from-blue-500 to-emerald-500 hover:from-blue-600 hover:to-emerald-600 text-white font-semibold rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                 >
                   <Search className="w-5 h-5" />
                   Look Up
@@ -354,24 +354,24 @@ export default function SkilledTrades({ onNavigate, stripeCheckoutUrl }: Skilled
 
             {wageResult && (
               <div className="bg-white rounded-xl p-6 shadow-md border border-slate-200">
-                <div className="flex items-center gap-2 mb-4">
+                <div className="flex items-center gap-2 mb-2">
                   <DollarSign className="w-6 h-6 text-emerald-600" />
                   <h3 className="font-bold text-slate-900">Estimated Wages for {freeTrades.find(t => t.id === selectedTrade)?.name}</h3>
                 </div>
-                <div className="grid md:grid-cols-3 gap-6">
+                <div className="grid md:grid-cols-3 gap-3">
                   <div className="text-center">
                     <div className="text-sm text-slate-600 mb-1">Hourly Wage</div>
-                    <div className="text-3xl font-black text-emerald-600">${wageResult.hourly.toLocaleString()}</div>
+                    <div className="text-xl font-black text-emerald-600">${wageResult.hourly.toLocaleString()}</div>
                     <div className="text-xs text-slate-500">in {wageResult.region}</div>
                   </div>
                   <div className="text-center">
                     <div className="text-sm text-slate-600 mb-1">Annual Salary</div>
-                    <div className="text-3xl font-black text-blue-600">${wageResult.annual.toLocaleString()}</div>
+                    <div className="text-xl font-black text-blue-600">${wageResult.annual.toLocaleString()}</div>
                     <div className="text-xs text-slate-500">based on 40hr/week</div>
                   </div>
                   <div className="text-center">
                     <div className="text-sm text-slate-600 mb-1">National Average</div>
-                    <div className="text-3xl font-black text-slate-400">${freeTrades.find(t => t.id === selectedTrade)?.nationalWage.toLocaleString()}</div>
+                    <div className="text-xl font-black text-slate-400">${freeTrades.find(t => t.id === selectedTrade)?.nationalWage.toLocaleString()}</div>
                     <div className="text-xs text-slate-500">per hour</div>
                   </div>
                 </div>
@@ -391,19 +391,19 @@ export default function SkilledTrades({ onNavigate, stripeCheckoutUrl }: Skilled
       </section>
 
       {/* Benchmark Table */}
-      <section className="py-12 bg-slate-50">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-slate-900 mb-6">Top High-Demand Trades (BLS 2023–2033 Projections)</h2>
+      <section className="py-6 bg-slate-50">
+        <div className="max-w-6xl mx-auto px-4 sm:px-3 lg:px-4">
+          <h2 className="text-base font-bold text-slate-900 mb-2">Top High-Demand Trades (BLS 2023–2033 Projections)</h2>
 
           <div className="overflow-x-auto">
             <table className="w-full border-collapse bg-white shadow-xl rounded-lg overflow-hidden">
               <thead className="bg-gradient-to-r from-emerald-600 to-blue-600 text-white">
                 <tr>
-                  <th className="px-6 py-4 text-left font-semibold">Trade</th>
-                  <th className="px-6 py-4 text-left font-semibold">Projected Growth</th>
-                  <th className="px-6 py-4 text-left font-semibold">Annual Openings (avg)</th>
-                  <th className="px-6 py-4 text-left font-semibold">Median Pay (2023)</th>
-                  <th className="px-6 py-4 text-left font-semibold">Time to Earn $100K Potential</th>
+                  <th className="px-3 py-4 text-left font-semibold">Trade</th>
+                  <th className="px-3 py-4 text-left font-semibold">Projected Growth</th>
+                  <th className="px-3 py-4 text-left font-semibold">Annual Openings (avg)</th>
+                  <th className="px-3 py-4 text-left font-semibold">Median Pay (2023)</th>
+                  <th className="px-3 py-4 text-left font-semibold">Time to Earn $100K Potential</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-200">
@@ -455,15 +455,15 @@ export default function SkilledTrades({ onNavigate, stripeCheckoutUrl }: Skilled
       </section>
 
       {/* Real-World Achievers */}
-      <section className="py-12 bg-white">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-slate-900 mb-6">Real-World Achievers</h2>
+      <section className="py-6 bg-white">
+        <div className="max-w-5xl mx-auto px-4 sm:px-3 lg:px-4">
+          <h2 className="text-base font-bold text-slate-900 mb-2">Real-World Achievers</h2>
 
           <div className="bg-gradient-to-br from-emerald-50 to-blue-50 p-8 rounded-xl border-2 border-emerald-200">
-            <div className="flex items-start gap-4">
+            <div className="flex items-start gap-2">
               <CheckCircle className="w-12 h-12 text-emerald-600 flex-shrink-0" />
               <div>
-                <p className="text-slate-700 mb-4">
+                <p className="text-slate-700 mb-2">
                   <strong>Mike Rowe and the mikeroweWORKS Foundation</strong> have long highlighted that millions of high-paying trade jobs go unfilled while student debt rises.
                 </p>
                 <p className="text-slate-700">
@@ -476,13 +476,13 @@ export default function SkilledTrades({ onNavigate, stripeCheckoutUrl }: Skilled
       </section>
 
       {/* Actionable Vehicles */}
-      <section className="py-12 bg-slate-50">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-slate-900 mb-6">
+      <section className="py-6 bg-slate-50">
+        <div className="max-w-5xl mx-auto px-4 sm:px-3 lg:px-4">
+          <h2 className="text-base font-bold text-slate-900 mb-2">
             Simple Actionable Vehicles
           </h2>
 
-          <div className="mb-6 p-4 bg-emerald-50 border-l-4 border-emerald-600 rounded-r-lg">
+          <div className="mb-3 p-4 bg-emerald-50 border-l-4 border-emerald-600 rounded-r-lg">
             <p className="text-sm text-slate-700">
               <strong>Examples only</strong> — These tools help identify high-earning trade paths. Not personalized career advice.
             </p>
@@ -490,36 +490,37 @@ export default function SkilledTrades({ onNavigate, stripeCheckoutUrl }: Skilled
 
           <div className="space-y-6">
             <div className="bg-gradient-to-br from-white to-slate-50 p-8 rounded-xl shadow-md border border-slate-200">
-              <div className="flex items-start gap-4">
+              <div className="flex items-start gap-2">
                 <div className="w-12 h-12 bg-emerald-100 rounded-lg flex items-center justify-center flex-shrink-0">
                   <Wrench className="w-6 h-6 text-emerald-600" />
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-xl font-bold text-slate-900 mb-3">Trade Opportunity Finder (Interactive Tool)</h3>
-                  <p className="text-slate-700 mb-4">
+                  <h3 className="text-base font-bold text-slate-900 mb-2">Trade Opportunity Finder (Interactive Tool)</h3>
+                  <p className="text-slate-700 mb-2">
                     Select a trade and your zip code to see local demand, salary ranges, training programs, and projected earnings.
                   </p>
-                  <button
-                    onClick={() => onNavigate('trade-opportunity-finder')}
-                    className="bg-gradient-to-r from-emerald-500 to-blue-600 hover:from-emerald-600 hover:to-blue-700 text-white px-6 py-3 rounded-lg font-bold transition-all duration-200 shadow-md hover:shadow-lg inline-flex items-center gap-2 group"
+                  <a
+                    href="#trade-opportunity-finder"
+                    onClick={() => window.location.hash = 'trade-opportunity-finder'}
+                    className="bg-gradient-to-r from-emerald-500 to-blue-600 hover:from-emerald-600 hover:to-blue-700 text-white px-3 py-2 rounded-lg font-bold transition-all duration-200 shadow-md hover:shadow-lg inline-flex items-center gap-2 group cursor-pointer"
                   >
                     <span>Launch the Trade Opportunity Finder</span>
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                  </button>
+                  </a>
                 </div>
               </div>
             </div>
 
             {/* $29 Upsell - Appears on Skilled Trades page */}
             <div className="mt-8 p-6 bg-amber-50 border-2 border-amber-300 rounded-xl">
-              <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+              <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
                 <div>
                   <h4 className="font-bold text-slate-900 text-lg">Full Trade Database Access</h4>
                   <p className="text-slate-700">Get all 50+ trades, every ZIP code, state-by-state breakdowns, and exportable reports.</p>
                 </div>
                 <button 
                   onClick={() => stripeCheckoutUrl ? window.open(stripeCheckoutUrl, '_blank') : alert('Payment processing coming soon!')}
-                  className="bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 text-white px-6 py-3 rounded-lg font-bold transition-all shadow-lg whitespace-nowrap"
+                  className="bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 text-white px-3 py-2 rounded-lg font-bold transition-all shadow-lg whitespace-nowrap"
                 >
                   Get Full Access — $29
                 </button>
@@ -529,129 +530,12 @@ export default function SkilledTrades({ onNavigate, stripeCheckoutUrl }: Skilled
         </div>
       </section>
 
-      {/* Caveats */}
-      <section className="py-12 bg-white">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-amber-50 border-l-4 border-amber-500 p-8 rounded-r-lg">
-            <h2 className="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-2">
-              <AlertCircle className="w-6 h-6 text-amber-600" />
-              Important Caveats
-            </h2>
-            <ul className="space-y-3 text-slate-700">
-              <li className="flex items-start gap-3">
-                <span className="font-bold text-amber-600">•</span>
-                <span>Earnings vary by location, experience, and specialization.</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="font-bold text-amber-600">•</span>
-                <span>Trades require physical work and ongoing learning.</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="font-bold text-amber-600">•</span>
-                <span>This is general guidance, not personalized career advice.</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      {/* How It Connects */}
-      <section className="py-12 bg-slate-50">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-slate-900 mb-6">How This Connects to Other Principles</h2>
-          <div className="grid md:grid-cols-2 gap-6">
-            <ConnectionCard
-              title="Wealth Engine"
-              description="Steady trade income creates reliable surplus for compounding"
-              onClick={() => onNavigate('wealth-engine')}
-            />
-            <ConnectionCard
-              title="Cash Flow Mastery"
-              description="Faster surplus creation than many white-collar starts"
-              onClick={() => onNavigate('cash-flow-mastery')}
-            />
-            <ConnectionCard
-              title="AI Era Careers"
-              description="Trades are among the most AI-resistant high-earning paths"
-              onClick={() => onNavigate('ai-era-careers')}
-            />
-            <ConnectionCard
-              title="Behavioral Finance"
-              description="Avoids over-reliance on traditional college paths that may be disrupted"
-              onClick={() => onNavigate('behavioral-finance')}
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* Next Steps CTA */}
-      <section className="py-16 bg-gradient-to-br from-emerald-500 to-blue-600 text-white">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">Ready to Explore High-Earning, AI-Resistant Paths?</h2>
-            <p className="text-xl text-emerald-50">
-              Start with the Trade Opportunity Finder or get the full national data.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-6">
-            <button
-              onClick={() => onNavigate('ai-era-careers')}
-              className="group bg-white/10 backdrop-blur border-2 border-white/50 hover:bg-white hover:text-emerald-600 p-6 rounded-xl transition-all text-left"
-            >
-              <div className="flex items-center gap-3 mb-3">
-                <TrendingUp className="w-8 h-8 group-hover:text-emerald-600 transition-colors" />
-                <h3 className="font-bold text-lg">AI Era Careers</h3>
-              </div>
-              <p className="text-sm text-emerald-50 group-hover:text-slate-600">
-                Return to explore all AI-era career paths
-              </p>
-              <div className="mt-4 flex items-center gap-2 text-sm font-semibold">
-                View Careers <ArrowRight className="w-4 h-4" />
-              </div>
-            </button>
-
-            <button
-              onClick={() => onNavigate('wealth-engine')}
-              className="group bg-white/10 backdrop-blur border-2 border-white/50 hover:bg-white hover:text-emerald-600 p-6 rounded-xl transition-all text-left"
-            >
-              <div className="flex items-center gap-3 mb-3">
-                <TrendingUp className="w-8 h-8 group-hover:text-emerald-600 transition-colors" />
-                <h3 className="font-bold text-lg">The Wealth Engine</h3>
-              </div>
-              <p className="text-sm text-emerald-50 group-hover:text-slate-600">
-                See how trade income powers wealth compounding
-              </p>
-              <div className="mt-4 flex items-center gap-2 text-sm font-semibold">
-                View Wealth Engine <ArrowRight className="w-4 h-4" />
-              </div>
-            </button>
-
-            <button
-              onClick={() => onNavigate('cash-flow-mastery')}
-              className="group bg-white/10 backdrop-blur border-2 border-white/50 hover:bg-white hover:text-emerald-600 p-6 rounded-xl transition-all text-left"
-            >
-              <div className="flex items-center gap-3 mb-3">
-                <TrendingUp className="w-8 h-8 group-hover:text-blue-600 transition-colors" />
-                <h3 className="font-bold text-lg">Cash Flow Mastery</h3>
-              </div>
-              <p className="text-sm text-emerald-50 group-hover:text-slate-600">
-                Maximize your trade income surplus
-              </p>
-              <div className="mt-4 flex items-center gap-2 text-sm font-semibold">
-                View Cash Flow <ArrowRight className="w-4 h-4" />
-              </div>
-            </button>
-          </div>
-        </div>
-      </section>
-
       {/* Premium $29 Section - Full Access */}
       {showPremium && (
-        <section className="py-16 bg-gradient-to-br from-emerald-900 to-slate-900 text-white">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex items-center justify-between mb-8">
-              <h2 className="text-3xl font-bold">Full Trades Database — $29</h2>
+        <section className="py-6 bg-gradient-to-br from-emerald-900 to-slate-900 text-white">
+          <div className="max-w-6xl mx-auto px-4 sm:px-3 lg:px-4">
+            <div className="flex items-center justify-between mb-4">
+              <h2 className="text-base font-bold">Full Trades Database — $29</h2>
               <button 
                 onClick={() => setShowPremium(false)}
                 className="text-white/70 hover:text-white text-sm"
@@ -661,7 +545,7 @@ export default function SkilledTrades({ onNavigate, stripeCheckoutUrl }: Skilled
             </div>
 
             {/* Category Filter */}
-            <div className="mb-6">
+            <div className="mb-3">
               <div className="flex flex-wrap gap-2">
                 <button
                   onClick={() => setSelectedCategory('all')}
@@ -682,17 +566,17 @@ export default function SkilledTrades({ onNavigate, stripeCheckoutUrl }: Skilled
             </div>
 
             {/* Full Trades Table */}
-            <div className="bg-white/10 rounded-xl overflow-hidden mb-8">
+            <div className="bg-white/10 rounded-xl overflow-hidden mb-4">
               <div className="overflow-x-auto">
                 <table className="w-full">
                   <thead className="bg-white/20">
                     <tr>
-                      <th className="px-4 py-3 text-left text-sm font-semibold">Trade</th>
-                      <th className="px-4 py-3 text-left text-sm font-semibold">Category</th>
-                      <th className="px-4 py-3 text-left text-sm font-semibold">Hourly Wage</th>
-                      <th className="px-4 py-3 text-left text-sm font-semibold">Growth</th>
-                      <th className="px-4 py-3 text-left text-sm font-semibold">Training</th>
-                      <th className="px-4 py-3 text-left text-sm font-semibold">AI Risk</th>
+                      <th className="px-4 py-2 text-left text-sm font-semibold">Trade</th>
+                      <th className="px-4 py-2 text-left text-sm font-semibold">Category</th>
+                      <th className="px-4 py-2 text-left text-sm font-semibold">Hourly Wage</th>
+                      <th className="px-4 py-2 text-left text-sm font-semibold">Growth</th>
+                      <th className="px-4 py-2 text-left text-sm font-semibold">Training</th>
+                      <th className="px-4 py-2 text-left text-sm font-semibold">AI Risk</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-white/10">
@@ -700,12 +584,12 @@ export default function SkilledTrades({ onNavigate, stripeCheckoutUrl }: Skilled
                       .filter(t => selectedCategory === 'all' || t.category === selectedCategory)
                       .map(trade => (
                         <tr key={trade.id} className="hover:bg-white/10">
-                          <td className="px-4 py-3 font-medium">{trade.name}</td>
-                          <td className="px-4 py-3 text-white/70 text-sm">{trade.category}</td>
-                          <td className="px-4 py-3 text-emerald-400 font-bold">${trade.nationalWage}/hr</td>
-                          <td className="px-4 py-3 text-emerald-400">{trade.growth}</td>
-                          <td className="px-4 py-3 text-white/70 text-sm">{trade.training}</td>
-                          <td className="px-4 py-3">
+                          <td className="px-4 py-2 font-medium">{trade.name}</td>
+                          <td className="px-4 py-2 text-white/70 text-sm">{trade.category}</td>
+                          <td className="px-4 py-2 text-emerald-400 font-bold">${trade.nationalWage}/hr</td>
+                          <td className="px-4 py-2 text-emerald-400">{trade.growth}</td>
+                          <td className="px-4 py-2 text-white/70 text-sm">{trade.training}</td>
+                          <td className="px-4 py-2">
                             <span className={`px-2 py-1 rounded text-xs font-semibold ${trade.aiRisk === 'Low' ? 'bg-green-500/30 text-green-300' : 'bg-yellow-500/30 text-yellow-300'}`}>
                               {trade.aiRisk}
                             </span>
@@ -718,7 +602,7 @@ export default function SkilledTrades({ onNavigate, stripeCheckoutUrl }: Skilled
             </div>
 
             {/* Quick Actions */}
-            <div className="grid md:grid-cols-3 gap-4 mb-8">
+            <div className="grid md:grid-cols-3 gap-2 mb-4">
               <button
                 onClick={() => { setComparisonMode(true); setShowPremium(false); }}
                 className="bg-white/10 hover:bg-white/20 p-4 rounded-xl text-left transition-all"
@@ -744,8 +628,8 @@ export default function SkilledTrades({ onNavigate, stripeCheckoutUrl }: Skilled
 
             {/* CTA */}
             <div className="text-center">
-              <div className="bg-emerald-600 inline-block px-8 py-4 rounded-2xl mb-4">
-                <div className="text-3xl font-bold">$29</div>
+              <div className="bg-emerald-600 inline-block px-4 py-4 rounded-2xl mb-2">
+                <div className="text-base font-bold">$29</div>
                 <div className="text-emerald-200">One-time payment</div>
               </div>
               <button className="block w-full md:w-auto md:px-12 py-4 bg-white text-emerald-900 font-bold rounded-xl hover:bg-emerald-50 transition-all">
@@ -759,10 +643,10 @@ export default function SkilledTrades({ onNavigate, stripeCheckoutUrl }: Skilled
 
       {/* Trade vs White Collar Comparison */}
       {comparisonMode && (
-        <section className="py-16 bg-slate-100">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex items-center justify-between mb-8">
-              <h2 className="text-3xl font-bold text-slate-900">Trade vs White Collar Comparison</h2>
+        <section className="py-6 bg-slate-100">
+          <div className="max-w-6xl mx-auto px-4 sm:px-3 lg:px-4">
+            <div className="flex items-center justify-between mb-4">
+              <h2 className="text-xl md:text-2xl font-bold text-slate-900">Trade vs White Collar Comparison</h2>
               <button 
                 onClick={() => setComparisonMode(false)}
                 className="text-slate-600 hover:text-slate-900 text-sm"
@@ -775,35 +659,35 @@ export default function SkilledTrades({ onNavigate, stripeCheckoutUrl }: Skilled
               <table className="w-full bg-white rounded-xl overflow-hidden shadow-lg">
                 <thead className="bg-gradient-to-r from-emerald-600 to-blue-600 text-white">
                   <tr>
-                    <th className="px-6 py-4 text-left font-semibold">Path</th>
-                    <th className="px-6 py-4 text-left font-semibold">Time to Earnings</th>
-                    <th className="px-6 py-4 text-left font-semibold">Typical Debt</th>
-                    <th className="px-6 py-4 text-left font-semibold">Starting Pay</th>
-                    <th className="px-6 py-4 text-left font-semibold">Pay at 10 Years</th>
-                    <th className="px-6 py-4 text-left font-semibold">AI Risk</th>
+                    <th className="px-3 py-4 text-left font-semibold">Path</th>
+                    <th className="px-3 py-4 text-left font-semibold">Time to Earnings</th>
+                    <th className="px-3 py-4 text-left font-semibold">Typical Debt</th>
+                    <th className="px-3 py-4 text-left font-semibold">Starting Pay</th>
+                    <th className="px-3 py-4 text-left font-semibold">Pay at 10 Years</th>
+                    <th className="px-3 py-4 text-left font-semibold">AI Risk</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-200">
                   {allTrades.slice(0, 8).map(trade => (
                     <tr className="hover:bg-slate-50">
-                      <td className="px-6 py-4 font-bold text-slate-900">{trade.name}</td>
-                      <td className="px-6 py-4 text-emerald-600 font-medium">1-2 years</td>
-                      <td className="px-6 py-4 text-slate-600">$0-15K</td>
-                      <td className="px-6 py-4 text-slate-900 font-bold">${Math.round(trade.nationalWage * 2080).toLocaleString()}</td>
-                      <td className="px-6 py-4 text-emerald-600 font-bold">${Math.round(trade.nationalWage * 2080 * 1.5).toLocaleString()}</td>
-                      <td className="px-6 py-4">
+                      <td className="px-3 py-4 font-bold text-slate-900">{trade.name}</td>
+                      <td className="px-3 py-4 text-emerald-600 font-medium">1-2 years</td>
+                      <td className="px-3 py-4 text-slate-600">$0-15K</td>
+                      <td className="px-3 py-4 text-slate-900 font-bold">${Math.round(trade.nationalWage * 2080).toLocaleString()}</td>
+                      <td className="px-3 py-4 text-emerald-600 font-bold">${Math.round(trade.nationalWage * 2080 * 1.5).toLocaleString()}</td>
+                      <td className="px-3 py-4">
                         <span className="px-2 py-1 rounded text-xs font-semibold bg-green-100 text-green-700">Low</span>
                       </td>
                     </tr>
                   ))}
                   {whiteCollarPaths.map((wc, i) => (
                     <tr key={i} className="hover:bg-slate-50 bg-blue-50">
-                      <td className="px-6 py-4 font-bold text-blue-900">{wc.name}</td>
-                      <td className="px-6 py-4 text-blue-600 font-medium">{wc.timeToEarnings} years</td>
-                      <td className="px-6 py-4 text-slate-600">${wc.debt.toLocaleString()}</td>
-                      <td className="px-6 py-4 text-slate-900 font-bold">${wc.startingPay.toLocaleString()}</td>
-                      <td className="px-6 py-4 text-blue-600 font-bold">${wc.pay10yr.toLocaleString()}</td>
-                      <td className="px-6 py-4">
+                      <td className="px-3 py-4 font-bold text-blue-900">{wc.name}</td>
+                      <td className="px-3 py-4 text-blue-600 font-medium">{wc.timeToEarnings} years</td>
+                      <td className="px-3 py-4 text-slate-600">${wc.debt.toLocaleString()}</td>
+                      <td className="px-3 py-4 text-slate-900 font-bold">${wc.startingPay.toLocaleString()}</td>
+                      <td className="px-3 py-4 text-blue-600 font-bold">${wc.pay10yr.toLocaleString()}</td>
+                      <td className="px-3 py-4">
                         <span className={`px-2 py-1 rounded text-xs font-semibold ${wc.aiRisk === 'Low' ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}>
                           {wc.aiRisk}
                         </span>
@@ -826,10 +710,10 @@ export default function SkilledTrades({ onNavigate, stripeCheckoutUrl }: Skilled
 
       {/* Skills Assessment */}
       {showAssessment && (
-        <section className="py-16 bg-white">
-          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex items-center justify-between mb-8">
-              <h2 className="text-3xl font-bold text-slate-900">Skills Assessment</h2>
+        <section className="py-6 bg-white">
+          <div className="max-w-3xl mx-auto px-4 sm:px-3 lg:px-4">
+            <div className="flex items-center justify-between mb-4">
+              <h2 className="text-xl md:text-2xl font-bold text-slate-900">Skills Assessment</h2>
               <button 
                 onClick={() => setShowAssessment(false)}
                 className="text-slate-600 hover:text-slate-900 text-sm"
@@ -841,7 +725,7 @@ export default function SkilledTrades({ onNavigate, stripeCheckoutUrl }: Skilled
             {!assessmentAnswers.length ? (
               <div className="space-y-6">
                 <div className="p-6 bg-slate-50 rounded-xl">
-                  <h3 className="font-bold text-lg mb-4">Question 1: What do you prefer working with?</h3>
+                  <h3 className="font-bold text-lg mb-2">Question 1: What do you prefer working with?</h3>
                   <div className="space-y-2">
                     {['People (sales, service, teaching)', 'Data (numbers, analysis, coding)', 'Things (machines, tools, hands-on)'].map((opt, i) => (
                       <button
@@ -855,7 +739,7 @@ export default function SkilledTrades({ onNavigate, stripeCheckoutUrl }: Skilled
                   </div>
                 </div>
                 <div className="p-6 bg-slate-50 rounded-xl">
-                  <h3 className="font-bold text-lg mb-4">Question 2: Physical activity level?</h3>
+                  <h3 className="font-bold text-lg mb-2">Question 2: Physical activity level?</h3>
                   <div className="space-y-2">
                     {['Prefer sitting at a desk', 'Mix of sitting and moving', 'Active/moving most of the day'].map((opt, i) => (
                       <button
@@ -869,7 +753,7 @@ export default function SkilledTrades({ onNavigate, stripeCheckoutUrl }: Skilled
                   </div>
                 </div>
                 <div className="p-6 bg-slate-50 rounded-xl">
-                  <h3 className="font-bold text-lg mb-4">Question 3: Training time preference?</h3>
+                  <h3 className="font-bold text-lg mb-2">Question 3: Training time preference?</h3>
                   <div className="space-y-2">
                     {['Go to school first (4+ years)', 'Start earning while learning (1-3 years)', 'Get to work ASAP (short certification)'].map((opt, i) => (
                       <button
@@ -884,15 +768,15 @@ export default function SkilledTrades({ onNavigate, stripeCheckoutUrl }: Skilled
                 </div>
               </div>
             ) : (
-              <div className="text-center py-12">
-                <div className="text-6xl mb-4">🔧</div>
-                <h3 className="text-2xl font-bold text-slate-900 mb-4">Your Best Fit: Skilled Trades</h3>
-                <p className="text-slate-600 mb-8">
+              <div className="text-center py-6">
+                <div className="text-6xl mb-2">🔧</div>
+                <h3 className="text-base font-bold text-slate-900 mb-2">Your Best Fit: Skilled Trades</h3>
+                <p className="text-slate-600 mb-4">
                   Based on your answers, trades align with your preferences. Consider: Electrician, HVAC, or Industrial Maintenance.
                 </p>
                 <button
                   onClick={() => { setShowAssessment(false); setShowPremium(true); }}
-                  className="bg-gradient-to-r from-emerald-500 to-blue-600 text-white px-8 py-3 rounded-lg font-bold"
+                  className="bg-gradient-to-r from-emerald-500 to-blue-600 text-white px-4 py-2 rounded-lg font-bold"
                 >
                   See Full Trades List — $29
                 </button>
@@ -904,10 +788,10 @@ export default function SkilledTrades({ onNavigate, stripeCheckoutUrl }: Skilled
 
       {/* Export Section */}
       {showExport && (
-        <section className="py-16 bg-slate-50">
-          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex items-center justify-between mb-8">
-              <h2 className="text-3xl font-bold text-slate-900">Export Your Report</h2>
+        <section className="py-6 bg-slate-50">
+          <div className="max-w-3xl mx-auto px-4 sm:px-3 lg:px-4">
+            <div className="flex items-center justify-between mb-4">
+              <h2 className="text-xl md:text-2xl font-bold text-slate-900">Export Your Report</h2>
               <button 
                 onClick={() => setShowExport(false)}
                 className="text-slate-600 hover:text-slate-900 text-sm"
@@ -917,12 +801,12 @@ export default function SkilledTrades({ onNavigate, stripeCheckoutUrl }: Skilled
             </div>
 
             <div className="bg-white p-8 rounded-xl shadow-lg text-center">
-              <div className="text-6xl mb-4">📥</div>
-              <h3 className="text-xl font-bold text-slate-900 mb-4">Ready to Export?</h3>
-              <p className="text-slate-600 mb-6">
+              <div className="text-6xl mb-2">📥</div>
+              <h3 className="text-base font-bold text-slate-900 mb-2">Ready to Export?</h3>
+              <p className="text-slate-600 mb-3">
                 Get the complete trades database with salary data, growth projections, and comparison charts.
               </p>
-              <div className="bg-emerald-50 p-4 rounded-lg mb-6">
+              <div className="bg-emerald-50 p-4 rounded-lg mb-3">
                 <p className="text-emerald-800 font-semibold">
                   💰 This feature requires $29 upgrade
                 </p>
@@ -930,7 +814,7 @@ export default function SkilledTrades({ onNavigate, stripeCheckoutUrl }: Skilled
                   Export includes all 50+ trades, all states, and comparison data
                 </p>
               </div>
-              <button className="bg-gradient-to-r from-emerald-500 to-blue-600 text-white px-8 py-3 rounded-lg font-bold">
+              <button className="bg-gradient-to-r from-emerald-500 to-blue-600 text-white px-4 py-2 rounded-lg font-bold">
                 Get Access — $29
               </button>
             </div>
@@ -944,11 +828,11 @@ export default function SkilledTrades({ onNavigate, stripeCheckoutUrl }: Skilled
 function TradeRow({ trade, growth, openings, pay, time }: any) {
   return (
     <tr className="hover:bg-slate-50">
-      <td className="px-6 py-4 font-bold text-slate-900">{trade}</td>
-      <td className="px-6 py-4 text-emerald-600 font-semibold">{growth}</td>
-      <td className="px-6 py-4 text-slate-700">{openings}</td>
-      <td className="px-6 py-4 text-slate-700 font-medium">{pay}</td>
-      <td className="px-6 py-4 text-blue-600 font-medium">{time}</td>
+      <td className="px-3 py-4 font-bold text-slate-900">{trade}</td>
+      <td className="px-3 py-4 text-emerald-600 font-semibold">{growth}</td>
+      <td className="px-3 py-4 text-slate-700">{openings}</td>
+      <td className="px-3 py-4 text-slate-700 font-medium">{pay}</td>
+      <td className="px-3 py-4 text-blue-600 font-medium">{time}</td>
     </tr>
   );
 }

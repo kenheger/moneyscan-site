@@ -29,14 +29,18 @@ export default function CompoundInterestTool({ onNavigate }: CompoundInterestToo
         <div className="max-w-[820px] mx-auto px-4">
           <div className="flex justify-between items-center h-14">
             <button
-              onClick={() => onNavigate('compound-interest')}
+              onClick={() => onNavigate('home')}
               className="text-sm text-slate-600 hover:text-emerald-600 transition-colors"
             >
-              ← Back
+              Home -
             </button>
             <div className="flex flex-col items-end">
-              <div className="text-xs font-bold text-emerald-600">First</div>
-              <div className="text-xs font-bold text-emerald-600">Principle</div>
+              <button
+                onClick={() => onNavigate('budgeting-page')}
+                className="text-sm font-bold text-emerald-600 hover:text-emerald-700 transition-colors"
+              >
+                Next: Budgeting →
+              </button>
             </div>
           </div>
         </div>

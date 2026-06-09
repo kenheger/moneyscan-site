@@ -1,8 +1,63 @@
-import { Shield, TrendingUp, Brain, ArrowRight, Target, AlertTriangle, Briefcase, UserCheck, GraduationCap, Calculator, Scale, Building2, LineChart } from 'lucide-react';
+import { Shield, Brain, ArrowRight, Target, Briefcase, FileText, BarChart3, Users, AlertTriangle, CheckCircle2, Lightbulb, TrendingDown, TrendingUp } from 'lucide-react';
 
 interface MidCareerAIPageProps {
   onNavigate: (page: string) => void;
 }
+
+// Skills and Steps from Ken's content
+const coreSkills = [
+  {
+    title: "Skill A: Contextual Prompting",
+    subtitle: "Directing the AI",
+    description: "Give Claude, ChatGPT, or Grok a role, a specific dataset, and a clear goal. The better the context, the sharper the output.",
+    example: "The Prompt: \"You are a senior strategy consultant analyzing retail trends. Given this sales data, identify our three biggest opportunities and three biggest risks.\""
+  },
+  {
+    title: "Skill B: Natural Language Data Analysis",
+    subtitle: "Finding Hidden Trends",
+    description: "Take a massive CSV file, competitor report, or market analysis and ask AI to surface what's buried.",
+    example: "The Prompt: \"What are the top three hidden trends in this data that our current strategy is missing?\""
+  }
+];
+
+const juniorBreakthroughSteps = [
+  {
+    step: "Step 1",
+    title: "Arrive with the Executive Summary",
+    description: "Rip that 50-page industry report or competitor's financials. Summarize into three key strategic threats and three immediate revenue opportunities.",
+    example: "The Prompt: \"Summarize this report into three key strategic threats and three immediate revenue opportunities for a company of our size. Format it as an executive briefing.\""
+  },
+  {
+    step: "Step 2",
+    title: "Build Interactive Financial Models",
+    description: "Nothing establishes authority faster than financial or operational clarity. Visually demonstrate how a strategy impacts the bottom line.",
+    example: "Build custom calculators or simulators to stress-test business ideas right in front of leadership."
+  },
+  {
+    step: "Step 3",
+    title: "Use AI as an Executive Board",
+    description: "Test your ideas from three distinct perspectives: a conservative CFO, an aggressive CMO, and a cynical COO.",
+    example: "\"Review this plan from three distinct perspectives... Give me their objections so I can prepare.\""
+  },
+  {
+    step: "Step 4",
+    title: "Bridge Gaps - Connect Dots",
+    description: "Translate client/field feedback into actionable documentation. Have field managers record audio memos, then generate formal PRDs.",
+    example: "\"Take this raw transcript of client feedback and generate a formal Product Requirements Document (PRD).\""
+  },
+  {
+    step: "Step 5",
+    title: "Develop Asynchronous Oversight",
+    description: "You don't control everything, but need everything to complete successfully. Use AI to track what's actually happening.",
+    example: "Use AI tools to create variance reports and translate chaotic project data into impacts/mitigations."
+  },
+  {
+    step: "Step 6",
+    title: "Predictive Risk Scoring",
+    description: "CEOs hate surprises, but they don't mind timeline shifts when framed around risk mitigation.",
+    example: "\"Calculate the true statistical probability of hitting our live date based on current velocity.\""
+  }
+];
 
 const atRiskRoles = [
   { role: "Data Entry & Processing", risk: "High", reason: "OCR + AI extraction handles faster" },
@@ -13,37 +68,10 @@ const atRiskRoles = [
   { role: "Content Writing (Basic)", risk: "Medium", reason: "LLMs produce standard content" }
 ];
 
-const defensePaths = [
-  {
-    title: "Reskill Into AI-Adjacent Roles",
-    icon: Brain,
-    description: "Use your industry knowledge + learn AI tools. Become the person who works WITH AI, not against it.",
-    example: "Marketing manager → AI Marketing Specialist"
-  },
-  {
-    title: "Pivot to Advisory & Management",
-    icon: UserCheck,
-    description: "Experience matters where judgment matters. Move toward client relationships, team leadership, strategy.",
-    example: "Accountant → Financial Advisor / Controller"
-  },
-  {
-    title: "Leverage Into Consulting",
-    icon: Briefcase,
-    description: "Your years of expertise have value. Consult on what AI can't replicate: relationships, context, nuance.",
-    example: "Operations → Process Optimization Consultant"
-  },
-  {
-    title: "Teach & Mentor",
-    icon: GraduationCap,
-    description: "Companies need internal trainers. Train others on what you've mastered — including AI literacy.",
-    example: "Manager → Corporate Training Lead"
-  }
-];
-
 export default function MidCareerAIPage({ onNavigate }: MidCareerAIPageProps) {
   return (
     <div className="w-full bg-white min-h-screen">
-      {/* Header */}
+      {/* Header - REWRITTEN */}
       <section className="bg-gradient-to-br from-blue-50 via-emerald-50 to-white py-8">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-3 mb-3">
@@ -51,20 +79,43 @@ export default function MidCareerAIPage({ onNavigate }: MidCareerAIPageProps) {
               <Shield className="w-5 h-5 text-white" />
             </div>
             <h1 className="text-2xl md:text-3xl font-bold text-slate-900">
-              Career Defense in the AI Era
+              Mid-Career AI Leverage
             </h1>
           </div>
-          <p className="text-lg text-slate-600 italic mb-3">
-            You've built expertise. Now protect and extend it.
+          <p className="text-lg text-slate-600 font-medium mb-3">
+            Think of AI as an incredibly fast, highly capable chief of staff that needs a sharp, experienced director (you) to give it context, guardrails, and ultimate direction.
           </p>
-          <p className="text-sm font-semibold text-slate-700">
-            AI isn't just affecting new grads. It's disrupting experienced workers too. Here's how to defend and grow your career.
+          <p className="text-sm text-slate-700">
+            The secret of the current AI wave? Your language is now the programming language. Bring real insights to problems that have impact — and increase your authority status.
           </p>
         </div>
       </section>
 
-      {/* The Reality */}
+      {/* The Core Skills */}
       <section className="py-6 bg-white">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-xl font-bold text-slate-900 mb-4">The Core AI Skills to Learn First</h2>
+          
+          <div className="grid md:grid-cols-2 gap-4">
+            {coreSkills.map((skill, idx) => (
+              <div key={idx} className="bg-emerald-50 rounded-lg p-4 border border-emerald-200">
+                <div className="flex items-center gap-2 mb-2">
+                  <Lightbulb className="w-5 h-5 text-emerald-600" />
+                  <h3 className="font-bold text-slate-900">{skill.title}</h3>
+                </div>
+                <p className="text-sm font-semibold text-emerald-700 mb-2">{skill.subtitle}</p>
+                <p className="text-sm text-slate-600 mb-3">{skill.description}</p>
+                <div className="bg-white rounded p-3 border border-emerald-100">
+                  <p className="text-xs text-slate-500">{skill.example}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* The Reality */}
+      <section className="py-6 bg-slate-50">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-red-50 border-l-4 border-red-500 rounded-r-lg p-4">
             <div className="flex items-start gap-3">
@@ -72,7 +123,7 @@ export default function MidCareerAIPage({ onNavigate }: MidCareerAIPageProps) {
               <div>
                 <h2 className="font-bold text-slate-900 mb-2">The Reality for Experienced Workers</h2>
                 <p className="text-sm text-slate-700">
-                  AI doesn't just create new jobs — it devalues some experience-based skills faster than ever before. Tasks that took years to master can now be automated. <strong>If you're not actively working WITH AI, you're falling behind.</strong> But your industry knowledge, judgment, and relationships? That's your moat.
+                  AI doesn't just create new jobs — it devalues some experience-based skills faster than ever. Tasks that took years to master can now be automated. <strong>If you're not actively working WITH AI, you're falling behind.</strong> But your industry knowledge, judgment, and relationships? That's your moat.
                 </p>
               </div>
             </div>
@@ -81,11 +132,11 @@ export default function MidCareerAIPage({ onNavigate }: MidCareerAIPageProps) {
       </section>
 
       {/* At-Risk Roles */}
-      <section className="py-6 bg-slate-50">
+      <section className="py-6 bg-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-xl font-bold text-slate-900 mb-4">Roles Under Pressure</h2>
           <p className="text-sm text-slate-600 mb-4">
-            If your current role overlaps with these, consider your defense path:
+            If your current role overlaps with these, it's time to pivot:
           </p>
           
           <div className="overflow-x-auto">
@@ -117,148 +168,59 @@ export default function MidCareerAIPage({ onNavigate }: MidCareerAIPageProps) {
         </div>
       </section>
 
-      {/* Your Defense Paths */}
-      <section className="py-6 bg-white">
+      {/* Breaking Through Junior Status - THE 6 STEPS */}
+      <section className="py-6 bg-gradient-to-br from-slate-50 via-blue-50 to-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-xl font-bold text-slate-900 mb-4">Your Defense Paths</h2>
+          <h2 className="text-xl font-bold text-slate-900 mb-2">How to Break Through "Junior Status"</h2>
+          <p className="text-sm text-slate-600 mb-2">
+            In addition to ChatGPT, Gemini, Claude and Grok, use Project Management tools like Notion AI, Asana Intelligence. Project Data tools like ChatGPT Data Analysis or ClickUp. Record tools like Whisper or Otter.ai.
+          </p>
           <p className="text-sm text-slate-600 mb-4">
-            Four ways to turn experience into AI-proof advantage:
+            Six steps to shift from "doer" to "strategic director" in the AI era:
           </p>
           
-          <div className="grid md:grid-cols-2 gap-3">
-            {defensePaths.map((path, idx) => {
-              const Icon = path.icon;
-              return (
-                <div key={idx} className="bg-slate-50 rounded-lg p-4 border border-slate-200">
-                  <div className="flex items-center gap-2 mb-2">
-                    <Icon className="w-5 h-5 text-orange-600" />
-                    <h3 className="font-bold text-slate-900">{path.title}</h3>
+          <div className="space-y-3">
+            {juniorBreakthroughSteps.map((item, idx) => (
+              <div key={idx} className="bg-white rounded-lg p-4 border border-slate-200 shadow-sm">
+                <div className="flex items-start gap-3">
+                  <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
+                    <span className="text-white text-xs font-bold">{item.step}</span>
                   </div>
-                  <p className="text-sm text-slate-600 mb-2">{path.description}</p>
-                  <p className="text-xs text-slate-500">
-                    <span className="font-semibold">Example:</span> {path.example}
-                  </p>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* Investing Section */}
-      <section className="py-6 bg-white">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-xl font-bold text-slate-900 mb-4">Investing</h2>
-          <div className="grid md:grid-cols-2 gap-4">
-            <button 
-              onClick={() => onNavigate('equities-investing')}
-              className="bg-white rounded-lg p-4 border border-slate-200 hover:border-blue-400 hover:shadow-md transition-all text-left"
-            >
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
-                  <LineChart className="w-5 h-5 text-blue-600" />
-                </div>
-                <div>
-                  <h3 className="font-bold text-slate-900">Traditional + AI Platforms</h3>
-                  <p className="text-sm text-slate-600">Roboadvisors, AI stock picking, ETFs</p>
+                  <div className="flex-1">
+                    <h3 className="font-bold text-slate-900 mb-1">{item.title}</h3>
+                    <p className="text-sm text-slate-600 mb-2">{item.description}</p>
+                    <div className="bg-slate-50 rounded p-2 border border-slate-100">
+                      <p className="text-xs text-slate-500">{item.example}</p>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </button>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Housing Section */}
-      <section className="py-6 bg-slate-50">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-xl font-bold text-slate-900 mb-4">Housing</h2>
-          <div className="grid md:grid-cols-3 gap-4">
-            <button 
-              onClick={() => onNavigate('house-hacking')}
-              className="bg-white rounded-lg p-4 border border-slate-200 hover:border-emerald-400 hover:shadow-md transition-all text-left"
+      {/* Closing CTA */}
+      <section className="py-6 bg-white border-t border-slate-200">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <p className="text-slate-800 text-lg font-semibold mb-3">
+            Your experience is your moat. AI is the bridge. Cross it.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <a 
+              href="#equities-investing"
+              className="bg-gradient-to-r from-emerald-500 to-blue-600 hover:from-emerald-600 hover:to-blue-700 text-white px-6 py-3 rounded-lg font-bold text-sm transition-all shadow-md inline-flex items-center justify-center gap-2"
             >
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-emerald-100 rounded-lg flex items-center justify-center">
-                  <Building2 className="w-5 h-5 text-emerald-600" />
-                </div>
-                <div>
-                  <h3 className="font-bold text-slate-900">Hacking</h3>
-                  <p className="text-sm text-slate-600">House hacking strategies</p>
-                </div>
-              </div>
-            </button>
-            <button 
-              onClick={() => onNavigate('real-estate-paths')}
-              className="bg-white rounded-lg p-4 border border-slate-200 hover:border-emerald-400 hover:shadow-md transition-all text-left"
+              <span>On to Investing</span>
+              <ArrowRight className="w-4 h-4" />
+            </a>
+            <a 
+              href="#ai-tools-arsenal"
+              className="bg-white hover:bg-slate-50 text-slate-700 px-6 py-3 rounded-lg font-bold text-sm transition-all shadow-md border border-slate-200 inline-flex items-center justify-center gap-2"
             >
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-emerald-100 rounded-lg flex items-center justify-center">
-                  <TrendingUp className="w-5 h-5 text-emerald-600" />
-                </div>
-                <div>
-                  <h3 className="font-bold text-slate-900">Passive</h3>
-                  <p className="text-sm text-slate-600">REITs, crowdfunding</p>
-                </div>
-              </div>
-            </button>
-            <button 
-              onClick={() => onNavigate('build-your-own-home')}
-              className="bg-white rounded-lg p-4 border border-slate-200 hover:border-emerald-400 hover:shadow-md transition-all text-left"
-            >
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-emerald-100 rounded-lg flex items-center justify-center">
-                  <Building2 className="w-5 h-5 text-emerald-600" />
-                </div>
-                <div>
-                  <h3 className="font-bold text-slate-900">Build Your Own</h3>
-                  <p className="text-sm text-slate-600">BRICS, exurb investing</p>
-                </div>
-              </div>
-            </button>
-          </div>
-        </div>
-      </section>
-
-      {/* Assessment CTA */}
-      <section className="py-6 bg-orange-50">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white rounded-lg p-4 border border-orange-200">
-            <h2 className="font-bold text-slate-900 mb-2">Start With the Baseline</h2>
-            <p className="text-sm text-slate-600 mb-3">
-              Take the AI Literacy Assessment to understand where you stand. Your score identifies the gaps to close.
-            </p>
-            <button 
-              onClick={() => onNavigate('ai-literacy-assessment')}
-              className="inline-flex items-center gap-2 px-4 py-2 bg-orange-500 text-white font-semibold rounded-lg hover:bg-orange-600 transition-all"
-            >
-              Take AI Literacy Assessment <ArrowRight className="w-4 h-4" />
-            </button>
-          </div>
-        </div>
-      </section>
-
-      {/* Skills Note */}
-      <section className="py-6 bg-white">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-blue-50 rounded-lg p-4 border border-blue-200">
-            <h3 className="font-bold text-blue-800 mb-2">What About Your Skills?</h3>
-            <p className="text-sm text-slate-700">
-              Your industry experience is an asset — but only if paired with AI fluency. Use the AI Skills Worksheet to map what you know vs. what you need to learn. The goal isn't becoming a coder. It's knowing enough to collaborate with AI in your domain.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Closing */}
-      <section className="py-6 bg-slate-50 border-t border-slate-200">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <p className="text-sm text-slate-600 mb-3">
-              The experienced workers who thrive aren't the ones who ignore AI. They're the ones who pair decades of knowledge with AI tools.
-            </p>
-            <p className="text-sm font-semibold text-slate-700">
-              Your experience is your moat. AI is the bridge. Cross it.
-            </p>
+              <span>AI Tools</span>
+              <ArrowRight className="w-4 h-4" />
+            </a>
           </div>
         </div>
       </section>

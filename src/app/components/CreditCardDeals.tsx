@@ -1,5 +1,5 @@
 import { ArrowRight, CreditCard, Heart, Shield, CheckCircle } from 'lucide-react';
-import logoImage from '../../imports/Moneyscan_Logo_Final.jpg';
+import logoImage from '../../imports/Moneyscan_Logo_Final.png';
 
 interface CreditCardDealsProps {
   onNavigate: (page: string) => void;

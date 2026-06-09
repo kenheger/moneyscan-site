@@ -33,7 +33,7 @@ const menuStructure: SidebarItem[] = [
       { label: 'Credit Cards', page: 'debt-elimination-page' },
       { label: 'Student Loans', page: 'debt-elimination-page' },
       { label: 'Medical', page: 'debt-elimination-page' },
-      { label: 'Budgeting', page: 'budgeting-page' },
+      { label: 'Cash Management', page: 'budgeting-page' },
     ],
   },
   {

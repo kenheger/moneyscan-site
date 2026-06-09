@@ -10,14 +10,19 @@ import RealEstateCrowdfunding from './components/RealEstateCrowdfunding';
 import HouseHacking from './components/HouseHacking';
 import CashFlowMastery from './components/CashFlowMastery';
 import AIEraCareers from './components/AIEraCareers';
+import GigEconomyPage from './components/GigEconomy';
 import AICareerTools from './components/AICareerTools';
 import AIToolFluency from './components/AIToolFluency';
+import AutomationWorkflows from './components/AutomationWorkflows';
+import AILearningTools from './components/AILearningTools';
+import PromptEngineering from './components/PromptEngineering';
 import AISkillsMapWorksheet from './components/AISkillsMapWorksheet';
 import ToolsHub from './components/ToolsHub';
 import Moneyscan from './components/Moneyscan';
 import SkilledTrades from './components/SkilledTrades';
 import TradeOpportunityFinder from './components/TradeOpportunityFinder';
 import RealEstatePaths from './components/RealEstatePaths';
+import RealEstateTraditional from './components/RealEstateTraditional';
 import FirstTimeHomeBuyer from './components/FirstTimeHomeBuyer';
 import LegalPrivacy from './components/LegalPrivacy';
 import EntrepreneurshipPage from './components/EntrepreneurshipPage';
@@ -34,13 +39,15 @@ import Adulting101 from './components/Adulting101';
 import JobHeatmap from './components/JobHeatmap';
 import AIToolsArsenal from './components/AIToolsArsenal';
 import WealthBlindSpots from './components/WealthBlindSpots';
-import AILiteracyAssessment from './components/AILiteracyAssessment';
 import EssentialSkills from './components/EssentialSkills';
 import HousingMap from './components/HousingMap';
 import MidCareerAI from './components/MidCareerAI';
 import EquitiesInvesting from './components/EquitiesInvesting';
+import RealEstateDynamics from './components/RealEstateDynamics';
+import LandingPage from './components/LandingPage';
 
-type Page = 'moneyscan' | 'home' | 'wealth-engine' | 'behavioral-finance' | 'debt-elimination' | 'real-estate-crowdfunding' | 'house-hacking' | 'real-estate-paths' | 'first-time-home-buyer' | 'cash-flow-mastery' | 'ai-era-careers' | 'ai-career-tools' | 'ai-skills-worksheet' | 'tools-hub' | 'skilled-trades' | 'trade-opportunity-finder' | 'legal-privacy' | 'wealth-goal' | 'prompts-vault' | 'compound-interest' | 'compound-interest-tool' | 'debt-elimination-page' | 'budgeting-page' | 'entrepreneurship-page' | 'tax-strategies' | 'tax-advantages-children' | 'build-your-own-home' | 'adulting-101' | 'job-heatmap' | 'ai-tools-arsenal' | 'wealth-blind-spots' | 'ai-literacy-assessment' | 'essential-skills' | 'housing-map' | 'mid-career-ai' | 'equities-investing' | 'ai-tool-fluency';
+
+type Page = 'moneyscan' | 'home' | 'wealth-engine' | 'behavioral-finance' | 'debt-elimination' | 'real-estate-crowdfunding' | 'house-hacking' | 'real-estate-paths' | 'real-estate-traditional' | 'first-time-home-buyer' | 'cash-flow-mastery' | 'ai-era-careers' | 'ai-career-tools' | 'ai-skills-worksheet' | 'tools-hub' | 'skilled-trades' | 'trade-opportunity-finder' | 'legal-privacy' | 'wealth-goal' | 'prompts-vault' | 'compound-interest' | 'compound-interest-tool' | 'debt-elimination-page' | 'budgeting-page' | 'entrepreneurship-page' | 'tax-strategies' | 'tax-advantages-children' | 'build-your-own-home' | 'building-capital' | 'job-heatmap' | 'ai-tools-arsenal' | 'wealth-blind-spots' | 'essential-skills' | 'housing-map' | 'mid-career-ai' | 'equities-investing' | 'ai-tool-fluency' | 'automation-workflows' | 'ai-learning-tools' | 'prompt-engineering' | 'gig-economy' | 'landing-page' ;
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState<Page>('moneyscan');
@@ -59,10 +66,11 @@ export default function App() {
     }
   }, []);
 
-  const navigateTo = useCallback((page: Page) => {
+  // NEW BUILD
+const navigateTo = useCallback((page: Page) => {
     // Paywall check - only allow free pages or if user has paid
     const hasAccess = localStorage.getItem('moneyscan_unlocked') === 'true';
-    const freePages: Page[] = ['moneyscan', 'legal-privacy', 'prompts-vault', 'wealth-goal', 'compound-interest', 'compound-interest-tool', 'home', 'wealth-engine', 'real-estate-paths', 'debt-elimination-page', 'budgeting-page', 'ai-era-careers', 'ai-career-tools', 'ai-skills-worksheet', 'skilled-trades', 'cash-flow-mastery', 'house-hacking', 'entrepreneurship-page', 'tax-strategies', 'tax-advantages-children', 'build-your-own-home', 'first-time-home-buyer', 'housing-map', 'mid-career-ai', 'equities-investing', 'ai-tool-fluency'];
+    const freePages: Page[] = ['moneyscan', 'legal-privacy', 'prompts-vault', 'wealth-goal', 'compound-interest', 'compound-interest-tool', 'home', 'wealth-engine', 'real-estate-paths', 'debt-elimination-page', 'budgeting-page', 'ai-era-careers', 'ai-career-tools', 'ai-skills-worksheet', 'skilled-trades', 'cash-flow-mastery', 'house-hacking', 'entrepreneurship-page', 'tax-strategies', 'tax-advantages-children', 'build-your-own-home', 'first-time-home-buyer', 'housing-map', 'mid-career-ai', 'equities-investing', 'ai-tool-fluency', 'automation-workflows', 'ai-learning-tools', 'prompt-engineering', 'gig-economy', 'real-estate-dynamics', 'real-estate-traditional', 'landing-page', 'tools-hub', 'trade-opportunity-finder'];
     
     if (!hasAccess && !freePages.includes(page)) {
       // Redirect to paywall
@@ -105,10 +113,28 @@ export default function App() {
     return () => window.removeEventListener('popstate', handlePopstate);
   }, [pageHistory]);
 
+  // Handle URL hash changes
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash.slice(1) as Page;
+      if (hash && hash !== currentPage) {
+        const hasAccess = localStorage.getItem('moneyscan_unlocked') === 'true';
+        const freePages: Page[] = ['moneyscan', 'legal-privacy', 'prompts-vault', 'wealth-goal', 'compound-interest', 'compound-interest-tool', 'home', 'wealth-engine', 'real-estate-paths', 'debt-elimination-page', 'budgeting-page', 'ai-era-careers', 'ai-career-tools', 'ai-skills-worksheet', 'skilled-trades', 'cash-flow-mastery', 'house-hacking', 'entrepreneurship-page', 'tax-strategies', 'tax-advantages-children', 'build-your-own-home', 'building-capital', 'job-heatmap', 'ai-tools-arsenal', 'wealth-blind-spots', 'essential-skills', 'first-time-home-buyer', 'housing-map', 'mid-career-ai', 'equities-investing', 'ai-tool-fluency', 'automation-workflows', 'ai-learning-tools', 'prompt-engineering', 'gig-economy', 'real-estate-dynamics', 'real-estate-traditional', 'landing-page', 'tools-hub', 'trade-opportunity-finder'];
+        
+        if (hasAccess || freePages.includes(hash)) {
+          setCurrentPage(hash);
+        }
+      }
+    };
+    
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, [currentPage]);
+
   // Initialize with current page
   useEffect(() => {
     const hasAccess = localStorage.getItem('moneyscan_unlocked') === 'true';
-    const freePages: Page[] = ['moneyscan', 'legal-privacy', 'prompts-vault', 'wealth-goal', 'compound-interest', 'compound-interest-tool', 'home', 'wealth-engine', 'real-estate-paths', 'debt-elimination-page', 'budgeting-page', 'ai-era-careers', 'ai-career-tools', 'ai-skills-worksheet', 'skilled-trades', 'cash-flow-mastery', 'house-hacking', 'entrepreneurship-page', 'tax-strategies', 'tax-advantages-children', 'build-your-own-home', 'adulting-101', 'job-heatmap', 'ai-tools-arsenal', 'wealth-blind-spots', 'ai-literacy-assessment', 'essential-skills', 'first-time-home-buyer', 'housing-map', 'mid-career-ai', 'equities-investing', 'ai-tool-fluency'];
+    const freePages: Page[] = ['moneyscan', 'legal-privacy', 'prompts-vault', 'wealth-goal', 'compound-interest', 'compound-interest-tool', 'home', 'wealth-engine', 'real-estate-paths', 'debt-elimination-page', 'budgeting-page', 'ai-era-careers', 'ai-career-tools', 'ai-skills-worksheet', 'skilled-trades', 'cash-flow-mastery', 'house-hacking', 'entrepreneurship-page', 'tax-strategies', 'tax-advantages-children', 'build-your-own-home', 'building-capital', 'job-heatmap', 'ai-tools-arsenal', 'wealth-blind-spots', 'essential-skills', 'first-time-home-buyer', 'housing-map', 'mid-career-ai', 'equities-investing', 'ai-tool-fluency', 'automation-workflows', 'ai-learning-tools', 'prompt-engineering', 'gig-economy', 'landing-page', 'tools-hub', 'trade-opportunity-finder'];
     
     // Check for hash in URL
     const hash = window.location.hash.slice(1) as Page;
@@ -126,7 +152,7 @@ export default function App() {
   }, []);
 
   // Show minimal header only on Moneyscan page (handled within Moneyscan component)
-  const showHeader = currentPage !== 'moneyscan';
+  const showHeader = currentPage !== 'moneyscan' && currentPage !== 'landing-page';
 
   return (
     <div className="min-h-screen flex flex-col bg-slate-50">
@@ -144,10 +170,15 @@ export default function App() {
         {currentPage === 'real-estate-crowdfunding' && <RealEstateCrowdfunding onNavigate={navigateTo} />}
         {currentPage === 'house-hacking' && <HouseHacking onNavigate={navigateTo} />}
         {currentPage === 'real-estate-paths' && <RealEstatePaths onNavigate={navigateTo} hasLeftLanding={hasLeftLanding} />}
+        {currentPage === 'real-estate-traditional' && <RealEstateTraditional onNavigate={navigateTo} />}
         {currentPage === 'first-time-home-buyer' && <FirstTimeHomeBuyer onNavigate={navigateTo} hasLeftLanding={hasLeftLanding} />}
         {currentPage === 'ai-era-careers' && <AIEraCareers onNavigate={navigateTo} />}
+        {currentPage === 'gig-economy' && <GigEconomyPage onNavigate={navigateTo} />}
         {currentPage === 'ai-career-tools' && <AICareerTools onNavigate={navigateTo} />}
         {currentPage === 'ai-tool-fluency' && <AIToolFluency onNavigate={navigateTo} />}
+        {currentPage === 'automation-workflows' && <AutomationWorkflows onNavigate={navigateTo} />}
+        {currentPage === 'ai-learning-tools' && <AILearningTools onNavigate={navigateTo} />}
+        {currentPage === 'prompt-engineering' && <PromptEngineering onNavigate={navigateTo} />}
         {currentPage === 'ai-skills-worksheet' && <AISkillsMapWorksheet onNavigate={navigateTo} />}
         {currentPage === 'tools-hub' && <ToolsHub onNavigate={navigateTo} />}
         {currentPage === 'moneyscan' && <Moneyscan onNavigate={navigateTo} hasLeftLanding={hasLeftLanding} stripeCheckoutUrl="https://buy.stripe.com/cNidRb0ONcy6caR1kSfMA06" />}
@@ -164,15 +195,17 @@ export default function App() {
         {currentPage === 'tax-strategies' && <TaxStrategies onNavigate={navigateTo} />}
         {currentPage === 'tax-advantages-children' && <TaxAdvantagesChildren onNavigate={navigateTo} />}
         {currentPage === 'build-your-own-home' && <BuildYourOwnHome onNavigate={navigateTo} />}
-        {currentPage === 'adulting-101' && <Adulting101 onNavigate={navigateTo} />}
+        {currentPage === 'building-capital' && <Adulting101 onNavigate={navigateTo} />}
         {currentPage === 'job-heatmap' && <JobHeatmap onNavigate={navigateTo} />}
         {currentPage === 'ai-tools-arsenal' && <AIToolsArsenal onNavigate={navigateTo} />}
         {currentPage === 'wealth-blind-spots' && <WealthBlindSpots onNavigate={navigateTo} />}
-        {currentPage === 'ai-literacy-assessment' && <AILiteracyAssessment onNavigate={navigateTo} />}
-        {currentPage === 'essential-skills' && <EssentialSkills onNavigate={navigateTo} />}
+                {currentPage === 'essential-skills' && <EssentialSkills onNavigate={navigateTo} />}
         {currentPage === 'housing-map' && <HousingMap onNavigate={navigateTo} />}
         {currentPage === 'mid-career-ai' && <MidCareerAI onNavigate={navigateTo} />}
         {currentPage === 'equities-investing'  && <EquitiesInvesting onNavigate={navigateTo} />}
+        {currentPage === 'real-estate-dynamics' && <RealEstateDynamics onNavigate={navigateTo} />}
+        {currentPage === 'landing-page' && <LandingPage onNavigate={navigateTo} stripeCheckoutUrl="https://buy.stripe.com/cNidRb0ONcy6caR1kSfMA06" />}
+
       </main>
 
       {/* Footer */}
@@ -197,24 +230,24 @@ export default function App() {
               <h3 className="font-semibold text-white mb-3">Early Career</h3>
               <ul className="space-y-2 text-sm">
                 <li>
-                  <button onClick={() => navigateTo('ai-skills-worksheet')} className="hover:text-emerald-400 transition-colors">
+                  <a href="#essential-skills" className="hover:text-emerald-400 transition-colors">
                     Skills
-                  </button>
+                  </a>
                 </li>
                 <li>
-                  <button onClick={() => navigateTo('job-heatmap')} className="hover:text-emerald-400 transition-colors">
+                  <a href="#ai-era-careers" className="hover:text-emerald-400 transition-colors">
                     Jobs
-                  </button>
+                  </a>
                 </li>
                 <li>
-                  <button onClick={() => navigateTo('housing-map')} className="hover:text-emerald-400 transition-colors">
+                  <a href="#housing-map" className="hover:text-emerald-400 transition-colors">
                     Housing
-                  </button>
+                  </a>
                 </li>
                 <li>
-                  <button onClick={() => navigateTo('skilled-trades')} className="hover:text-emerald-400 transition-colors">
+                  <a href="#skilled-trades" className="hover:text-emerald-400 transition-colors">
                     Trades
-                  </button>
+                  </a>
                 </li>
               </ul>
             </div>
@@ -224,24 +257,24 @@ export default function App() {
               <h3 className="font-semibold text-white mb-3">Mid Career</h3>
               <ul className="space-y-2 text-sm">
                 <li>
-                  <button onClick={() => navigateTo('mid-career-ai')} className="hover:text-emerald-400 transition-colors">
+                  <a href="#mid-career-ai" className="hover:text-emerald-400 transition-colors">
                     Defense
-                  </button>
+                  </a>
                 </li>
                 <li>
-                  <button onClick={() => navigateTo('equities-investing')} className="hover:text-emerald-400 transition-colors">
+                  <a href="#equities-investing" className="hover:text-emerald-400 transition-colors">
                     Investing
-                  </button>
+                  </a>
                 </li>
                 <li>
-                  <button onClick={() => navigateTo('real-estate-paths')} className="hover:text-emerald-400 transition-colors">
-                    Housing
-                  </button>
+                  <a href="#real-estate-dynamics" className="hover:text-emerald-400 transition-colors">
+                    Real Estate
+                  </a>
                 </li>
                 <li>
-                  <button onClick={() => navigateTo('tax-strategies')} className="hover:text-emerald-400 transition-colors">
+                  <a href="#tax-strategies" className="hover:text-emerald-400 transition-colors">
                     Taxes
-                  </button>
+                  </a>
                 </li>
               </ul>
             </div>
@@ -251,24 +284,24 @@ export default function App() {
               <h3 className="font-semibold text-white mb-3">AI Tools</h3>
               <ul className="space-y-2 text-sm">
                 <li>
-                  <button onClick={() => navigateTo('ai-literacy-assessment')} className="hover:text-emerald-400 transition-colors">
-                    Scoring
-                  </button>
+                  <a href="#ai-learning-tools" className="hover:text-emerald-400 transition-colors">
+                    AI Learning
+                  </a>
                 </li>
                 <li>
-                  <button onClick={() => navigateTo('ai-skills-worksheet')} className="hover:text-emerald-400 transition-colors">
+                  <a href="#essential-skills" className="hover:text-emerald-400 transition-colors">
                     Essentials
-                  </button>
+                  </a>
                 </li>
                 <li>
-                  <button onClick={() => navigateTo('ai-tools-arsenal')} className="hover:text-emerald-400 transition-colors">
+                  <a href="#ai-tools-arsenal" className="hover:text-emerald-400 transition-colors">
                     Arsenal
-                  </button>
+                  </a>
                 </li>
                 <li>
-                  <button onClick={() => navigateTo('prompts-vault')} className="hover:text-emerald-400 transition-colors">
+                  <a href="#prompts-vault" className="hover:text-emerald-400 transition-colors">
                     Prompts
-                  </button>
+                  </a>
                 </li>
               </ul>
             </div>
@@ -278,10 +311,10 @@ export default function App() {
               <h3 className="font-semibold text-white mb-3">Legal</h3>
               <ul className="space-y-2 text-sm">
                 <li>
-                  <button onClick={() => navigateTo('legal-privacy')} className="hover:text-emerald-400 transition-colors">Disclaimers</button>
+                  <a href="#legal-privacy" className="hover:text-emerald-400 transition-colors">Disclaimers</a>
                 </li>
                 <li>
-                  <button onClick={() => navigateTo('legal-privacy')} className="hover:text-emerald-400 transition-colors">Privacy Policy</button>
+                  <a href="#legal-privacy" className="hover:text-emerald-400 transition-colors">Privacy Policy</a>
                 </li>
                 <li>
                   <a href="mailto:info@moneyscan.com" className="hover:text-emerald-400 transition-colors">
@@ -303,3 +336,5 @@ export default function App() {
     </div>
   );
 }
+// deploy 1780851001
+// force new build 1780851827

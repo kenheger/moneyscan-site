@@ -273,24 +273,6 @@ export default function PromptsVault({ onNavigate }: { onNavigate: (page: string
           )}
         </div>
       </section>
-
-      {/* CTA */}
-      <section className="py-4 bg-gradient-to-r from-amber-500 to-orange-600">
-        <div className="max-w-3xl mx-auto px-4 text-center">
-          <h2 className="text-lg font-bold text-white mb-2">
-            Want personalized AI sessions?
-          </h2>
-          <p className="text-amber-100 text-xs mb-3">
-            Access these prompts plus guided AI chat.
-          </p>
-          <button
-            onClick={() => onNavigate('moneyscan')}
-            className="px-4 py-2 bg-white text-amber-600 rounded font-bold text-sm"
-          >
-            Unlock Full Access →
-          </button>
-        </div>
-      </section>
     </div>
   );
 }

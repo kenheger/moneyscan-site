@@ -134,43 +134,37 @@ export default function TradeOpportunityFinder({ onNavigate, stripeCheckoutUrl }
   const selectedTradeData = TRADES_DATA.find(t => t.id === selectedTrade);
 
   return (
-    <div className="w-full">
-      {/* Hero */}
-      <section className="bg-gradient-to-br from-emerald-50 via-blue-50 to-white py-16">
+    <div className="w-full bg-white">
+      {/* Header */}
+      <section className="bg-gradient-to-br from-blue-50 via-emerald-50 to-white py-8">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-4 mb-6">
-            <div className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-blue-600 rounded-xl flex items-center justify-center">
-              <Search className="w-8 h-8 text-white" />
+          <div className="flex items-center gap-3 mb-3">
+            <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-emerald-500 rounded-lg flex items-center justify-center">
+              <Search className="w-5 h-5 text-white" />
             </div>
-            <h1 className="text-4xl md:text-5xl font-black text-slate-900">
+            <h1 className="text-2xl md:text-3xl font-bold text-slate-900">
               Trade Opportunity Finder
             </h1>
           </div>
-          <p className="text-xl text-slate-700">
-            Discover localized trade opportunities with salary data, growth projections, and training paths.
+          <p className="text-lg text-slate-600 italic">
+            Select a trade and zip to see local demand, salary, training, and earnings.
           </p>
         </div>
       </section>
 
       {/* Input Section */}
-      <section className="py-12 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-gradient-to-br from-white to-slate-50 p-8 rounded-xl shadow-xl border-2 border-emerald-200">
-            <h2 className="text-2xl font-bold text-slate-900 mb-6">Find Opportunities in Your Area</h2>
-
-            <div className="space-y-6">
-              {/* Trade Selection */}
+      <section className="py-6 bg-white">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-gradient-to-br from-blue-50 to-emerald-50 rounded-xl p-6 border border-blue-100">
+            <div className="grid md:grid-cols-3 gap-3 mb-4">
               <div>
-                <label className="block text-sm font-bold text-slate-900 mb-2">
-                  <Wrench className="inline w-4 h-4 mr-2" />
-                  Select a Trade
-                </label>
+                <label className="block text-xs font-medium text-slate-700 mb-1">Trade</label>
                 <select
                   value={selectedTrade}
-                  onChange={(e) => setSelectedTrade(e.target.value)}
-                  className="w-full px-4 py-3 border-2 border-slate-300 rounded-lg focus:border-emerald-500 focus:outline-none text-slate-900 bg-white"
+                  onChange={(e) => { setSelectedTrade(e.target.value); setShowResults(false); }}
+                  className="w-full px-3 py-2 text-sm border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500"
                 >
-                  <option value="">Choose a trade...</option>
+                  <option value="">Select...</option>
                   <optgroup label="Electrical">
                     <option value="electrician">Electrician</option>
                   </optgroup>
@@ -180,39 +174,34 @@ export default function TradeOpportunityFinder({ onNavigate, stripeCheckoutUrl }
                   </optgroup>
                   <optgroup label="Renewable Energy">
                     <option value="wind-turbine">Wind Turbine Technician</option>
-                    <option value="solar-installer">Solar Photovoltaic Installer</option>
+                    <option value="solar-installer">Solar PV Installer</option>
                   </optgroup>
                   <optgroup label="Construction">
                     <option value="welder">Welder</option>
                   </optgroup>
                 </select>
               </div>
-
-              {/* Zip Code */}
               <div>
-                <label className="block text-sm font-bold text-slate-900 mb-2">
-                  <MapPin className="inline w-4 h-4 mr-2" />
-                  Your Zip Code
-                </label>
+                <label className="block text-xs font-medium text-slate-700 mb-1">ZIP Code</label>
                 <input
                   type="text"
                   value={zipCode}
-                  onChange={(e) => setZipCode(e.target.value.replace(/\D/g, '').slice(0, 5))}
-                  placeholder="Enter 5-digit zip code"
-                  className="w-full px-4 py-3 border-2 border-slate-300 rounded-lg focus:border-emerald-500 focus:outline-none text-slate-900"
+                  onChange={(e) => { setZipCode(e.target.value.replace(/\D/g, '').slice(0, 5)); setShowResults(false); }}
+                  placeholder="12345"
+                  className="w-full px-3 py-2 text-sm border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500"
                   maxLength={5}
                 />
               </div>
-
-              {/* Search Button */}
-              <button
-                onClick={handleSearch}
-                disabled={!selectedTrade || zipCode.length !== 5}
-                className="w-full bg-gradient-to-r from-emerald-500 to-blue-600 hover:from-emerald-600 hover:to-blue-700 disabled:from-slate-300 disabled:to-slate-400 text-white px-8 py-4 rounded-lg font-bold text-lg transition-all duration-200 shadow-lg hover:shadow-xl disabled:cursor-not-allowed flex items-center justify-center gap-2"
-              >
-                <Search className="w-5 h-5" />
-                <span>Find Opportunities</span>
-              </button>
+              <div className="flex items-end">
+                <button
+                  onClick={handleSearch}
+                  disabled={!selectedTrade || zipCode.length !== 5}
+                  className="w-full px-4 py-2 bg-gradient-to-r from-blue-500 to-emerald-500 hover:from-blue-600 hover:to-emerald-600 text-white text-sm font-semibold rounded-lg transition-all disabled:opacity-50 flex items-center justify-center gap-1"
+                >
+                  <Search className="w-4 h-4" />
+                  Find
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -437,13 +426,33 @@ export default function TradeOpportunityFinder({ onNavigate, stripeCheckoutUrl }
       )}
 
       {/* Data Source Note */}
-      <section className="py-8 bg-white border-t border-slate-200">
+      <section className="py-6 bg-slate-50">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-start gap-3 text-sm text-slate-600">
             <AlertCircle className="w-4 h-4 flex-shrink-0 mt-0.5" />
             <p>
-              <strong>Data Sources:</strong> Bureau of Labor Statistics (BLS) 2023–2033 Employment Projections. National averages shown; local conditions vary. Last updated: January 2025.
+              <strong>Data Sources:</strong> Bureau of Labor Statistics (BLS) 2023–2033 Employment Projections. National averages shown; local conditions vary.
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Full Trades Database CTA - Always Visible */}
+      <section className="py-6 bg-white">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="p-4 bg-amber-50 border border-amber-300 rounded-lg">
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+              <div>
+                <h4 className="font-bold text-slate-900 text-sm">Full Trade Database</h4>
+                <p className="text-xs text-slate-600">All 50+ trades, every ZIP, state breakdowns, exportable reports.</p>
+              </div>
+              <button 
+                onClick={() => stripeCheckoutUrl ? window.open(stripeCheckoutUrl, '_blank') : alert('Coming soon!')}
+                className="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white px-4 py-2 rounded text-xs font-bold whitespace-nowrap"
+              >
+                Get Access — $29
+              </button>
+            </div>
           </div>
         </div>
       </section>

@@ -38,8 +38,8 @@ const traditionalPlatforms = [
 ];
 
 const aiPlatforms = [
-  { name: "FinChat.io / Roam", description: "Bloomberg Terminal for retail. Custom LLMs on financial data, SEC filings, earnings calls. Ask questions, get instant visualizations." },
-  { name: "Composer.trade", description: "AI-assisted algorithmic trading. Natural language strategy builder with backtesting. Bypass advisory fees entirely." },
+  { name: "FinChat.io", description: "Bloomberg Terminal for retail. Custom LLMs on financial data, SEC filings, earnings calls. Ask questions, get instant visualizations." },
+  { name: "Prospero.io", description: "Market analysis, trend recognition, signal-driven stock picks, and advanced analysis of institutional data and market movements." },
   { name: "Kavout / Danelfin", description: "Machine learning predictive scores. Danelfin analyzes 900+ indicators daily for 'Smart Score' — institutional analytics in retail dashboard." }
 ];
 
@@ -112,6 +112,7 @@ export default function EquitiesInvestingPage({ onNavigate }: EquitiesInvestingP
               Traditional services: curated human analysts or static formulas → monthly newsletter picks. 
               AI platforms: hyper-personalized, real-time portfolio management + institutional-grade data processing directly to retail.
             </p>
+            <p className="text-xs italic text-slate-600 mt-2">There are no guarantees of positive results with either type of investing platform.</p>
             
             <div className="grid md:grid-cols-3 gap-3">
               {aiPlatforms.map((platform, idx) => (
@@ -137,12 +138,12 @@ export default function EquitiesInvestingPage({ onNavigate }: EquitiesInvestingP
             <div className="bg-white rounded-lg p-4 border border-blue-200">
               <div className="flex items-center gap-2 mb-2">
                 <Eye className="w-5 h-5 text-blue-600" />
-                <h3 className="font-bold text-slate-900">1. Cracking the "Data PDF" Wall</h3>
+                <h3 className="font-bold text-slate-900">1. Unlock "Data Walls"</h3>
               </div>
               <p className="text-sm text-slate-600 mb-2">
-                Drop raw 10-K filings, earnings transcripts, fund prospectuses into an LLM. Ask: "Filter stocks in this ETF with margin contraction over 3 quarters" — get answer in 3 seconds.
+                Drop raw 10-K filings, earnings transcripts, fund prospectuses into an LLM. Use tools like OCR: AWS Textract or Google Vision and many others. Query the data with AI prompts.
               </p>
-              <p className="text-xs text-slate-500">Bypasses static financial screeners. Retail investors now access what institutions pay millions for.</p>
+              <p className="text-xs text-slate-500">Bypasses static financial screeners. Retail investors can now access the type of data that institutions pay for.</p>
             </div>
             
             <div className="bg-white rounded-lg p-4 border border-blue-200">
@@ -168,6 +169,19 @@ export default function EquitiesInvestingPage({ onNavigate }: EquitiesInvestingP
               Traditional: human curation + rigid formulas. AI tools flip the model — you become your own hedge fund, analyzing raw data in real time and executing automated, emotionless strategies. The key is not predicting the future. It is having the right tools to process the present.
             </p>
           </div>
+        </div>
+      </section>
+
+      {/* Real Estate Link */}
+      <section className="py-6 bg-white">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <a 
+            href="#real-estate-dynamics" 
+            className="inline-flex items-center gap-2 bg-blue-500 text-white px-6 py-3 rounded-lg font-bold hover:bg-blue-600 transition-colors"
+          >
+            <ArrowRight className="w-5 h-5" />
+            Real Estate Investing
+          </a>
         </div>
       </section>
     </div>

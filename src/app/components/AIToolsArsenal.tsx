@@ -201,13 +201,13 @@ export default function AIToolsArsenal({ onNavigate }: AIToolsArsenalProps) {
       <section className="py-8 bg-white border-t border-slate-100">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-lg text-slate-700 mb-4">
-            Tools are only as good as how you use them. Start with one, master it, then add another.
+            For a deeper dive into crafting excellent AI prompts, check out below.
           </p>
           <button 
-            onClick={() => onNavigate('adulting-101')}
+            onClick={() => onNavigate('prompts-vault')}
             className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold rounded-lg hover:from-blue-600 hover:to-purple-600 transition-all"
           >
-            See How to Use These <ArrowRight className="w-4 h-4" />
+            Expanded AI Prompts <ArrowRight className="w-4 h-4" />
           </button>
         </div>
       </section>

@@ -20,11 +20,15 @@ export default function BudgetingPage({ onNavigate }: BudgetingPageProps) {
               onClick={() => onNavigate('home')}
               className="text-sm text-slate-600 hover:text-emerald-600 transition-colors"
             >
-              ← MONEYSCAN
+              HOME
             </button>
             <div className="flex flex-col items-end">
-              <div className="text-xs font-bold text-emerald-600">Wealth</div>
-              <div className="text-xs font-bold text-emerald-600">Builders</div>
+              <button
+                onClick={() => onNavigate('ai-era-careers')}
+                className="text-sm font-bold text-emerald-600 hover:text-emerald-700 transition-colors"
+              >
+                Explore: Early Career →
+              </button>
             </div>
           </div>
         </div>
@@ -196,28 +200,19 @@ export default function BudgetingPage({ onNavigate }: BudgetingPageProps) {
               <div className="grid grid-cols-2 gap-2 text-xs">
                 <div>
                   <span className="text-slate-600">CC at $</span><span className="font-bold text-blue-600">{Math.round(monthlyBudget * 0.5)}</span><span className="text-slate-600">/mo:</span>
-                  <div className="font-medium text-slate-800">{Math.ceil(creditCardDebt / (monthlyBudget * 0.5 / 12))} months</div>
+                  <div className="font-medium text-slate-800">{Math.ceil(creditCardDebt / (monthlyBudget * 0.5))} months</div>
                 </div>
                 <div>
                   <span className="text-slate-600">Student at $</span><span className="font-bold text-purple-600">{Math.round(monthlyBudget * 0.3)}</span><span className="text-slate-600">/mo:</span>
-                  <div className="font-medium text-slate-800">{Math.ceil(studentLoanDebt / (monthlyBudget * 0.3 / 12))} months</div>
+                  <div className="font-medium text-slate-800">{Math.ceil(studentLoanDebt / (monthlyBudget * 0.3))} months</div>
                 </div>
               </div>
+              <p className="text-xs text-slate-500 mt-2 italic">
+                Payoff estimates assume no interest on debts to keep the payoff perspective simple.
+              </p>
             </div>
           </div>
         </section>
-
-        {/* Footer CTA */}
-        <section className="text-center pb-4">
-          <button
-            onClick={() => onNavigate('home')}
-            className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white text-sm font-semibold px-5 py-2.5 rounded-lg transition-colors"
-          >
-            Explore More Wealth Paths
-            <ArrowRight className="w-4 h-4" />
-          </button>
-        </section>
-
       </main>
     </div>
   );

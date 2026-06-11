@@ -231,7 +231,7 @@ export default function SkilledTrades({ onNavigate, stripeCheckoutUrl }: Skilled
     
     // Get area code prefix from ZIP (first 2 digits)
     const zipPrefix = zipCode.substring(0, 2);
-    const adjustment = regionalAdjustments[zipPrefix] || regionalAdjustments.default;
+    const adjustment = stateWages[regionNames[zipPrefix]] || 1.00;
     
     const hourlyWage = Math.round(trade.nationalWage * adjustment);
     const annualWage = hourlyWage * 2080; // 40 hours * 52 weeks
@@ -263,9 +263,9 @@ const regionNames: Record<string, string> = {
   '63': 'Idaho', '64': 'Utah', '65': 'Arizona (Phoenix)',
   '66': 'Arizona', '67': 'Nevada (Las Vegas)', '68': 'Nebraska', '69': 'Wyoming',
   '70': 'Louisiana', '71': 'Louisiana', '72': 'Arkansas',
-  '73': 'Oklahoma', '74': 'Oklahoma', '75': 'Texas (Austin/Dallas)',
-  '76': 'Texas', '77': 'Texas (Houston)', '78': 'Texas (San Antonio)',
-  '79': 'Texas (West)',
+  '73': 'OK', '74': 'OK', '75': 'TX',
+  '76': 'TX', '77': 'TX', '78': 'TX',
+  '79': 'TX',
   '80': 'Colorado (Denver)', '81': 'Colorado', '82': 'Wyoming',
   '83': 'Idaho/Montana', '84': 'Utah', '85': 'Arizona (Phoenix)',
   '86': 'Arizona', '87': 'Nevada (Las Vegas)', '88': 'Montana', '89': 'Wyoming',
@@ -288,7 +288,7 @@ const regionNames: Record<string, string> = {
   const handlePremiumLookup = () => {
     if (!premiumZip || premiumZip.length < 5) return;
     const zipPrefix = premiumZip.substring(0, 2);
-    const adjustment = regionalAdjustments[zipPrefix] || regionalAdjustments.default;
+    const adjustment = stateWages[regionNames[zipPrefix]] || 1.00;
     setPremiumResult({
       region: regionNames[zipPrefix] || regionNames.default,
       adjustment: adjustment

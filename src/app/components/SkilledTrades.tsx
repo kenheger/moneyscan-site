@@ -218,6 +218,8 @@ export default function SkilledTrades({ onNavigate, stripeCheckoutUrl }: Skilled
   const [showAssessment, setShowAssessment] = useState(false);
   const [assessmentAnswers, setAssessmentAnswers] = useState<number[]>([]);
   const [showExport, setShowExport] = useState(false);
+  const [premiumZip, setPremiumZip] = useState<string>('');
+  const [premiumResult, setPremiumResult] = useState<{region: string, adjustment: number} | null>(null);
 
   const handleLookup = () => {
     if (!selectedTrade || !zipCode) return;
@@ -270,6 +272,17 @@ const regionNames: Record<string, string> = {
       hourly: hourlyWage,
       annual: annualWage,
       region: regionNames[zipPrefix] || regionNames.default
+    });
+  };
+
+  // Premium lookup: ZIP-based wage adjustments for ALL trades
+  const handlePremiumLookup = () => {
+    if (!premiumZip || premiumZip.length < 5) return;
+    const zipPrefix = premiumZip.substring(0, 2);
+    const adjustment = regionalAdjustments[zipPrefix] || regionalAdjustments.default;
+    setPremiumResult({
+      region: regionNames[zipPrefix] || regionNames.default,
+      adjustment: adjustment
     });
   };
   return (
@@ -585,6 +598,33 @@ const regionNames: Record<string, string> = {
                     {cat}
                   </button>
                 ))}
+
+            {/* ZIP Code Lookup for Premium */}
+            <div className="mb-4 bg-white/10 p-4 rounded-xl">
+              <label className="block text-sm font-semibold mb-2">Enter your ZIP code for local wages:</label>
+              <div className="flex gap-2">
+                <input
+                  type="text"
+                  maxLength={5}
+                  placeholder="e.g., 55420"
+                  value={premiumZip}
+                  onChange={(e) => setPremiumZip(e.target.value.replace(/\D/g, '').slice(0, 5))}
+                  className="flex-1 px-4 py-2 rounded-lg bg-white/20 text-white placeholder-white/50 border border-white/30 focus:border-emerald-400 focus:outline-none"
+                />
+                <button
+                  onClick={handlePremiumLookup}
+                  disabled={!premiumZip || premiumZip.length < 5}
+                  className="px-6 py-2 bg-emerald-500 text-white font-semibold rounded-lg hover:bg-emerald-400 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+                >
+                  Lookup
+                </button>
+              </div>
+              {premiumResult && (
+                <div className="mt-3 p-3 bg-emerald-600/50 rounded-lg">
+                  <p className="text-sm"><span className="font-semibold">{premiumResult.region}</span>: {premiumResult.adjustment}x adjustment ({Math.round(premiumResult.adjustment * 100)}% of national average)</p>
+                </div>
+              )}
+            </div>
               </div>
             </div>
 
@@ -609,7 +649,7 @@ const regionNames: Record<string, string> = {
                         <tr key={trade.id} className="hover:bg-white/10">
                           <td className="px-4 py-2 font-medium">{trade.name}</td>
                           <td className="px-4 py-2 text-white/70 text-sm">{trade.category}</td>
-                          <td className="px-4 py-2 text-emerald-400 font-bold">${trade.nationalWage}/hr</td>
+                          <td className="px-4 py-2 text-emerald-400 font-bold">${premiumResult ? Math.round(trade.nationalWage * premiumResult.adjustment) : trade.nationalWage}/hr</td>
                           <td className="px-4 py-2 text-emerald-400">{trade.growth}</td>
                           <td className="px-4 py-2 text-white/70 text-sm">{trade.training}</td>
                           <td className="px-4 py-2">
@@ -696,8 +736,8 @@ const regionNames: Record<string, string> = {
                       <td className="px-3 py-4 font-bold text-slate-900">{trade.name}</td>
                       <td className="px-3 py-4 text-emerald-600 font-medium">1-2 years</td>
                       <td className="px-3 py-4 text-slate-600">$0-15K</td>
-                      <td className="px-3 py-4 text-slate-900 font-bold">${Math.round(trade.nationalWage * 2080).toLocaleString()}</td>
-                      <td className="px-3 py-4 text-emerald-600 font-bold">${Math.round(trade.nationalWage * 2080 * 1.5).toLocaleString()}</td>
+                      <td className="px-3 py-4 text-slate-900 font-bold">${premiumResult ? Math.round(trade.nationalWage * premiumResult.adjustment * 2080).toLocaleString() : Math.round(trade.nationalWage * 2080).toLocaleString()}</td>
+                      <td className="px-3 py-4 text-emerald-600 font-bold">${premiumResult ? Math.round(trade.nationalWage * premiumResult.adjustment * 2080 * 1.5).toLocaleString() : Math.round(trade.nationalWage * 2080 * 1.5).toLocaleString()}</td>
                       <td className="px-3 py-4">
                         <span className="px-2 py-1 rounded text-xs font-semibold bg-green-100 text-green-700">Low</span>
                       </td>

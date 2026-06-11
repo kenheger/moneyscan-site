@@ -90,15 +90,23 @@ export default function TaxAdvantagesChildren({ onNavigate }: TaxAdvantagesChild
           </div>
         </div>
 
-        {/* Note */}
-        <div className="p-3 bg-amber-50 border border-amber-200 rounded-lg mb-3">
-          <p className="text-amber-800 text-xs leading-relaxed">
-            <strong>Note:</strong> This is educational not personal advice. Rules are alway being reviewed and finalized by the IRS/Treasury (e.g., exact forms, custodians, and some tax details), so check IRS.gov, TrumpAccounts.gov, or a tax advisor for your situation. State 529 benefits also vary.
-          </p>
+        {/* Schwab Teen Account */}
+        <div className="border border-gray-200 rounded-lg p-3 mb-3 bg-gradient-to-br from-emerald-50 via-teal-50 to-white">
+          <div className="flex items-start gap-2">
+            <PiggyBank className="w-4 h-4 text-emerald-600 mt-0.5 flex-shrink-0" />
+            <div>
+              <h3 className="text-sm font-semibold text-gray-800 mb-1">
+                <a href="https://www.schwab.com/teen-account" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:underline">Schwab Teen Account →</a>
+              </h3>
+              <p className="text-gray-600 text-xs">
+                A joint brokerage account that you and your teen (13–17 years old) can open together. Helps set teenagers up for financial success. With your guidance, the teen can learn how to invest, manage money, and plan for the future. No minimum deposit.
+              </p>
+            </div>
+          </div>
         </div>
 
         {/* The Full-Stack Portfolio */}
-        <div className="p-3 bg-blue-50 border border-blue-200 rounded-lg">
+        <div className="p-3 bg-blue-50 border border-blue-200 rounded-lg mb-3">
           <h3 className="text-sm font-semibold text-blue-900 mb-1">The Full-Stack Portfolio at Age 18</h3>
           <p className="text-blue-800 text-xs mb-1 leading-relaxed">
             Remember, one of the real possibilities for a new employment path in the AI Era is starting a business of their own. There are three tax-advantaged plans that, in addition to school or retirement, can be sources of capital to start a business — even with tax penalties.
@@ -117,6 +125,13 @@ export default function TaxAdvantagesChildren({ onNavigate }: TaxAdvantagesChild
               <span><strong>Minor Roth IRA:</strong> A child can have his own ROTH IRA provided there is "earned income" that can be contributed. This could be a lawn moving service in the summer, tutoring, a family sponsored service, and alike. Growth is tax-deferred and, again, this is a liquid source of capital for a potential startup.</span>
             </li>
           </ul>
+        </div>
+
+        {/* Note */}
+        <div className="p-3 bg-amber-50 border border-amber-200 rounded-lg mb-3">
+          <p className="text-amber-800 text-xs leading-relaxed">
+            <strong>Note:</strong> This is educational not personal advice. Rules are alway being reviewed and finalized by the IRS/Treasury (e.g., exact forms, custodians, and some tax details), so check IRS.gov, TrumpAccounts.gov, or a tax advisor for your situation. State 529 benefits also vary.
+          </p>
         </div>
 
         <div className="mt-4 text-center">

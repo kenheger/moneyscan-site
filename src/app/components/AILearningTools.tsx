@@ -53,21 +53,6 @@ export default function AILearningTools({ onNavigate }: AILearningToolsProps) {
       {/* Header */}
       <section className="bg-gradient-to-br from-purple-50 via-purple-100 to-white py-6">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center mb-4">
-            <button 
-              onClick={() => onNavigate('essential-skills')}
-              className="inline-flex items-center gap-2 text-purple-600 font-bold hover:underline text-sm"
-            >
-              <ArrowLeft className="w-3 h-3" /> Back to Essential Skills
-            </button>
-            <button 
-              onClick={() => onNavigate('automation-workflows')}
-              className="inline-flex items-center gap-2 text-purple-600 font-bold hover:underline text-sm"
-            >
-              Next: Automation →
-            </button>
-          </div>
-          
           <div className="flex items-center gap-3 mb-3">
             <div className="w-10 h-10 bg-purple-500 rounded-xl flex items-center justify-center">
               <span className="text-white font-bold text-lg">3</span>

@@ -49,7 +49,7 @@ export default function Home({ onNavigate }: HomeProps) {
                 Master the 10% benchmark. Know where you stand. Build core skills for the AI shift.
               </p>
               <div className="text-xs text-emerald-600 font-medium">
-                <a href="#essential-skills" className="hover:underline">Skills Assessment</a> · <a href="#compound-interest" className="hover:underline">Compounding</a> · <a href="#budgeting-page" className="hover:underline">Budgeting</a>
+                <a href="#essential-skills" className="hover:underline">AI Essentials</a> · <a href="#compound-interest" className="hover:underline">Compounding</a> · <a href="#budgeting-page" className="hover:underline">Budgeting</a>
               </div>
             </a>
 

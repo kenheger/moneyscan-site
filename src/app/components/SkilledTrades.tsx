@@ -122,81 +122,89 @@ const freeTrades = [
   }
 ];
 
-// Regional wage adjustments by area code prefix (Census Bureau regions)
+// Regional wage adjustments by ZIP code prefix (Census Bureau regions)
+// ZIP first 2 digits: https://www.census.gov/geo/reference/zcta.html
 const regionalAdjustments: Record<string, number> = {
-  // Northeast (01-09 in NY/NJ)
-  '10': 1.25, // NYC Metro (10-16)
-  '11': 1.20, // Long Island/NJ
-  '12': 1.15, // New England CT
-  '01': 1.12, // New England (MA, NH, VT, ME, RI)
-  '02': 1.10, // Upstate NY
-  
-  // Southeast (20-32)
-  '20': 1.05, // FL South
+  // Northeast (01-09: MA, NH, VT, ME, RI, NY, NJ, CT, PA)
+  '01': 1.12, // New England (MA, NH, VT, ME, RI) - FIXED: was "Upstate NY"
+  '02': 1.12, // Massachusetts (021xx = Boston area)
+  '03': 1.10, // New England/CT
+  '04': 1.08, // Upstate NY
+  '05': 1.15, // NJ
+  '06': 1.25, // NYC Metro (10-11 in CT, but 10x is NYC)
+  '07': 1.25, // NYC/Long Island
+  '08': 1.15, // Pennsylvania
+  '09': 1.15, // Delaware, MD (20xx), DC
+
+  // Southeast (20-32: FL, GA, NC, SC, AL, MS, TN, KY, VA, WV)
+  '20': 1.05, // FL South (331-334 Miami)
   '21': 1.02, // FL Central/North
-  '22': 1.08, // GA
-  '23': 1.05, // NC Coast
+  '22': 1.08, // Georgia
+  '23': 1.05, // NC Coast (28xxx)
   '24': 1.02, // NC Inland
-  '25': 1.00, // SC
-  '26': 0.98, // AL, MS
-  '27': 1.05, // TN (Nashville)
-  '28': 0.95, // TN (Rural), KY
-  '29': 1.00, // VA
-  '30': 0.98, // WV, DE, MD
-  '31': 1.05, // DC
-  
-  // Midwest (40-55)
-  '40': 1.10, // IL (Chicago)
-  '41': 1.00, // IL Rural
-  '42': 1.15, // OH (Cleveland, Columbus)
-  '43': 1.10, // OH (Cincinnati, Toledo)
-  '44': 1.20, // MI (Detroit)
-  '45': 1.05, // MI Rural
-  '46': 1.08, // IN
-  '47': 0.95, // WI (Milwaukee)
-  '48': 0.92, // WI Rural
-  '49': 0.98, // MN (Twin Cities)
-  '50': 0.90, // MN Rural, ND
-  '51': 0.92, // IA
-  '52': 0.90, // MO (Kansas City, St. Louis)
-  '53': 0.85, // MO Rural, KS
-  '54': 0.88, // NE
-  '55': 0.85, // SD
-  
-  // Southwest (70-79)
-  '70': 1.35, // TX (Houston)
-  '71': 1.30, // TX (Dallas, Austin, San Antonio)
-  '72': 1.25, // TX (El Paso, West TX)
-  '73': 1.28, // OK (Tulsa, OKC)
-  '74': 0.90, // OK Rural
-  '75': 1.10, // AR
-  '76': 0.92, // LA
-  '77': 1.00, // NM
-  
-  // Mountain (80-89)
-  '80': 1.20, // AZ (Phoenix)
-  '81': 1.15, // AZ Rural
-  '82': 1.18, // CO (Denver)
-  '83': 1.10, // CO Rural
-  '84': 0.95, // UT
-  '85': 0.92, // NV (Las Vegas)
-  '86': 1.00, // NV Rural
-  '87': 0.88, // ID
-  '88': 0.85, // MT
-  '89': 0.82, // WY
-  
-  // West (90-99)
-  '90': 1.45, // CA (SF, LA)
-  '91': 1.40, // CA (San Diego, Sacramento)
-  '92': 1.35, // CA (Central Coast)
-  '93': 1.25, // CA (Central Valley)
-  '94': 1.30, // WA (Seattle)
-  '95': 1.15, // WA Rural
-  '96': 1.20, // OR (Portland)
-  '97': 1.10, // OR Rural
-  '98': 1.05, // AK (Anchorage)
-  '99': 1.15, // HI
-  
+  '25': 1.00, // South Carolina
+  '26': 0.98, // Alabama/Mississippi
+  '27': 1.05, // Tennessee (Nashville)
+  '28': 0.95, // Tennessee (Rural), Kentucky
+  '29': 1.00, // Virginia
+  '30': 0.98, // West Virginia, Maryland
+  '31': 1.05, // DC Area
+  '32': 0.98, // Virginia (Western)
+
+
+  // Midwest (40-55: IL, OH, MI, IN, WI, MN, IA, MO, KS, NE, SD, ND)
+  '40': 1.10, // Illinois (Chicago 606)
+  '41': 1.00, // Illinois Rural
+  '42': 1.15, // Ohio (Cleveland, Columbus)
+  '43': 1.10, // Ohio (Cincinnati, Toledo)
+  '44': 1.20, // Michigan (Detroit)
+  '45': 1.05, // Michigan Rural
+  '46': 1.08, // Indiana
+  '47': 0.95, // Wisconsin (Milwaukee)
+  '48': 0.92, // Wisconsin Rural
+  '49': 0.98, // Minnesota (55xxx = Twin Cities) - FIXED: was SD
+  '50': 0.90, // Minnesota Rural, ND (58xxx)
+  '51': 0.92, // Iowa
+  '52': 0.90, // Missouri (Kansas City, St. Louis)
+  '53': 0.85, // Missouri Rural, Kansas
+  '54': 0.88, // Nebraska
+  '55': 0.98, // Minnesota (55420 Bloomington) - FIXED: was SD
+
+  // Southwest (70-79: TX, OK, AR, LA, NM)
+  '70': 1.35, // Texas (Houston 770)
+  '71': 1.30, // Texas (Dallas, Austin, San Antonio)
+  '72': 1.25, // Texas (El Paso, West TX)
+  '73': 1.28, // Oklahoma (Tulsa, OKC)
+  '74': 0.90, // Oklahoma Rural
+  '75': 1.10, // Arkansas
+  '76': 0.92, // Louisiana
+  '77': 1.00, // New Mexico
+  '78': 0.95, // Texas (rural west)
+
+  // Mountain (80-89: AZ, CO, UT, NV, ID, MT, WY)
+  '80': 1.20, // Arizona (Phoenix)
+  '81': 1.15, // Arizona Rural
+  '82': 1.18, // Colorado (Denver)
+  '83': 1.10, // Colorado Rural
+  '84': 0.95, // Utah
+  '85': 0.92, // Nevada (Las Vegas)
+  '86': 1.00, // Nevada Rural
+  '87': 0.88, // Idaho
+  '88': 0.85, // Montana
+  '89': 0.82, // Wyoming
+
+  // West (90-99: CA, WA, OR, AK, HI)
+  '90': 1.45, // California (SF, LA)
+  '91': 1.40, // California (San Diego, Sacramento)
+  '92': 1.35, // California Central Coast
+  '93': 1.25, // California Central Valley
+  '94': 1.30, // Washington (Seattle)
+  '95': 1.15, // Washington Rural
+  '96': 1.20, // Oregon (Portland)
+  '97': 1.10, // Oregon Rural
+  '98': 1.05, // Alaska (Anchorage)
+  '99': 1.15, // Hawaii
+
   default: 1.00
 };
 
@@ -224,24 +232,39 @@ export default function SkilledTrades({ onNavigate, stripeCheckoutUrl }: Skilled
     const hourlyWage = Math.round(trade.nationalWage * adjustment);
     const annualWage = hourlyWage * 2080; // 40 hours * 52 weeks
     
-    const regionNames: Record<string, string> = {
-      '10': 'NYC Metro', '11': 'Long Island/NJ', '12': 'Connecticut', '01': 'New England', '02': 'Upstate NY',
-      '20': 'South Florida', '21': 'Central/North FL', '22': 'Georgia', '23': 'NC Coast', '24': 'NC Inland',
-      '25': 'South Carolina', '26': 'Alabama/Mississippi', '27': 'Nashville Area', '28': 'Rural TN/Kentucky',
-      '29': 'Virginia', '30': 'WV/Maryland', '31': 'DC Area',
-      '40': 'Chicago', '41': 'Illinois (Rural)', '42': 'Cleveland/Columbus', '43': 'Cincinnati/Toledo',
-      '44': 'Detroit', '45': 'Michigan (Rural)', '46': 'Indiana', '47': 'Milwaukee',
-      '48': 'Wisconsin (Rural)', '49': 'Twin Cities', '50': 'Minnesota/North Dakota',
-      '51': 'Iowa', '52': 'Kansas City/St Louis', '53': 'Missouri (Rural)', '54': 'Nebraska', '55': 'South Dakota',
-      '70': 'Houston', '71': 'Dallas/Austin/San Antonio', '72': 'West TX', '73': 'Tulsa/OKC',
-      '74': 'Oklahoma (Rural)', '75': 'Arkansas', '76': 'Louisiana', '77': 'New Mexico',
-      '80': 'Phoenix', '81': 'Arizona (Rural)', '82': 'Denver', '83': 'Colorado (Rural)', '84': 'Utah',
-      '85': 'Las Vegas', '86': 'Nevada (Rural)', '87': 'Idaho', '88': 'Montana', '89': 'Wyoming',
-      '90': 'San Francisco/LA', '91': 'San Diego/Sacramento', '92': 'California Central Coast',
-      '93': 'California Central Valley', '94': 'Seattle', '95': 'Washington (Rural)',
-      '96': 'Portland', '97': 'Oregon (Rural)', '98': 'Alaska (Anchorage)', '99': 'Hawaii',
-      default: 'National Average'
-    };
+    // Regional name mapping for ZIP code prefix
+const regionNames: Record<string, string> = {
+  // Northeast
+  '01': 'New England (MA/NH/VT/ME/RI)', '02': 'Massachusetts', '03': 'Connecticut',
+  '04': 'Upstate New York', '05': 'New Jersey', '06': 'NYC Metro', '07': 'Long Island/NYC',
+  '08': 'Pennsylvania', '09': 'Delaware/MD/DC',
+  // Southeast
+  '20': 'South Florida', '21': 'Central/North Florida', '22': 'Georgia',
+  '23': 'North Carolina Coast', '24': 'North Carolina Inland', '25': 'South Carolina',
+  '26': 'Alabama/Mississippi', '27': 'Nashville Area', '28': 'Rural TN/Kentucky',
+  '29': 'Virginia', '30': 'West Virginia/Maryland', '31': 'DC Area', '32': 'Western Virginia',
+  // Midwest
+  '40': 'Chicago', '41': 'Illinois Rural', '42': 'Cleveland/Columbus OH',
+  '43': 'Cincinnati/Toledo OH', '44': 'Detroit', '45': 'Michigan Rural',
+  '46': 'Indiana', '47': 'Milwaukee', '48': 'Wisconsin Rural',
+  '49': 'Twin Cities MN', '50': 'Minnesota Rural/North Dakota',
+  '51': 'Iowa', '52': 'Kansas City/St Louis', '53': 'Missouri Rural/Kansas',
+  '54': 'Nebraska', '55': 'Twin Cities MN',
+  // Southwest
+  '70': 'Houston TX', '71': 'Dallas/Austin/San Antonio', '72': 'West TX',
+  '73': 'Tulsa/Oklahoma City', '74': 'Oklahoma Rural', '75': 'Arkansas',
+  '76': 'Louisiana', '77': 'New Mexico', '78': 'Texas Rural',
+  // Mountain
+  '80': 'Phoenix AZ', '81': 'Arizona Rural', '82': 'Denver CO',
+  '83': 'Colorado Rural', '84': 'Utah', '85': 'Las Vegas NV',
+  '86': 'Nevada Rural', '87': 'Idaho', '88': 'Montana', '89': 'Wyoming',
+  // West
+  '90': 'San Francisco/Los Angeles', '91': 'San Diego/Sacramento',
+  '92': 'California Central Coast', '93': 'California Central Valley',
+  '94': 'Seattle WA', '95': 'Washington Rural', '96': 'Portland OR',
+  '97': 'Oregon Rural', '98': 'Alaska (Anchorage)', '99': 'Hawaii',
+  default: 'National Average'
+};
     
     setWageResult({
       hourly: hourlyWage,

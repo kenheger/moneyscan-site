@@ -39,21 +39,6 @@ export default function PromptEngineering({ onNavigate }: PromptEngineeringProps
       {/* Header */}
       <section className="bg-gradient-to-br from-emerald-50 via-emerald-100 to-white py-6">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center mb-4">
-            <button 
-              onClick={() => onNavigate('essential-skills')}
-              className="inline-flex items-center gap-2 text-emerald-600 font-bold hover:underline text-sm"
-            >
-              ← Back to Essential Skills
-            </button>
-            <button 
-              onClick={() => onNavigate('ai-tool-fluency')}
-              className="inline-flex items-center gap-2 text-emerald-600 font-bold hover:underline text-sm"
-            >
-              Next: AI Tool Fluency →
-            </button>
-          </div>
-          
           <div className="flex items-center gap-3 mb-3">
             <div className="w-10 h-10 bg-emerald-500 rounded-xl flex items-center justify-center">
               <span className="text-white font-bold text-lg">1</span>

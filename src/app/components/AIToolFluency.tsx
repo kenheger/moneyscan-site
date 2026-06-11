@@ -1,4 +1,4 @@
-import { CheckCircle, ArrowLeft, ExternalLink } from 'lucide-react';
+import { CheckCircle, ExternalLink } from 'lucide-react';
 
 interface AIToolFluencyProps {
   onNavigate: (page: string) => void;
@@ -26,21 +26,6 @@ export default function AIToolFluency({ onNavigate }: AIToolFluencyProps) {
       {/* Header */}
       <section className="bg-gradient-to-br from-blue-50 via-blue-100 to-white py-6">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center mb-4">
-            <button 
-              onClick={() => onNavigate('essential-skills')}
-              className="inline-flex items-center gap-2 text-blue-600 font-bold hover:underline text-sm"
-            >
-              <ArrowLeft className="w-3 h-3" /> Back to Essential Skills
-            </button>
-            <button 
-              onClick={() => onNavigate('ai-learning-tools')}
-              className="inline-flex items-center gap-2 text-blue-600 font-bold hover:underline text-sm"
-            >
-              Next: AI Learning →
-            </button>
-          </div>
-          
           <div className="flex items-center gap-3 mb-3">
             <div className="w-10 h-10 bg-blue-500 rounded-xl flex items-center justify-center">
               <span className="text-white font-bold text-lg">2</span>

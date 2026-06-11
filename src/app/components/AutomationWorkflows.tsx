@@ -55,21 +55,6 @@ export default function AutomationWorkflows({ onNavigate }: AutomationWorkflowsP
       {/* Header */}
       <section className="bg-gradient-to-br from-orange-50 via-orange-100 to-white py-6">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center mb-4">
-            <button 
-              onClick={() => onNavigate('essential-skills')}
-              className="inline-flex items-center gap-2 text-orange-600 font-bold hover:underline text-sm"
-            >
-              <ArrowLeft className="w-3 h-3" /> Back to Essential Skills
-            </button>
-            <button 
-              onClick={() => onNavigate('compound-interest')}
-              className="inline-flex items-center gap-2 text-orange-600 font-bold hover:underline text-sm"
-            >
-              Next: Compounding →
-            </button>
-          </div>
-          
           <div className="flex items-center gap-3 mb-3">
             <div className="w-10 h-10 bg-orange-500 rounded-xl flex items-center justify-center">
               <span className="text-white font-bold text-lg">4</span>

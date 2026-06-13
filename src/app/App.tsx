@@ -50,7 +50,7 @@ import LandingPage from './components/LandingPage';
 type Page = 'moneyscan' | 'home' | 'wealth-engine' | 'behavioral-finance' | 'debt-elimination' | 'real-estate-crowdfunding' | 'house-hacking' | 'real-estate-paths' | 'real-estate-traditional' | 'first-time-home-buyer' | 'cash-flow-mastery' | 'ai-era-careers' | 'ai-career-tools' | 'ai-skills-worksheet' | 'tools-hub' | 'skilled-trades' | 'trade-opportunity-finder' | 'legal-privacy' | 'wealth-goal' | 'prompts-vault' | 'compound-interest' | 'compound-interest-tool' | 'debt-elimination-page' | 'budgeting-page' | 'entrepreneurship-page' | 'tax-strategies' | 'tax-advantages-children' | 'build-your-own-home' | 'building-capital' | 'job-heatmap' | 'ai-tools-arsenal' | 'wealth-blind-spots' | 'essential-skills' | 'housing-map' | 'mid-career-ai' | 'equities-investing' | 'ai-tool-fluency' | 'automation-workflows' | 'ai-learning-tools' | 'prompt-engineering' | 'gig-economy' | 'landing-page' ;
 
 export default function App() {
-  const [currentPage, setCurrentPage] = useState<Page>('moneyscan');
+  const [currentPage, setCurrentPage] = useState<Page>('landing-page');
   const [hasLeftLanding, setHasLeftLanding] = useState(false);
   const [historyIndex, setHistoryIndex] = useState(0);
   const [pageHistory, setPageHistory] = useState<Page[]>(['moneyscan']);
@@ -148,6 +148,11 @@ const navigateTo = useCallback((page: Page) => {
         setPageHistory(['moneyscan', hash]);
         setHistoryIndex(1);
       }
+    } else if (!hash) {
+      // No hash - default to landing-page instead of moneyscan paywall
+      setCurrentPage('landing-page');
+      setPageHistory(['landing-page']);
+      setHistoryIndex(0);
     }
   }, []);
 
@@ -338,3 +343,4 @@ const navigateTo = useCallback((page: Page) => {
 }
 // deploy 1780851001
 // force new build 1780851827
+// rebuild Sat Jun 13 11:58:14 EDT 2026

@@ -1,4 +1,18 @@
 import { useState } from 'react';
+import { regionNames } from './regionNames';
+import { zipLookup } from './zipData';
+
+const stateWages: Record<string, number> = {
+  'AL': 0.98, 'AK': 1.05, 'AZ': 1.15, 'CA': 1.35, 'CO': 1.15,
+  'CT': 1.12, 'FL': 1.05, 'GA': 1.05, 'IL': 1.08, 'IN': 1.02,
+  'KY': 0.98, 'LA': 0.98, 'MA': 1.12, 'MD': 1.10, 'ME': 0.98,
+  'MI': 1.02, 'MN': 1.00, 'MO': 0.98, 'MS': 0.95, 'MT': 0.92,
+  'NC': 1.02, 'ND': 0.95, 'NE': 0.98, 'NH': 1.05, 'NJ': 1.10,
+  'NM': 0.98, 'NV': 1.10, 'NY': 1.15, 'OH': 1.02, 'OK': 0.98,
+  'OR': 1.08, 'PA': 1.05, 'RI': 1.05, 'SC': 0.98, 'SD': 0.92,
+  'TN': 0.98, 'TX': 1.15, 'UT': 1.05, 'VA': 1.05, 'VT': 1.00,
+  'WA': 1.15, 'WI': 0.98, 'WV': 0.95, 'WY': 0.95, 'DC': 1.18
+};
 import { Wrench, Search, MapPin, TrendingUp, Download, ArrowRight, CheckCircle, AlertCircle, DollarSign, Clock, Shield } from 'lucide-react';
 
 interface TradeOpportunityFinderProps {
@@ -131,6 +145,11 @@ export default function TradeOpportunityFinder({ onNavigate, stripeCheckoutUrl }
     }
   };
 
+  const getLocation = (z: string) => zipLookup[z] || zipLookup[z.substring(0, 3)] || regionNames[z.substring(0, 2)] || 'National';
+  const getAdjustment = (z: string) => stateWages[regionNames[z.substring(0, 2)]] || 1.00;
+  const location = zipCode ? getLocation(zipCode) : '';
+  const adjustment = zipCode ? getAdjustment(zipCode) : 1.00;
+
   const selectedTradeData = TRADES_DATA.find(t => t.id === selectedTrade);
 
   return (
@@ -222,7 +241,7 @@ export default function TradeOpportunityFinder({ onNavigate, stripeCheckoutUrl }
                     <h2 className="text-3xl font-bold text-slate-900 mb-2">{selectedTradeData.name}</h2>
                     <p className="text-lg text-slate-600">{selectedTradeData.description}</p>
                     <p className="text-sm text-slate-500 mt-2">
-                      Results for Zip Code: <span className="font-bold text-emerald-600">{zipCode}</span>
+                      Results for <span className="font-bold text-emerald-600">{location}</span> <span className="text-xs text-slate-500">({adjustment > 1 ? '+' : ''}{Math.round((adjustment - 1) * 100)}% wage)</span>
                     </p>
                   </div>
                 </div>
@@ -243,7 +262,7 @@ export default function TradeOpportunityFinder({ onNavigate, stripeCheckoutUrl }
                       <DollarSign className="w-5 h-5 text-blue-600" />
                       <span className="text-sm font-semibold text-slate-700">Median Pay</span>
                     </div>
-                    <p className="text-2xl font-bold text-blue-600">${(selectedTradeData.medianPay / 1000).toFixed(0)}K</p>
+                    <p className="text-2xl font-bold text-blue-600">${(Math.round(selectedTradeData.medianPay * adjustment) / 1000).toFixed(0)}K</p>
                     <p className="text-xs text-slate-600">National average</p>
                   </div>
 
@@ -277,11 +296,11 @@ export default function TradeOpportunityFinder({ onNavigate, stripeCheckoutUrl }
                       </li>
                       <li className="flex justify-between">
                         <span>Median Annual Pay:</span>
-                        <span className="font-bold">${selectedTradeData.medianPay.toLocaleString()}</span>
+                        <span className="font-bold">${Math.round(selectedTradeData.medianPay * adjustment).toLocaleString()}</span>
                       </li>
                       <li className="flex justify-between">
                         <span>Top 25% Earn:</span>
-                        <span className="font-bold text-emerald-600">${selectedTradeData.percentile75Pay.toLocaleString()}+</span>
+                        <span className="font-bold text-emerald-600">${Math.round(selectedTradeData.percentile75Pay * adjustment).toLocaleString()}+</span>
                       </li>
                       <li className="flex justify-between">
                         <span>Projected Growth (2023–2033):</span>

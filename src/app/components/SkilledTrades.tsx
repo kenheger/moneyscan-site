@@ -1,6 +1,21 @@
 import { useState } from 'react';
 import { Wrench, CheckCircle, ArrowRight, TrendingUp, AlertCircle, Hammer, Search, DollarSign } from 'lucide-react';
+import { regionNames } from './regionNames';
+import { zipLookup } from './zipData';
 import ConnectionCard from './shared/ConnectionCard';
+
+// State wage adjustment factors (BLS 2024 data)
+const stateWages: Record<string, number> = {
+  'AL': 0.98, 'AK': 1.05, 'AZ': 1.15, 'CA': 1.35, 'CO': 1.15,
+  'CT': 1.12, 'FL': 1.05, 'GA': 1.05, 'IL': 1.08, 'IN': 1.02,
+  'KY': 0.98, 'LA': 0.98, 'MA': 1.12, 'MD': 1.10, 'ME': 0.98,
+  'MI': 1.02, 'MN': 1.00, 'MO': 0.98, 'MS': 0.95, 'MT': 0.92,
+  'NC': 1.02, 'ND': 0.95, 'NE': 0.98, 'NH': 1.05, 'NJ': 1.10,
+  'NM': 0.98, 'NV': 1.10, 'NY': 1.15, 'OH': 1.02, 'OK': 0.98,
+  'OR': 1.08, 'PA': 1.05, 'RI': 1.05, 'SC': 0.98, 'SD': 0.92,
+  'TN': 0.98, 'TX': 1.15, 'UT': 1.05, 'VA': 1.05, 'VT': 1.00,
+  'WA': 1.15, 'WI': 0.98, 'WV': 0.95, 'WY': 0.95, 'DC': 1.18
+};
 import WealthEngineIcon from './shared/WealthEngineIcon';
 
 interface SkilledTradesProps {
@@ -236,51 +251,13 @@ export default function SkilledTrades({ onNavigate, stripeCheckoutUrl }: Skilled
     const hourlyWage = Math.round(trade.nationalWage * adjustment);
     const annualWage = hourlyWage * 2080; // 40 hours * 52 weeks
     
-    // Region names
-const regionNames: Record<string, string> = {
-  '01': 'Massachusetts', '02': 'Massachusetts', '03': 'Connecticut',
-  '04': 'Vermont/New Hampshire', '05': 'Vermont', '06': 'NYC/Long Island',
-  '07': 'NJ', '08': 'NJ', '09': 'DC/Maryland',
-  '10': 'DC Metro', '11': 'Delaware', '12': 'Georgia', '13': 'North Carolina',
-  '14': 'North Carolina', '15': 'South Carolina', '16': 'Alabama/Mississippi',
-  '17': 'Tennessee', '18': 'Kentucky/Tennessee', '19': 'Virginia',
-  '20': 'Maryland', '21': 'DC Metro', '22': 'West Virginia', '23': 'Virginia',
-  '24': 'Virginia', '25': 'Virginia', '26': 'Virginia',
-  '27': 'Virginia', '28': 'Virginia', '29': 'Virginia',
-  '30': 'Georgia', '31': 'Georgia', '32': 'Florida (Panhandle)',
-  '33': 'Florida (Central)', '34': 'Florida (South)',
-  '35': 'Alabama', '36': 'Mississippi', '37': 'Tennessee',
-  '38': 'Kentucky', '39': 'Mississippi',
-  '40': 'Illinois (Chicago)', '41': 'Illinois', '42': 'Ohio (Cleveland)',
-  '43': 'Ohio (Columbus)', '44': 'Ohio (Northern)', '45': 'Ohio (Cincinnati)',
-  '46': 'Indiana', '47': 'Wisconsin', '48': 'Michigan (Detroit)',
-  '49': 'Michigan',
-  '50': 'Iowa', '51': 'Iowa', '52': 'Missouri',
-  '53': 'Kansas', '54': 'Nebraska', '55': 'Minnesota (Twin Cities)',
-  '56': 'Minnesota', '57': 'North Dakota', '58': 'North Dakota',
-  '59': 'MT',
-  '60': 'National Average', '61': 'National Average', '62': 'Montana',
-  '63': 'Idaho', '64': 'Utah', '65': 'Arizona (Phoenix)',
-  '66': 'Arizona', '67': 'Nevada (Las Vegas)', '68': 'Nebraska', '69': 'Wyoming',
-  '70': 'Louisiana', '71': 'Louisiana', '72': 'Arkansas',
-  '73': 'OK', '74': 'OK', '75': 'TX',
-  '76': 'TX', '77': 'TX', '78': 'TX',
-  '79': 'TX',
-  '80': 'Colorado (Denver)', '81': 'Colorado', '82': 'Wyoming',
-  '83': 'Idaho/Montana', '84': 'Utah', '85': 'Arizona (Phoenix)',
-  '86': 'Arizona', '87': 'Nevada (Las Vegas)', '88': 'Montana', '89': 'Wyoming',
-  '90': 'California (SF/L.A.)', '91': 'California (San Diego)',
-  '92': 'California (Central)', '93': 'California (Valley)',
-  '94': 'Washington (Seattle)', '95': 'Washington',
-  '96': 'Oregon (Portland)', '97': 'Oregon', '98': 'Alaska',
-  '99': 'Hawaii',
-  default: 'National Average'
-};
+    // Get location display
+    const location = zipLookup[zipCode] || zipLookup[zipPrefix] || regionNames[zipPrefix] || 'National Average';
     
     setWageResult({
       hourly: hourlyWage,
       annual: annualWage,
-      region: regionNames[zipPrefix] || regionNames.default
+      region: location
     });
   };
 
@@ -290,7 +267,7 @@ const regionNames: Record<string, string> = {
     const zipPrefix = premiumZip.substring(0, 2);
     const adjustment = stateWages[regionNames[zipPrefix]] || 1.00;
     setPremiumResult({
-      region: regionNames[zipPrefix] || regionNames.default,
+      region: location,
       adjustment: adjustment
     });
   };

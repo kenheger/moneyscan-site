@@ -399,28 +399,21 @@ export default function LandingPage({ onNavigate, stripeCheckoutUrl }: LandingPa
       </section>
 
       {/* Footer - Landing Page Only */}
-      <footer className="py-6 px-4 bg-slate-50 border-t border-slate-200">
-        <div className="max-w-4xl mx-auto text-center text-sm text-slate-500">
-          <p className="mb-2">
+      <footer className="py-6 px-4 bg-slate-100 border-t border-slate-200">
+        <div className="max-w-4xl mx-auto text-center text-sm text-slate-600">
+          <p className="mb-3 font-semibold text-slate-700">
             © 2026 Moneyscan LLC · <a href="mailto:info@moneyscan.com" className="text-emerald-600 hover:underline">info@moneyscan.com</a>
           </p>
-          <p className="text-xs">
-            <a 
-              href="#legal-privacy" 
-              onClick={(e) => { e.preventDefault(); onNavigate('legal-privacy'); }}
-              className="text-emerald-600 hover:underline"
-            >
-              Disclaimer
-            </a>
-            <span className="mx-2">·</span>
-            <a 
-              href="#legal-privacy" 
-              onClick={(e) => { e.preventDefault(); onNavigate('legal-privacy'); }}
-              className="text-emerald-600 hover:underline"
-            >
-              Privacy Policy
-            </a>
-          </p>
+          <div className="text-xs bg-white p-4 rounded-lg border border-slate-200 text-left max-w-2xl mx-auto">
+            <p className="font-semibold text-slate-700 mb-2">Disclaimer</p>
+            <p className="mb-3">
+              This website is for general educational and informational purposes only. Nothing here constitutes personalized financial, investment, tax, or legal advice. Past performance does not guarantee future results. Consult a qualified professional before making financial decisions. Your use of this site is at your own risk.
+            </p>
+            <p className="font-semibold text-slate-700 mb-2">Privacy Policy</p>
+            <p>
+              We collect only what you provide (name, email) for purchase delivery. We do not sell or share your data. Payment processing is handled securely by Stripe.
+            </p>
+          </div>
         </div>
       </footer>
 

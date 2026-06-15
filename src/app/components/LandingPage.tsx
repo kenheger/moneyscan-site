@@ -5,7 +5,7 @@ interface LandingPageProps {
   stripeCheckoutUrl?: string;
 }
 
-export default function LandingPage({ onNavigate, stripeCheckoutUrl = "https://buy.stripe.com/cNidRb0ONcy6caR1kSfMA06" }: LandingPageProps) {
+export default function LandingPage({ onNavigate, stripeCheckoutUrl }: LandingPageProps) {
   return (
     <div className="w-full bg-white">
       {/* Top Band - Logo + CTA */}
@@ -30,6 +30,20 @@ export default function LandingPage({ onNavigate, stripeCheckoutUrl = "https://b
               <Lock className="w-4 h-4" />
               Get Access
             </a>
+            <button 
+              onClick={() => {
+                const hasFullAccess = localStorage.getItem('moneyscan_unlocked') === 'true';
+                const hasTradesAccess = localStorage.getItem('moneyscan_trades_unlocked') === 'true';
+                if (hasFullAccess || hasTradesAccess) {
+                  onNavigate('home');
+                } else {
+                  alert('Payment not detected. If you recently paid, your access should activate within a few minutes. Contact info@moneyscan.com for help.');
+                }
+              }}
+              className="text-sm text-slate-500 hover:text-emerald-600 underline"
+            >
+              Returning customer?
+            </button>
           </div>
         </div>
       </div>
@@ -383,6 +397,32 @@ export default function LandingPage({ onNavigate, stripeCheckoutUrl = "https://b
           </div>
         </div>
       </section>
+
+      {/* Footer - Landing Page Only */}
+      <footer className="py-6 px-4 bg-slate-50 border-t border-slate-200">
+        <div className="max-w-4xl mx-auto text-center text-sm text-slate-500">
+          <p className="mb-2">
+            © 2026 Moneyscan LLC · <a href="mailto:info@moneyscan.com" className="text-emerald-600 hover:underline">info@moneyscan.com</a>
+          </p>
+          <p className="text-xs">
+            <a 
+              href="#legal-privacy" 
+              onClick={(e) => { e.preventDefault(); onNavigate('legal-privacy'); }}
+              className="text-emerald-600 hover:underline"
+            >
+              Disclaimer
+            </a>
+            <span className="mx-2">·</span>
+            <a 
+              href="#legal-privacy" 
+              onClick={(e) => { e.preventDefault(); onNavigate('legal-privacy'); }}
+              className="text-emerald-600 hover:underline"
+            >
+              Privacy Policy
+            </a>
+          </p>
+        </div>
+      </footer>
 
     </div>
   );

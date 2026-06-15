@@ -45,9 +45,10 @@ import MidCareerAI from './components/MidCareerAI';
 import EquitiesInvesting from './components/EquitiesInvesting';
 import RealEstateDynamics from './components/RealEstateDynamics';
 import LandingPage from './components/LandingPage';
+import ThankYouPage from './components/ThankYouPage';
 
 
-type Page = 'moneyscan' | 'home' | 'wealth-engine' | 'behavioral-finance' | 'debt-elimination' | 'real-estate-crowdfunding' | 'house-hacking' | 'real-estate-paths' | 'real-estate-traditional' | 'first-time-home-buyer' | 'cash-flow-mastery' | 'ai-era-careers' | 'ai-career-tools' | 'ai-skills-worksheet' | 'tools-hub' | 'skilled-trades' | 'trade-opportunity-finder' | 'legal-privacy' | 'wealth-goal' | 'prompts-vault' | 'compound-interest' | 'compound-interest-tool' | 'debt-elimination-page' | 'budgeting-page' | 'entrepreneurship-page' | 'tax-strategies' | 'tax-advantages-children' | 'build-your-own-home' | 'building-capital' | 'job-heatmap' | 'ai-tools-arsenal' | 'wealth-blind-spots' | 'essential-skills' | 'housing-map' | 'mid-career-ai' | 'equities-investing' | 'ai-tool-fluency' | 'automation-workflows' | 'ai-learning-tools' | 'prompt-engineering' | 'gig-economy' | 'landing-page' ;
+type Page = 'moneyscan' | 'home' | 'wealth-engine' | 'behavioral-finance' | 'debt-elimination' | 'real-estate-crowdfunding' | 'house-hacking' | 'real-estate-paths' | 'real-estate-traditional' | 'first-time-home-buyer' | 'cash-flow-mastery' | 'ai-era-careers' | 'ai-career-tools' | 'ai-skills-worksheet' | 'tools-hub' | 'skilled-trades' | 'trade-opportunity-finder' | 'legal-privacy' | 'wealth-goal' | 'prompts-vault' | 'compound-interest' | 'compound-interest-tool' | 'debt-elimination-page' | 'budgeting-page' | 'entrepreneurship-page' | 'tax-strategies' | 'tax-advantages-children' | 'build-your-own-home' | 'building-capital' | 'job-heatmap' | 'ai-tools-arsenal' | 'wealth-blind-spots' | 'essential-skills' | 'housing-map' | 'mid-career-ai' | 'equities-investing' | 'ai-tool-fluency' | 'automation-workflows' | 'ai-learning-tools' | 'prompt-engineering' | 'gig-economy' | 'landing-page' | 'thank-you' ;
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState<Page>('landing-page');
@@ -61,7 +62,13 @@ export default function App() {
     if (params.get('payment') === 'success') {
       // Unlock access and clean URL
       localStorage.setItem('moneyscan_unlocked', 'true');
-      window.history.replaceState({}, '', '/');
+      window.history.replaceState({}, '', '/#thank-you');
+      setCurrentPage('thank-you');
+    }
+    
+    // Check if already paid on load - redirect to home if so
+    const hasAccess = localStorage.getItem('moneyscan_unlocked') === 'true';
+    if (hasAccess && window.location.hash === '#landing-page') {
       setCurrentPage('home');
     }
   }, []);
@@ -70,7 +77,7 @@ export default function App() {
 const navigateTo = useCallback((page: Page) => {
     // Paywall check - only allow free pages or if user has paid
     const hasAccess = localStorage.getItem('moneyscan_unlocked') === 'true';
-    const freePages: Page[] = ['moneyscan', 'legal-privacy', 'prompts-vault', 'wealth-goal', 'compound-interest', 'compound-interest-tool', 'home', 'wealth-engine', 'real-estate-paths', 'debt-elimination-page', 'budgeting-page', 'ai-era-careers', 'ai-career-tools', 'ai-skills-worksheet', 'skilled-trades', 'cash-flow-mastery', 'house-hacking', 'entrepreneurship-page', 'tax-strategies', 'tax-advantages-children', 'build-your-own-home', 'first-time-home-buyer', 'housing-map', 'mid-career-ai', 'equities-investing', 'ai-tool-fluency', 'automation-workflows', 'ai-learning-tools', 'prompt-engineering', 'gig-economy', 'real-estate-dynamics', 'real-estate-traditional', 'landing-page', 'tools-hub', 'trade-opportunity-finder'];
+    const freePages: Page[] = ['moneyscan', 'legal-privacy', 'prompts-vault', 'wealth-goal', 'compound-interest', 'compound-interest-tool', 'home', 'wealth-engine', 'real-estate-paths', 'debt-elimination-page', 'budgeting-page', 'ai-era-careers', 'ai-career-tools', 'ai-skills-worksheet', 'cash-flow-mastery', 'house-hacking', 'entrepreneurship-page', 'tax-strategies', 'tax-advantages-children', 'build-your-own-home', 'first-time-home-buyer', 'housing-map', 'mid-career-ai', 'equities-investing', 'ai-tool-fluency', 'automation-workflows', 'ai-learning-tools', 'prompt-engineering', 'gig-economy', 'real-estate-dynamics', 'real-estate-traditional', 'landing-page', 'tools-hub'];
     
     if (!hasAccess && !freePages.includes(page)) {
       // Redirect to paywall
@@ -119,7 +126,7 @@ const navigateTo = useCallback((page: Page) => {
       const hash = window.location.hash.slice(1) as Page;
       if (hash && hash !== currentPage) {
         const hasAccess = localStorage.getItem('moneyscan_unlocked') === 'true';
-        const freePages: Page[] = ['moneyscan', 'legal-privacy', 'prompts-vault', 'wealth-goal', 'compound-interest', 'compound-interest-tool', 'home', 'wealth-engine', 'real-estate-paths', 'debt-elimination-page', 'budgeting-page', 'ai-era-careers', 'ai-career-tools', 'ai-skills-worksheet', 'skilled-trades', 'cash-flow-mastery', 'house-hacking', 'entrepreneurship-page', 'tax-strategies', 'tax-advantages-children', 'build-your-own-home', 'building-capital', 'job-heatmap', 'ai-tools-arsenal', 'wealth-blind-spots', 'essential-skills', 'first-time-home-buyer', 'housing-map', 'mid-career-ai', 'equities-investing', 'ai-tool-fluency', 'automation-workflows', 'ai-learning-tools', 'prompt-engineering', 'gig-economy', 'real-estate-dynamics', 'real-estate-traditional', 'landing-page', 'tools-hub', 'trade-opportunity-finder'];
+        const freePages: Page[] = ['moneyscan', 'legal-privacy', 'prompts-vault', 'wealth-goal', 'compound-interest', 'compound-interest-tool', 'home', 'wealth-engine', 'real-estate-paths', 'debt-elimination-page', 'budgeting-page', 'ai-era-careers', 'ai-career-tools', 'ai-skills-worksheet', 'cash-flow-mastery', 'house-hacking', 'entrepreneurship-page', 'tax-strategies', 'tax-advantages-children', 'build-your-own-home', 'first-time-home-buyer', 'housing-map', 'mid-career-ai', 'equities-investing', 'ai-tool-fluency', 'automation-workflows', 'ai-learning-tools', 'prompt-engineering', 'gig-economy', 'real-estate-dynamics', 'real-estate-traditional', 'landing-page', 'tools-hub', 'thank-you'];
         
         if (hasAccess || freePages.includes(hash)) {
           setCurrentPage(hash);
@@ -134,14 +141,14 @@ const navigateTo = useCallback((page: Page) => {
   // Initialize with current page
   useEffect(() => {
     const hasAccess = localStorage.getItem('moneyscan_unlocked') === 'true';
-    const freePages: Page[] = ['moneyscan', 'legal-privacy', 'prompts-vault', 'wealth-goal', 'compound-interest', 'compound-interest-tool', 'home', 'wealth-engine', 'real-estate-paths', 'debt-elimination-page', 'budgeting-page', 'ai-era-careers', 'ai-career-tools', 'ai-skills-worksheet', 'skilled-trades', 'cash-flow-mastery', 'house-hacking', 'entrepreneurship-page', 'tax-strategies', 'tax-advantages-children', 'build-your-own-home', 'building-capital', 'job-heatmap', 'ai-tools-arsenal', 'wealth-blind-spots', 'essential-skills', 'first-time-home-buyer', 'housing-map', 'mid-career-ai', 'equities-investing', 'ai-tool-fluency', 'automation-workflows', 'ai-learning-tools', 'prompt-engineering', 'gig-economy', 'landing-page', 'tools-hub', 'trade-opportunity-finder'];
+    const freePages: Page[] = ['moneyscan', 'legal-privacy', 'prompts-vault', 'wealth-goal', 'compound-interest', 'compound-interest-tool', 'home', 'wealth-engine', 'real-estate-paths', 'debt-elimination-page', 'budgeting-page', 'ai-era-careers', 'ai-career-tools', 'ai-skills-worksheet', 'cash-flow-mastery', 'house-hacking', 'entrepreneurship-page', 'tax-strategies', 'tax-advantages-children', 'build-your-own-home', 'first-time-home-buyer', 'housing-map', 'mid-career-ai', 'equities-investing', 'ai-tool-fluency', 'automation-workflows', 'ai-learning-tools', 'prompt-engineering', 'gig-economy', 'real-estate-dynamics', 'real-estate-traditional', 'landing-page', 'tools-hub', 'thank-you'];
     
     // Check for hash in URL
     const hash = window.location.hash.slice(1) as Page;
     if (hash && hash !== currentPage) {
       // If trying to access paid page without access, go to paywall
       if (!hasAccess && !freePages.includes(hash)) {
-        setCurrentPage('moneyscan');
+        setCurrentPage(hasAccess ? hash : 'moneyscan');
         window.history.replaceState({}, '', '/');
       } else {
         setCurrentPage(hash);
@@ -158,6 +165,7 @@ const navigateTo = useCallback((page: Page) => {
 
   // Show minimal header only on Moneyscan page (handled within Moneyscan component)
   const showHeader = currentPage !== 'moneyscan' && currentPage !== 'landing-page';
+  const showFooter = currentPage !== 'moneyscan' && currentPage !== 'landing-page';
 
   return (
     <div className="min-h-screen flex flex-col bg-slate-50">
@@ -209,12 +217,13 @@ const navigateTo = useCallback((page: Page) => {
         {currentPage === 'mid-career-ai' && <MidCareerAI onNavigate={navigateTo} />}
         {currentPage === 'equities-investing'  && <EquitiesInvesting onNavigate={navigateTo} />}
         {currentPage === 'real-estate-dynamics' && <RealEstateDynamics onNavigate={navigateTo} />}
-        {currentPage === 'landing-page' && <LandingPage onNavigate={navigateTo} stripeCheckoutUrl="https://buy.stripe.com/cNidRb0ONcy6caR1kSfMA06" />}
+        {currentPage === 'landing-page' && <LandingPage onNavigate={navigateTo} stripeCheckoutUrl="https://buy.stripe.com/cNidRb0ONcy6caR1kSfMA06?success_url=https://moneyscan.com/%3Fpayment%3Dsuccess" />}
+        {currentPage === 'thank-you' && <ThankYouPage onNavigate={navigateTo} />}
 
       </main>
 
       {/* Footer */}
-      <footer className="bg-slate-900 text-slate-300 mt-20">
+      {showFooter && <footer className="bg-slate-900 text-slate-300 mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
             {/* Column 1: Brand */}
@@ -338,6 +347,7 @@ const navigateTo = useCallback((page: Page) => {
           </div>
         </div>
       </footer>
+      }
     </div>
   );
 }

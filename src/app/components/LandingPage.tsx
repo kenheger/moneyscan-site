@@ -407,7 +407,7 @@ export default function LandingPage({ onNavigate, stripeCheckoutUrl }: LandingPa
           <div className="text-xs bg-white p-4 rounded-lg border border-slate-200 text-left max-w-2xl mx-auto">
             <p className="font-semibold text-slate-700 mb-2">Disclaimer</p>
             <p className="mb-3">
-              This website is for general educational and informational purposes only. Nothing here constitutes personalized financial, investment, tax, or legal advice. Past performance does not guarantee future results. Consult a qualified professional before making financial decisions. Your use of this site is at your own risk.
+              This website is for directional education and information purposes only. Nothing here constitutes personalized financial, investment, tax, or legal advice - consult professionals in those areas for personal advice. Past performance does not guarantee future results. Your use of this site is at your own risk.
             </p>
             <p className="font-semibold text-slate-700 mb-2">Privacy Policy</p>
             <p>

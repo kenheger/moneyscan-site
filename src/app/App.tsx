@@ -44,17 +44,19 @@ import HousingMap from './components/HousingMap';
 import MidCareerAI from './components/MidCareerAI';
 import EquitiesInvesting from './components/EquitiesInvesting';
 import RealEstateDynamics from './components/RealEstateDynamics';
+import RealEstateCornerstone from './components/RealEstateCornerstone';
 import LandingPage from './components/LandingPage';
 import ThankYouPage from './components/ThankYouPage';
 
 
-type Page = 'moneyscan' | 'home' | 'wealth-engine' | 'behavioral-finance' | 'debt-elimination' | 'real-estate-crowdfunding' | 'house-hacking' | 'real-estate-paths' | 'real-estate-traditional' | 'first-time-home-buyer' | 'cash-flow-mastery' | 'ai-era-careers' | 'ai-career-tools' | 'ai-skills-worksheet' | 'tools-hub' | 'skilled-trades' | 'trade-opportunity-finder' | 'legal-privacy' | 'wealth-goal' | 'prompts-vault' | 'compound-interest' | 'compound-interest-tool' | 'debt-elimination-page' | 'budgeting-page' | 'entrepreneurship-page' | 'tax-strategies' | 'tax-advantages-children' | 'build-your-own-home' | 'building-capital' | 'job-heatmap' | 'ai-tools-arsenal' | 'wealth-blind-spots' | 'essential-skills' | 'housing-map' | 'mid-career-ai' | 'equities-investing' | 'ai-tool-fluency' | 'automation-workflows' | 'ai-learning-tools' | 'prompt-engineering' | 'gig-economy' | 'landing-page' | 'thank-you' ;
+type Page = 'moneyscan' | 'home' | 'wealth-engine' | 'behavioral-finance' | 'debt-elimination' | 'real-estate-crowdfunding' | 'house-hacking' | 'real-estate-paths' | 'real-estate-traditional' | 'real-estate-cornerstone' | 'first-time-home-buyer' | 'cash-flow-mastery' | 'ai-era-careers' | 'ai-career-tools' | 'ai-skills-worksheet' | 'tools-hub' | 'skilled-trades' | 'trade-opportunity-finder' | 'legal-privacy' | 'wealth-goal' | 'prompts-vault' | 'compound-interest' | 'compound-interest-tool' | 'debt-elimination-page' | 'budgeting-page' | 'entrepreneurship-page' | 'tax-strategies' | 'tax-advantages-children' | 'build-your-own-home' | 'building-capital' | 'job-heatmap' | 'ai-tools-arsenal' | 'wealth-blind-spots' | 'essential-skills' | 'housing-map' | 'mid-career-ai' | 'equities-investing' | 'ai-tool-fluency' | 'automation-workflows' | 'ai-learning-tools' | 'prompt-engineering' | 'gig-economy' | 'landing-page' | 'thank-you' ;
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState<Page>('landing-page');
   const [hasLeftLanding, setHasLeftLanding] = useState(false);
   const [historyIndex, setHistoryIndex] = useState(0);
   const [pageHistory, setPageHistory] = useState<Page[]>(['moneyscan']);
+  const [initialized, setInitialized] = useState(false);
 
   // Check for payment success return from Stripe
   useEffect(() => {
@@ -66,6 +68,13 @@ export default function App() {
       setCurrentPage('thank-you');
     }
     
+    // Special preview access for developer - use ?preview=1 to unlock
+    if (params.get('preview') === '1') {
+      localStorage.setItem('moneyscan_unlocked', 'true');
+      window.history.replaceState({}, '', '/#home');
+      setCurrentPage('home');
+    }
+    
     // Check if already paid on load - redirect to home if so
     const hasAccess = localStorage.getItem('moneyscan_unlocked') === 'true';
     if (hasAccess && window.location.hash === '#landing-page') {
@@ -75,11 +84,11 @@ export default function App() {
 
   // NEW BUILD
 const navigateTo = useCallback((page: Page) => {
-    // Paywall check - only allow free pages or if user has paid
+    // Paywall check - all pages free by default, access check only needed for products
     const hasAccess = localStorage.getItem('moneyscan_unlocked') === 'true';
-    const freePages: Page[] = ['moneyscan', 'legal-privacy', 'prompts-vault', 'wealth-goal', 'compound-interest', 'compound-interest-tool', 'home', 'wealth-engine', 'real-estate-paths', 'debt-elimination-page', 'budgeting-page', 'ai-era-careers', 'ai-career-tools', 'ai-skills-worksheet', 'cash-flow-mastery', 'house-hacking', 'entrepreneurship-page', 'tax-strategies', 'tax-advantages-children', 'build-your-own-home', 'first-time-home-buyer', 'housing-map', 'mid-career-ai', 'equities-investing', 'ai-tool-fluency', 'automation-workflows', 'ai-learning-tools', 'prompt-engineering', 'gig-economy', 'real-estate-dynamics', 'real-estate-traditional', 'landing-page', 'tools-hub'];
+    const freePages: Page[] = []; // All pages free, access handled separately
     
-    if (!hasAccess && !freePages.includes(page)) {
+    if (!hasAccess && freePages.length > 0 && !freePages.includes(page)) {
       // Redirect to paywall
       setCurrentPage('moneyscan');
       window.scrollTo(0, 0);
@@ -120,15 +129,16 @@ const navigateTo = useCallback((page: Page) => {
     return () => window.removeEventListener('popstate', handlePopstate);
   }, [pageHistory]);
 
-  // Handle URL hash changes
+  // Handle URL hash changes - only after initialization
   useEffect(() => {
+    if (!initialized) return;
+    
     const handleHashChange = () => {
       const hash = window.location.hash.slice(1) as Page;
       if (hash && hash !== currentPage) {
         const hasAccess = localStorage.getItem('moneyscan_unlocked') === 'true';
-        const freePages: Page[] = ['moneyscan', 'legal-privacy', 'prompts-vault', 'wealth-goal', 'compound-interest', 'compound-interest-tool', 'home', 'wealth-engine', 'real-estate-paths', 'debt-elimination-page', 'budgeting-page', 'ai-era-careers', 'ai-career-tools', 'ai-skills-worksheet', 'cash-flow-mastery', 'house-hacking', 'entrepreneurship-page', 'tax-strategies', 'tax-advantages-children', 'build-your-own-home', 'first-time-home-buyer', 'housing-map', 'mid-career-ai', 'equities-investing', 'ai-tool-fluency', 'automation-workflows', 'ai-learning-tools', 'prompt-engineering', 'gig-economy', 'real-estate-dynamics', 'real-estate-traditional', 'landing-page', 'tools-hub', 'thank-you'];
-        
-        if (hasAccess || freePages.includes(hash)) {
+        const freePages: string[] = []; // All pages free by default
+        if (hasAccess || freePages.length === 0) {
           setCurrentPage(hash);
         }
       }
@@ -136,18 +146,20 @@ const navigateTo = useCallback((page: Page) => {
     
     window.addEventListener('hashchange', handleHashChange);
     return () => window.removeEventListener('hashchange', handleHashChange);
-  }, [currentPage]);
+  }, [currentPage, initialized]);
 
   // Initialize with current page
   useEffect(() => {
     const hasAccess = localStorage.getItem('moneyscan_unlocked') === 'true';
-    const freePages: Page[] = ['moneyscan', 'legal-privacy', 'prompts-vault', 'wealth-goal', 'compound-interest', 'compound-interest-tool', 'home', 'wealth-engine', 'real-estate-paths', 'debt-elimination-page', 'budgeting-page', 'ai-era-careers', 'ai-career-tools', 'ai-skills-worksheet', 'cash-flow-mastery', 'house-hacking', 'entrepreneurship-page', 'tax-strategies', 'tax-advantages-children', 'build-your-own-home', 'first-time-home-buyer', 'housing-map', 'mid-career-ai', 'equities-investing', 'ai-tool-fluency', 'automation-workflows', 'ai-learning-tools', 'prompt-engineering', 'gig-economy', 'real-estate-dynamics', 'real-estate-traditional', 'landing-page', 'tools-hub', 'thank-you'];
+    const freePages = ['moneyscan', 'legal-privacy', 'prompts-vault', 'wealth-goal', 'compound-interest', 'compound-interest-tool', 'home', 'wealth-engine', 'real-estate-paths', 'debt-elimination-page', 'budgeting-page', 'ai-era-careers', 'ai-career-tools', 'ai-skills-worksheet', 'cash-flow-mastery', 'house-hacking', 'entrepreneurship-page', 'tax-strategies', 'tax-advantages-children', 'build-your-own-home', 'first-time-home-buyer', 'housing-map', 'mid-career-ai', 'equities-investing', 'ai-tool-fluency', 'automation-workflows', 'ai-learning-tools', 'prompt-engineering', 'gig-economy', 'real-estate-dynamics', 'real-estate-cornerstone', 'real-estate-traditional', 'landing-page', 'tools-hub', 'skilled-trades', 'trade-opportunity-finder', 'essential-skills', 'job-heatmap', 'ai-tools-arsenal', 'thank-you'];
     
-    // Check for hash in URL
+    // Check for hash in URL - only accept known hashes, otherwise default to landing-page
     const hash = window.location.hash.slice(1) as Page;
-    if (hash && hash !== currentPage) {
-      // If trying to access paid page without access, go to paywall
-      if (!hasAccess && !freePages.includes(hash)) {
+    const knownHashes = ['landing-page', 'home', 'moneyscan', 'thank-you', 'legal-privacy', 'prompts-vault', 'wealth-goal', 'compound-interest', 'compound-interest-tool', 'wealth-engine', 'real-estate-paths', 'debt-elimination-page', 'budgeting-page', 'ai-era-careers', 'ai-career-tools', 'ai-skills-worksheet', 'cash-flow-mastery', 'house-hacking', 'entrepreneurship-page', 'tax-strategies', 'tax-advantages-children', 'build-your-own-home', 'first-time-home-buyer', 'housing-map', 'mid-career-ai', 'equities-investing', 'ai-tool-fluency', 'automation-workflows', 'ai-learning-tools', 'prompt-engineering', 'gig-economy', 'real-estate-dynamics', 'real-estate-cornerstone', 'real-estate-traditional', 'tools-hub', 'skilled-trades', 'trade-opportunity-finder', 'essential-skills', 'job-heatmap', 'ai-tools-arsenal'];
+    
+    if (hash && knownHashes.includes(hash)) {
+      // Known hash - navigate to it
+      if (!hasAccess && freePages.length > 0 && !freePages.includes(hash)) {
         setCurrentPage(hasAccess ? hash : 'moneyscan');
         window.history.replaceState({}, '', '/');
       } else {
@@ -155,12 +167,18 @@ const navigateTo = useCallback((page: Page) => {
         setPageHistory(['moneyscan', hash]);
         setHistoryIndex(1);
       }
-    } else if (!hash) {
-      // No hash - default to landing-page instead of moneyscan paywall
+    } else {
+      // No hash or unknown hash - default to landing-page
       setCurrentPage('landing-page');
       setPageHistory(['landing-page']);
       setHistoryIndex(0);
+      // Clear invalid hash from URL
+      if (hash) {
+        window.history.replaceState({}, '', '/');
+      }
     }
+    // Mark as initialized - now safe to process hash changes
+    setInitialized(true);
   }, []);
 
   // Show minimal header only on Moneyscan page (handled within Moneyscan component)
@@ -217,6 +235,7 @@ const navigateTo = useCallback((page: Page) => {
         {currentPage === 'mid-career-ai' && <MidCareerAI onNavigate={navigateTo} />}
         {currentPage === 'equities-investing'  && <EquitiesInvesting onNavigate={navigateTo} />}
         {currentPage === 'real-estate-dynamics' && <RealEstateDynamics onNavigate={navigateTo} />}
+        {currentPage === 'real-estate-cornerstone' && <RealEstateCornerstone onNavigate={navigateTo} />}
         {currentPage === 'landing-page' && <LandingPage onNavigate={navigateTo} stripeCheckoutUrl="https://buy.stripe.com/cNidRb0ONcy6caR1kSfMA06?success_url=https://moneyscan.com/%3Fpayment%3Dsuccess" />}
         {currentPage === 'thank-you' && <ThankYouPage onNavigate={navigateTo} />}
 
@@ -281,7 +300,7 @@ const navigateTo = useCallback((page: Page) => {
                   </a>
                 </li>
                 <li>
-                  <a href="#real-estate-dynamics" className="hover:text-emerald-400 transition-colors">
+                  <a href="#real-estate-cornerstone" className="hover:text-emerald-400 transition-colors">
                     Real Estate
                   </a>
                 </li>

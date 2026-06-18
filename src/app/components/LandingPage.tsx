@@ -11,7 +11,7 @@ export default function LandingPage({ onNavigate, stripeCheckoutUrl }: LandingPa
       {/* Top Band - Logo + CTA */}
       <div className="border-b border-slate-100 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-[70px] flex items-center justify-between">
-          <button onClick={() => onNavigate('moneyscan')} className="cursor-pointer">
+          <button onClick={() => onNavigate('landing-page')} className="cursor-pointer">
             <img 
               src="https://api.chilledsites.com/storage/v1/object/public/user-uploads/1d550b20-2c2f-43a2-8b87-2c36e780a0ce/1778781581101-h95pdrhfe9.jpg" 
               alt="Moneyscan" 
@@ -79,12 +79,12 @@ export default function LandingPage({ onNavigate, stripeCheckoutUrl }: LandingPa
                 <Lock className="w-5 h-5" />
                 Get Instant Access — $49
               </a>
-              <a 
-                href="#inside"
-                className="inline-flex items-center gap-2 bg-white text-slate-700 border-2 border-slate-300 px-7 py-3.5 rounded-lg font-semibold hover:bg-slate-50 transition-colors"
+              <button 
+                onClick={() => document.getElementById('inside')?.scrollIntoView({ behavior: 'smooth' })}
+                className="inline-flex items-center gap-2 bg-white text-slate-700 border-2 border-slate-300 px-7 py-3.5 rounded-lg font-semibold hover:bg-slate-50 transition-colors cursor-pointer"
               >
                 See What's Inside
-              </a>
+              </button>
             </div>
           </div>
           

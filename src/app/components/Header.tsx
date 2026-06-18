@@ -68,6 +68,11 @@ export default function Header({ onNavigate, currentPage, hasLeftLanding }: Head
           {/* Logo */}
           <a
             href="#home"
+            onClick={(e) => {
+              e.preventDefault();
+              window.location.hash = 'home';
+              onNavigate('home');
+            }}
             className="flex items-center cursor-pointer"
           >
             <img

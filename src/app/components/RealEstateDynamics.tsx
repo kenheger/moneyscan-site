@@ -207,6 +207,16 @@ export default function RealEstateDynamics({ onNavigate }: RealEstateDynamicsPro
           <h2 className="text-xl font-bold text-slate-900 mb-4">What's Next</h2>
           <div className="grid md:grid-cols-3 gap-3">
             <button 
+              onClick={() => onNavigate('real-estate-cornerstone')}
+              className="bg-white rounded-lg p-4 border border-slate-200 hover:border-emerald-400 transition-all text-left"
+            >
+              <div className="flex items-center gap-2 mb-2">
+                <ArrowRight className="w-4 h-4 text-emerald-600" />
+                <span className="font-semibold text-slate-900">FHA 203(k) Program</span>
+              </div>
+              <p className="text-xs text-slate-500">Build instant equity with rehab loan</p>
+            </button>
+            <button 
               onClick={() => onNavigate('real-estate-traditional')}
               className="bg-white rounded-lg p-4 border border-slate-200 hover:border-emerald-400 transition-all text-left"
             >

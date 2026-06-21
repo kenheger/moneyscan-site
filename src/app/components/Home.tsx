@@ -87,7 +87,7 @@ export default function Home({ onNavigate }: HomeProps) {
                 Defend your position. Grow what you've built. Build wealth that survives AI disruption.
               </p>
               <div className="text-xs text-purple-600 font-medium">
-                <a href="#mid-career-ai" className="hover:underline">Career Defense</a> · <a href="#equities-investing" className="hover:underline">Investing</a> · <a href="#real-estate-dynamics" className="hover:underline">Real Estate</a>
+                <a href="#mid-career-ai" className="hover:underline">Career Defense</a> · <a href="#equities-investing" className="hover:underline">Investing</a> · <a href="#real-estate-cornerstone" className="hover:underline">Real Estate</a>
               </div>
             </a>
 

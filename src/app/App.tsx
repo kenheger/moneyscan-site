@@ -40,6 +40,7 @@ import JobHeatmap from './components/JobHeatmap';
 import AIToolsArsenal from './components/AIToolsArsenal';
 import WealthBlindSpots from './components/WealthBlindSpots';
 import EssentialSkills from './components/EssentialSkills';
+import AISkillsProtector from './components/AISkillsProtector';
 import HousingMap from './components/HousingMap';
 import MidCareerAI from './components/MidCareerAI';
 import EquitiesInvesting from './components/EquitiesInvesting';
@@ -49,7 +50,7 @@ import LandingPage from './components/LandingPage';
 import ThankYouPage from './components/ThankYouPage';
 
 
-type Page = 'moneyscan' | 'home' | 'wealth-engine' | 'behavioral-finance' | 'debt-elimination' | 'real-estate-crowdfunding' | 'house-hacking' | 'real-estate-paths' | 'real-estate-traditional' | 'real-estate-cornerstone' | 'first-time-home-buyer' | 'cash-flow-mastery' | 'ai-era-careers' | 'ai-career-tools' | 'ai-skills-worksheet' | 'tools-hub' | 'skilled-trades' | 'trade-opportunity-finder' | 'legal-privacy' | 'wealth-goal' | 'prompts-vault' | 'compound-interest' | 'compound-interest-tool' | 'debt-elimination-page' | 'budgeting-page' | 'entrepreneurship-page' | 'tax-strategies' | 'tax-advantages-children' | 'build-your-own-home' | 'building-capital' | 'job-heatmap' | 'ai-tools-arsenal' | 'wealth-blind-spots' | 'essential-skills' | 'housing-map' | 'mid-career-ai' | 'equities-investing' | 'ai-tool-fluency' | 'automation-workflows' | 'ai-learning-tools' | 'prompt-engineering' | 'gig-economy' | 'landing-page' | 'thank-you' ;
+type Page = 'moneyscan' | 'home' | 'wealth-engine' | 'behavioral-finance' | 'debt-elimination' | 'real-estate-crowdfunding' | 'house-hacking' | 'real-estate-paths' | 'real-estate-traditional' | 'real-estate-cornerstone' | 'first-time-home-buyer' | 'cash-flow-mastery' | 'ai-era-careers' | 'ai-career-tools' | 'ai-skills-worksheet' | 'tools-hub' | 'skilled-trades' | 'trade-opportunity-finder' | 'legal-privacy' | 'wealth-goal' | 'prompts-vault' | 'compound-interest' | 'compound-interest-tool' | 'debt-elimination-page' | 'budgeting-page' | 'entrepreneurship-page' | 'tax-strategies' | 'tax-advantages-children' | 'build-your-own-home' | 'building-capital' | 'job-heatmap' | 'ai-tools-arsenal' | 'wealth-blind-spots' | 'essential-skills' | 'ai-skills-protector' | 'housing-map' | 'mid-career-ai' | 'equities-investing' | 'ai-tool-fluency' | 'automation-workflows' | 'ai-learning-tools' | 'prompt-engineering' | 'gig-economy' | 'landing-page' | 'thank-you' ;
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState<Page>('landing-page');
@@ -151,7 +152,7 @@ const navigateTo = useCallback((page: Page) => {
   // Initialize with current page
   useEffect(() => {
     const hasAccess = localStorage.getItem('moneyscan_unlocked') === 'true';
-    const freePages = ['moneyscan', 'legal-privacy', 'prompts-vault', 'wealth-goal', 'compound-interest', 'compound-interest-tool', 'home', 'wealth-engine', 'real-estate-paths', 'debt-elimination-page', 'budgeting-page', 'ai-era-careers', 'ai-career-tools', 'ai-skills-worksheet', 'cash-flow-mastery', 'house-hacking', 'entrepreneurship-page', 'tax-strategies', 'tax-advantages-children', 'build-your-own-home', 'first-time-home-buyer', 'housing-map', 'mid-career-ai', 'equities-investing', 'ai-tool-fluency', 'automation-workflows', 'ai-learning-tools', 'prompt-engineering', 'gig-economy', 'real-estate-dynamics', 'real-estate-cornerstone', 'real-estate-traditional', 'landing-page', 'tools-hub', 'skilled-trades', 'trade-opportunity-finder', 'essential-skills', 'job-heatmap', 'ai-tools-arsenal', 'thank-you'];
+    const freePages = ['moneyscan', 'legal-privacy', 'prompts-vault', 'wealth-goal', 'compound-interest', 'compound-interest-tool', 'home', 'wealth-engine', 'real-estate-paths', 'debt-elimination-page', 'budgeting-page', 'ai-era-careers', 'ai-career-tools', 'ai-skills-worksheet', 'cash-flow-mastery', 'house-hacking', 'entrepreneurship-page', 'tax-strategies', 'tax-advantages-children', 'build-your-own-home', 'first-time-home-buyer', 'housing-map', 'mid-career-ai', 'equities-investing', 'ai-tool-fluency', 'automation-workflows', 'ai-learning-tools', 'prompt-engineering', 'gig-economy', 'real-estate-dynamics', 'real-estate-cornerstone', 'real-estate-traditional', 'landing-page', 'tools-hub', 'skilled-trades', 'trade-opportunity-finder', 'essential-skills', 'ai-skills-protector', 'job-heatmap', 'ai-tools-arsenal', 'thank-you'];
     
     // Check for hash in URL - only accept known hashes, otherwise default to landing-page
     const hash = window.location.hash.slice(1) as Page;
@@ -182,8 +183,8 @@ const navigateTo = useCallback((page: Page) => {
   }, []);
 
   // Show minimal header only on Moneyscan page (handled within Moneyscan component)
-  const showHeader = currentPage !== 'moneyscan' && currentPage !== 'landing-page';
-  const showFooter = currentPage !== 'moneyscan' && currentPage !== 'landing-page';
+  const showHeader = currentPage !== 'moneyscan' && currentPage !== 'landing-page' && currentPage !== 'ai-skills-protector' && currentPage !== 'prompt-engineering';
+  const showFooter = currentPage !== 'moneyscan' && currentPage !== 'landing-page' && currentPage !== 'ai-skills-protector' && currentPage !== 'prompt-engineering';
 
   return (
     <div className="min-h-screen flex flex-col bg-slate-50">
@@ -231,6 +232,7 @@ const navigateTo = useCallback((page: Page) => {
         {currentPage === 'ai-tools-arsenal' && <AIToolsArsenal onNavigate={navigateTo} />}
         {currentPage === 'wealth-blind-spots' && <WealthBlindSpots onNavigate={navigateTo} />}
                 {currentPage === 'essential-skills' && <EssentialSkills onNavigate={navigateTo} />}
+                {currentPage === 'ai-skills-protector' && <AISkillsProtector onNavigate={navigateTo} />}
         {currentPage === 'housing-map' && <HousingMap onNavigate={navigateTo} />}
         {currentPage === 'mid-career-ai' && <MidCareerAI onNavigate={navigateTo} />}
         {currentPage === 'equities-investing'  && <EquitiesInvesting onNavigate={navigateTo} />}

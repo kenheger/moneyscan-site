@@ -18,7 +18,7 @@ export default function RealEstateCornerstone({ onNavigate }: RealEstateCornerst
               Real Estate — Cornerstone of Wealth Building
             </h1>
           </div>
-          <p className="text-lg text-slate-600 italic mb-3">
+          <p className="text-xl text-red-600 italic mb-3">
             One of the most powerful financial leverage tools available — The FHA 203(k) Rehabilitation Mortgage
           </p>
           <p className="text-sm text-slate-700">

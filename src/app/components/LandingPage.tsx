@@ -58,17 +58,28 @@ export default function LandingPage({ onNavigate, stripeCheckoutUrl }: LandingPa
             </span>
             <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
               AI Focused.<br />
-              <span className="text-emerald-600">Building Wealth.</span>
+              Building Wealth.
             </h1>
-            
-            <p className="text-xl text-red-600 italic mb-6">
-              Understand the Math. Choose your Path. Build Wealth that Lasts.
+            <p className="text-lg text-slate-600 italic mb-2">
+              Careers and financial paths change significantly when factoring in AI automation.
+            </p>
+            <p className="text-lg text-slate-600 italic mb-4">
+              Unlock this FREE "AI Skills Salary Protector" tool to get a readout on career impacts and actionable defenses.
             </p>
             
+            <button 
+              onClick={() => onNavigate('ai-skills-protector')}
+              className="inline-flex items-center gap-2 bg-blue-500 text-white px-5 py-2.5 rounded-lg font-semibold hover:bg-blue-600 transition-colors cursor-pointer mb-4"
+            >
+              <Zap className="w-5 h-5" />
+              Try Free AI Skills Salary Protector
+            </button>
+            
+            <p className="text-lg text-slate-600 italic mb-4">
+              Access our interactive tools, information and opportunities to thrive in this AI Era! (And, yes — we even have an interactive skilled-trades database tool!)
+            </p>
             <p className="text-lg text-slate-600 mb-4 leading-relaxed">
-              Most wealth advice was written for a different era. Moneyscan is a focused, interactive guide
-              built from first principles navigating the AI economy — covering investing, cash flow, debt
-              elimination, and the tools rewriting the rules of earning and building.
+              Moneyscan is designed to help make financial, career and wealth building decisions - navigating the AI economy. Our interactive guide covers essential AI skills, some new ways to think about investments, real estate, taxes and debt - all in an effort to create lasting wealth.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4">

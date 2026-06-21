@@ -1,10 +1,17 @@
-import { Calculator, Target, TrendingUp, Wrench, ArrowRight } from 'lucide-react';
+import { Calculator, Target, TrendingUp, Wrench, ArrowRight, Shield } from 'lucide-react';
 
 interface ToolsHubProps {
   onNavigate: (page: string) => void;
 }
 
 const tools = [
+  {
+    title: "AI Career Shield",
+    description: "See your AI exposure, human moat, and actionable pivot paths. Free career defense tool.",
+    page: "ai-skills-protector",
+    icon: Shield,
+    color: "red"
+  },
   {
     title: "AI Essentials",
     description: "Know what time it is in the AI Era - and the kind of skills you should focus on.",
@@ -28,7 +35,7 @@ const tools = [
   },
   {
     title: "Skilled Trades Database",
-    description: "Browse 50+ skilled trades with salary data. Find work that pays well and can't be outsourced to AI.",
+    description: "Browse the top 5 skilled trades with salary data. Find work that pays well and can't be outsourced to AI.",
     page: "skilled-trades",
     icon: Wrench,
     color: "amber"

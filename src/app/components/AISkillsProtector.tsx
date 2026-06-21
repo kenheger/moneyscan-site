@@ -563,6 +563,16 @@ export default function AISkillsProtector({ onNavigate }: { onNavigate: (page: s
           </div>
         </div>
       )}
+
+      {/* Back to Landing Page */}
+      <div className="py-6 text-center">
+        <a 
+          href="#landing-page"
+          className="text-slate-600 hover:text-emerald-600 underline text-sm"
+        >
+          ← Back to Landing Page
+        </a>
+      </div>
     </div>
   );
 }

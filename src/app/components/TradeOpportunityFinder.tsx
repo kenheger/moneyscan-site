@@ -441,6 +441,18 @@ export default function TradeOpportunityFinder({ onNavigate, stripeCheckoutUrl }
               </div>
             </div>
           </section>
+
+          {/* Back to Landing Page */}
+          <section className="py-6">
+            <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+              <a 
+                href="#landing-page"
+                className="text-slate-600 hover:text-emerald-600 underline text-sm"
+              >
+                ← Back to Landing Page
+              </a>
+            </div>
+          </section>
         </>
       )}
 
